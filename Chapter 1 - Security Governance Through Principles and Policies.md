@@ -1,5 +1,121 @@
 # Chapter 1: Security Governance Through Principles and Policies
 
+1. **Security Basics (Security 101)**
+   - **Additional Exam Perspective:**  
+     - Understand that security is a **business** concern, not just an IT issue.  
+     - Know how cost-effectiveness and legal defensibility shape security decisions.  
+     - Recognize how security supports an organization’s objectives rather than hindering them.
+
+2. **CIA Triad**
+   - **Additional Exam Perspective:**  
+     - Be able to define **Confidentiality, Integrity, Availability** precisely.  
+     - Know **real-world examples** (e.g., DoS attack → Availability; data tampering → Integrity; data leak → Confidentiality).  
+     - Understand how these three interrelate in risk scenarios.
+
+3. **DAD Triad** (Disclosure, Alteration, Destruction)
+   - **Additional Exam Perspective:**  
+     - Identify how DAD failures map to CIA.  
+     - Be prepared to **recognize negative outcomes** when confidentiality, integrity, or availability is breached.
+
+4. **AAA Services** (Identification, Authentication, Authorization, Auditing, Accountability)
+   - **Additional Exam Perspective:**  
+     - Distinguish each AAA step (e.g., claiming ID vs. verifying ID vs. assigning privileges).  
+     - Understand how **accountability** ties actions to individuals via auditing.
+
+5. **Nonrepudiation**
+   - **Additional Exam Perspective:**  
+     - Explain **how digital signatures and robust logging** prevent someone from denying an action.  
+     - Understand it’s closely related to **integrity, authenticity, and accountability** concepts.
+
+6. **Authenticity**
+   - **Additional Exam Perspective:**  
+     - Understand verifying data origin (e.g., digital certificates, code signing).  
+     - Distinguish from integrity (i.e., ensuring no unauthorized changes) vs. authenticity (ensuring correct source).
+
+7. **Defense in Depth (Layering)**
+   - **Additional Exam Perspective:**  
+     - Know the **advantages of multiple overlapping controls**.  
+     - Recognize how layering reduces single points of failure.
+
+8. **Abstraction**
+   - **Additional Exam Perspective:**  
+     - Understand the concept of grouping similar resources or subjects (e.g., role-based access control).  
+     - Know how **abstraction** eases large-scale administration.
+
+9. **Data Hiding**
+   - **Additional Exam Perspective:**  
+     - Distinguish data hiding from **encryption**.  
+     - Understand the principle of **obscuring information** or locations from unauthorized discovery.
+
+10. **Security Boundaries**
+   - **Additional Exam Perspective:**  
+     - Identify **where trust levels differ** (e.g., perimeter boundary, VLAN separations).  
+     - Know typical boundary-enforcing devices (firewalls, gateways).
+
+11. **Security Governance**
+   - **Additional Exam Perspective:**  
+     - Comprehend the **strategic oversight** role of senior management or board.  
+     - Understand how governance ensures alignment with **business strategy and risk posture**.
+
+12. **Third-Party Governance**
+   - **Additional Exam Perspective:**  
+     - Know how external oversight (regulators, auditors) can mandate **compliance checks**.  
+     - Understand the importance of **documentation exchange, on-site assessments**.
+
+13. **Documentation Review**
+   - **Additional Exam Perspective:**  
+     - Grasp **why reviewing policies, standards, procedures** is critical before an audit.  
+     - Be familiar with ensuring alignment between **written documentation** and **actual practices**.
+
+14. **Managing the Security Function**
+   - **Additional Exam Perspective:**  
+     - Know the **continuous** nature of security management, using metrics and audits.  
+     - Understand risk assessments, cost-benefit analyses, and ongoing improvements.
+
+15. **Alignment of Security with Business Strategy**
+   - **Additional Exam Perspective:**  
+     - Realize the need to **prioritize controls** around critical assets and objectives.  
+     - Comprehend **justifying security spending** to leadership in business terms (ROI, risk reduction).
+
+16. **Security Management Planning**  
+   - **Strategic, Tactical, Operational Plans**
+   - **Additional Exam Perspective:**  
+     - Recognize the **time horizons** (3–5 years = strategic, ~1 year = tactical, daily/weekly = operational).  
+     - Understand how each plan type **builds on the other** to implement security effectively.
+
+17. **Security Policy, Standards, Baselines, Guidelines, and Procedures**
+   - **Additional Exam Perspective:**  
+     - Know the **hierarchy**: policy (broad), standards/baselines (compulsory), guidelines (recommended), procedures (step-by-step).  
+     - Be able to **identify** which document type is which (e.g., policy vs. procedure).
+
+18. **Threat Modeling Concepts**  
+   - **STRIDE, PASTA, VAST, DREAD, Probability × Impact; Proactive vs. Adversarial**
+   - **Additional Exam Perspective:**  
+     - Understand each **methodology**: how it identifies and ranks threats.  
+     - Know the difference between **early design threat modeling** vs. post-deployment testing (e.g., pen testing).
+
+19. **Supply Chain Risk Management**
+   - **Additional Exam Perspective:**  
+     - Recognize how **third-party components, vendors, or firmware** can introduce new vulnerabilities.  
+     - Understand **auditing supplier processes** and verifying integrity of delivered products.
+
+20. **Security Roles and Responsibilities**  
+   - **Senior Manager, Security Professional, Asset Owner, Custodian, User, Auditor**
+   - **Additional Exam Perspective:**  
+     - Know **who is ultimately liable** (senior management).  
+     - Understand how asset owners classify data, custodians handle day-to-day tasks, auditors verify compliance, etc.
+
+21. **Due Diligence and Due Care**
+   - **Additional Exam Perspective:**  
+     - Understand **planning vs. doing**: due diligence = establishing security measures, due care = consistently enforcing them.  
+     - Realize how these defend against negligence claims.
+
+22. **Organizational Processes**  
+   - **Acquisitions, Divestitures, Governance Committees**
+   - **Additional Exam Perspective:**  
+     - Grasp how corporate changes (mergers/splits) introduce unique **security integration** or separation issues.  
+     - Know the role of **governance committees** to ensure ongoing compliance.
+    
 ## 1. CIA Triad
 ### Concept
 - **Confidentiality:** Ensuring information is accessible only to authorized entities.  
