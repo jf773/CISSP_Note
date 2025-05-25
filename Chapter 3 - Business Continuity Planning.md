@@ -60,7 +60,7 @@
 
 **Networking:** Redundancy in network paths and NIC teaming can prevent network failures.
 
-**RAID Technologies**
+**RAID Technologies (= Fault Tolerance Technology)**
 
 **RAID Level 1 (Mirroring):** Two disks with identical contents; if one fails, the other continues operation.
 
