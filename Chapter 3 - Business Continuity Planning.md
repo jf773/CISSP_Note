@@ -66,6 +66,8 @@
 
 **RAID Level 5 (Striping with Parity):** Data spread across multiple disks with parity blocks; can regenerate data if one disk fails.
 
+**Note:** RAID level 5 requires a minimum of 3 disk drives.
+
 **Network Redundancy**
 
 **NIC Teaming:** Using multiple network interface cards in critical servers.
