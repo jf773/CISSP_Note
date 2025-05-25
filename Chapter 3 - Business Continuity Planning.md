@@ -232,12 +232,15 @@ Explanation: Personnel succession planning ensures that there are trained and pr
 **Answer 8:** A) Using multiple systems to protect against failures.
 
 Explanation: High availability (HA) involves using multiple systems to ensure that if one system fails, others can continue to operate, thus protecting against failures.
+
 **Answer 9:** B) To protect a single system from failing in the first place.
 
 Explanation: Fault tolerance (FT) aims to make a single system resilient to technical failures, preventing it from failing in the first place.
+
 **Answer 10:** B) RAID 1
 
 Explanation: RAID 1, also known as disk mirroring, involves having two disks with identical contents. If one disk fails, the system can switch to the backup disk without interruption.
+
 **Answer 11:** B) Using multiple network interface cards in critical servers.
 
 Explanation: NIC teaming involves using two or more network interface cards in critical servers to ensure network redundancy and continuous operation if one card fails.
