@@ -27,6 +27,39 @@ Example: Replacing a single web server with a clustered farm of servers to ensur
 
 **Personnel Succession Planning:** Identifying essential team members and potential successors to ensure continuity of operations when someone leaves the organization.
 
+**High Availability (HA)**
+
+**Definition:** Uses multiple systems to protect against failures.
+**Example:** A cluster of web servers that can continue to operate even if a single server fails.
+**Geographic Dispersal:** Placing systems in different locations to protect against facility damage.
+
+**Fault Tolerance (FT)**
+
+**Definition:** Helps protect a single system from failing by making it resilient to technical failures.
+**Example:** Dual power supplies in servers to ensure continuous operation if one fails.
+
+**Load Balancing**
+
+**Definition:** Uses multiple systems to spread the burden of providing a service.
+**Difference from HA:** While both use similar technologies, load balancing focuses on scalability, whereas HA focuses on redundancy.
+
+**Common Points of Failure**
+**Power Supply:** Dual power supplies and uninterruptible power supplies (UPSs) can mitigate this risk.
+**Storage Media:** RAID technologies like mirroring and striping with parity protect against disk failures.
+**Networking:** Redundancy in network paths and NIC teaming can prevent network failures.
+
+**RAID Technologies**
+**RAID Level 1 (Mirroring):** Two disks with identical contents; if one fails, the other continues operation.
+**RAID Level 5 (Striping with Parity):** Data spread across multiple disks with parity blocks; can regenerate data if one disk fails.
+
+**Network Redundancy**
+**NIC Teaming:** Using multiple network interface cards in critical servers.
+**Multi-Path Approaches:** Creating redundancy in network connections to ensure continuous access to storage.
+
+**Diversity in Technologies**
+**Vendor Diversity:** Using diverse technologies from different vendors to avoid simultaneous failures.
+**Cryptography and Security Controls:** Diversifying these elements to enhance resilience.
+
 **Question 1:** What is the primary objective of business continuity planning?
 
 A) To ensure data confidentiality
