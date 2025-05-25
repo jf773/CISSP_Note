@@ -35,12 +35,15 @@
 **High Availability (HA)**
 
 **Definition:** Uses multiple systems to protect against failures.
+
 **Example:** A cluster of web servers that can continue to operate even if a single server fails.
+
 **Geographic Dispersal:** Placing systems in different locations to protect against facility damage.
 
 **Fault Tolerance (FT)**
 
 **Definition:** Helps protect a single system from failing by making it resilient to technical failures.
+
 **Example:** Dual power supplies in servers to ensure continuous operation if one fails.
 
 **Load Balancing**
