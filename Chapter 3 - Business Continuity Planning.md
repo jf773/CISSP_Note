@@ -1,5 +1,7 @@
 # Chapter 3 - Business Continuity Planning
 
+## Concepts
+### Business Continuity Planning
 **Definition:** Business continuity planning **ensures a business keeps running during adversity**, such as system failures, natural disasters, or human-made incidents.
 
 **Focus:** The **primary goal** is to maintain operations, supporting the security objective of **availability**.
@@ -14,10 +16,12 @@
 
 **External Dependencies:** Include third-party vendors, supply chain partners, and critical infrastructure elements in the continuity plan to anticipate potential disruptions.
 
+### Business Continuity Controls
 **Redundancy:** Ensuring systems are redundant so that a failure of a single component doesn't bring the entire system down.
 
 **Single Point of Failure Analysis:** Identifying and removing single points of failure from systems.
-Example: Replacing a single web server with a clustered farm of servers to ensure service continuity.
+
+**Example:** Replacing a single web server with a clustered farm of servers to ensure service continuity.
 
 **High-Availability Firewalls:** Replacing a single firewall with a pair of high-availability firewalls to ensure continuous service if one fails.
 
@@ -27,6 +31,7 @@ Example: Replacing a single web server with a clustered farm of servers to ensur
 
 **Personnel Succession Planning:** Identifying essential team members and potential successors to ensure continuity of operations when someone leaves the organization.
 
+### High Availability and Fault Tolerance
 **High Availability (HA)**
 
 **Definition:** Uses multiple systems to protect against failures.
@@ -41,24 +46,38 @@ Example: Replacing a single web server with a clustered farm of servers to ensur
 **Load Balancing**
 
 **Definition:** Uses multiple systems to spread the burden of providing a service.
+
 **Difference from HA:** While both use similar technologies, load balancing focuses on scalability, whereas HA focuses on redundancy.
 
 **Common Points of Failure**
+
 **Power Supply:** Dual power supplies and uninterruptible power supplies (UPSs) can mitigate this risk.
+
 **Storage Media:** RAID technologies like mirroring and striping with parity protect against disk failures.
+
 **Networking:** Redundancy in network paths and NIC teaming can prevent network failures.
 
 **RAID Technologies**
+
 **RAID Level 1 (Mirroring):** Two disks with identical contents; if one fails, the other continues operation.
+
 **RAID Level 5 (Striping with Parity):** Data spread across multiple disks with parity blocks; can regenerate data if one disk fails.
 
 **Network Redundancy**
+
 **NIC Teaming:** Using multiple network interface cards in critical servers.
+
 **Multi-Path Approaches:** Creating redundancy in network connections to ensure continuous access to storage.
 
 **Diversity in Technologies**
+
 **Vendor Diversity:** Using diverse technologies from different vendors to avoid simultaneous failures.
+
 **Cryptography and Security Controls:** Diversifying these elements to enhance resilience.
+
+---------------------------------
+## Test Questions
+---------------------------------
 
 **Question 1:** What is the primary objective of business continuity planning?
 
@@ -131,8 +150,53 @@ C) To create redundancy in network connections
 
 D) To implement high-availability firewalls
 
-------------------------------
-**Answers and Explanations:**
+**Question 8:** Which of the following best describes high availability (HA)?
+
+A) Using multiple systems to protect against failures.
+
+B) Making a single system resilient in the face of technical failures.
+
+C) Spreading the burden of providing a service across multiple systems.
+
+D) Ensuring continuous access to storage.
+
+**Question 9:** What is the primary goal of fault tolerance (FT)?
+
+A) To provide a scalable computing environment.
+
+B) To protect a single system from failing in the first place.
+
+C) To distribute network traffic evenly across multiple systems.
+
+D) To ensure continuous access to storage.
+
+
+**Question 10:** Which RAID level is known as disk mirroring?
+
+A) RAID 0
+
+B) RAID 1
+
+C) RAID 5
+
+D) RAID 10
+
+
+**Question 11:** What is NIC teaming?
+
+A) Using multiple power supplies in a server.
+
+B) Using multiple network interface cards in critical servers.
+
+C) Using multiple disks for data storage.
+
+D) Using multiple firewalls for redundancy.
+
+
+
+---------------------------------
+## Answers and Explanations
+---------------------------------
 
 **Answer 1:** B) To maintain business operations during adverse events
 
@@ -162,4 +226,15 @@ Explanation: High-availability firewalls are a solution to mitigate risks, not a
 
 Explanation: Personnel succession planning ensures that there are trained and prepared successors for critical team members, maintaining continuity in operations if someone leaves the organization.
 
+**Answer 8:** A) Using multiple systems to protect against failures.
 
+Explanation: High availability (HA) involves using multiple systems to ensure that if one system fails, others can continue to operate, thus protecting against failures.
+**Answer 9:** B) To protect a single system from failing in the first place.
+
+Explanation: Fault tolerance (FT) aims to make a single system resilient to technical failures, preventing it from failing in the first place.
+**Answer 10:** B) RAID 1
+
+Explanation: RAID 1, also known as disk mirroring, involves having two disks with identical contents. If one disk fails, the system can switch to the backup disk without interruption.
+**Answer 11:** B) Using multiple network interface cards in critical servers.
+
+Explanation: NIC teaming involves using two or more network interface cards in critical servers to ensure network redundancy and continuous operation if one card fails.
