@@ -1,5 +1,19 @@
 # Chapter 3 - Business Continuity Planning
 
+**Definition:** Business continuity planning **ensures a business keeps running during adversity**, such as system failures, natural disasters, or human-made incidents.
+
+**Focus:** The **primary goal** is to maintain operations, supporting the security objective of **availability**.
+
+**Scope Definition:** Teams should define the scope upfront, including covered business activities, systems, and controls.
+
+**Business Impact Assessment (BIA):** A tool used to **identify mission-essential functions, critical IT systems, potential risks, and prioritize risks** based on expected loss.
+
+**Control Selection:** Mitigate risks within acceptable expense limits, considering cost-effectiveness.
+
+**Cloud-Centric Environment:** Collaboration between cloud service providers and customers to mitigate risks, such as replicating services across data centers.
+
+**External Dependencies:** Include third-party vendors, supply chain partners, and critical infrastructure elements in the continuity plan to anticipate potential disruptions.
+
 **Question 1:** What is the primary objective of business continuity planning?
 
 A) To ensure data confidentiality
