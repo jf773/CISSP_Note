@@ -9,87 +9,59 @@
 **Process:** The BCP process has four main steps:<br>
 ■■ **Project scope and planning**<br>
 ■■ **Business impact analysis**<br>
+- Quantitative Impact Assessment Involves the use of numbers and formulas to reach a decision. This type of data often expresses options in terms of the dollar value to the business.<br>
+- Qualitative Impact Assessment Takes non-numerical factors, such as reputation, investor/customer confidence, workforce stability, and other concerns, into account. This type of data often results in categories of prioritization (such as high, medium, and low).<br>
 ■■ **Continuity planning**<br>
-■■ **Approval and implementation**
+There are two primary subtasks involved in continuity planning:<br>
+- Strategy development<br>
+- Provisions and processes<br>
 
-**Scope Definition:** Teams should define the scope upfront, including covered business activities, systems, and controls.
+■■ **Approval and implementation**<br>
+**Scope Definition:** Teams should define the scope upfront, including covered business activities, systems, and controls.<br>
+**Business Impact Assessment (BIA):** A tool used to **identify mission-essential functions, critical IT systems, potential risks, and prioritize risks** based on expected loss.<br>
+**Control Selection:** Mitigate risks within acceptable expense limits, considering cost-effectiveness.<br>
+**Cloud-Centric Environment:** Collaboration between cloud service providers and customers to mitigate risks, such as replicating services across data centers.<br>
+**External Dependencies:** Include third-party vendors, supply chain partners, and critical infrastructure elements in the continuity plan to anticipate potential disruptions.<br>
 
-**Business Impact Assessment (BIA):** A tool used to **identify mission-essential functions, critical IT systems, potential risks, and prioritize risks** based on expected loss.
+### Business Continuity Controls<br>
+**Redundancy:** Ensuring systems are redundant so that a failure of a single component doesn't bring the entire system down.<br>
+**Single Point of Failure Analysis:** Identifying and removing single points of failure from systems.<br>
+**Example:** Replacing a single web server with a clustered farm of servers to ensure service continuity.<br>
+**High-Availability Firewalls:** Replacing a single firewall with a pair of high-availability firewalls to ensure continuous service if one fails.<br>
+**Network Connections:** Introducing redundancy in internal and external network connections to maintain service if one link fails.<br>
+**Comprehensive Risk Consideration:** Considering other risks such as vendor bankruptcy, utility service failures, and computing/storage capacity issues.<br>
+**Personnel Succession Planning:** Identifying essential team members and potential successors to ensure continuity of operations when someone leaves the organization.<br>
 
-**Control Selection:** Mitigate risks within acceptable expense limits, considering cost-effectiveness.
+### High Availability and Fault Tolerance<br>
+**High Availability (HA)**<br>
+**Definition:** Uses multiple systems to protect against failures.<br>
+**Example:** A cluster of web servers that can continue to operate even if a single server fails.<br>
+**Geographic Dispersal:** Placing systems in different locations to protect against facility damage.<br>
+**Fault Tolerance (FT)** <br>
+**Definition:** Helps protect a single system from failing by making it resilient to technical failures.<br>
+**Example:** Dual power supplies in servers to ensure continuous operation if one fails.<br>
+**Load Balancing**<br>
+**Definition:** Uses multiple systems to spread the burden of providing a service.<br>
+**Difference from HA:** While both use similar technologies, load balancing focuses on scalability, whereas HA focuses on redundancy.<br>
+**Common Points of Failure**<br>
+**Power Supply:** Dual power supplies and uninterruptible power supplies (UPSs) can mitigate this risk.<br>
+**Storage Media:** RAID technologies like mirroring and striping with parity protect against disk failures.<br>
+**Networking:** Redundancy in network paths and NIC teaming can prevent network failures.<br>
+**RAID Technologies (= Fault Tolerance Technology)** <br>
+**RAID Level 1 (Mirroring):** Two disks with identical contents; if one fails, the other continues operation.<br>
+**RAID Level 5 (Striping with Parity):** Data spread across multiple disks with parity blocks; can regenerate data if one disk fails.<br>
+**Note:** RAID level 5 requires a minimum of 3 disk drives.<br>
 
-**Cloud-Centric Environment:** Collaboration between cloud service providers and customers to mitigate risks, such as replicating services across data centers.
-
-**External Dependencies:** Include third-party vendors, supply chain partners, and critical infrastructure elements in the continuity plan to anticipate potential disruptions.
-
-### Business Continuity Controls
-**Redundancy:** Ensuring systems are redundant so that a failure of a single component doesn't bring the entire system down.
-
-**Single Point of Failure Analysis:** Identifying and removing single points of failure from systems.
-
-**Example:** Replacing a single web server with a clustered farm of servers to ensure service continuity.
-
-**High-Availability Firewalls:** Replacing a single firewall with a pair of high-availability firewalls to ensure continuous service if one fails.
-
-**Network Connections:** Introducing redundancy in internal and external network connections to maintain service if one link fails.
-
-**Comprehensive Risk Consideration:** Considering other risks such as vendor bankruptcy, utility service failures, and computing/storage capacity issues.
-
-**Personnel Succession Planning:** Identifying essential team members and potential successors to ensure continuity of operations when someone leaves the organization.
-
-### High Availability and Fault Tolerance
-**High Availability (HA)**
-
-**Definition:** Uses multiple systems to protect against failures.
-
-**Example:** A cluster of web servers that can continue to operate even if a single server fails.
-
-**Geographic Dispersal:** Placing systems in different locations to protect against facility damage.
-
-**Fault Tolerance (FT)**
-
-**Definition:** Helps protect a single system from failing by making it resilient to technical failures.
-
-**Example:** Dual power supplies in servers to ensure continuous operation if one fails.
-
-**Load Balancing**
-
-**Definition:** Uses multiple systems to spread the burden of providing a service.
-
-**Difference from HA:** While both use similar technologies, load balancing focuses on scalability, whereas HA focuses on redundancy.
-
-**Common Points of Failure**
-
-**Power Supply:** Dual power supplies and uninterruptible power supplies (UPSs) can mitigate this risk.
-
-**Storage Media:** RAID technologies like mirroring and striping with parity protect against disk failures.
-
-**Networking:** Redundancy in network paths and NIC teaming can prevent network failures.
-
-**RAID Technologies (= Fault Tolerance Technology)**
-
-**RAID Level 1 (Mirroring):** Two disks with identical contents; if one fails, the other continues operation.
-
-**RAID Level 5 (Striping with Parity):** Data spread across multiple disks with parity blocks; can regenerate data if one disk fails.
-
-**Note:** RAID level 5 requires a minimum of 3 disk drives.
-
-**Network Redundancy**
-
-**NIC Teaming:** Using multiple network interface cards in critical servers.
-
-**Multi-Path Approaches:** Creating redundancy in network connections to ensure continuous access to storage.
-
-**Diversity in Technologies**
-
-**Vendor Diversity:** Using diverse technologies from different vendors to avoid simultaneous failures.
-
-**Cryptography and Security Controls:** Diversifying these elements to enhance resilience.
+**Network Redundancy**<br>
+**NIC Teaming:** Using multiple network interface cards in critical servers.<br>
+**Multi-Path Approaches:** Creating redundancy in network connections to ensure continuous access to storage.<br>
+**Diversity in Technologies**<br>
+**Vendor Diversity:** Using diverse technologies from different vendors to avoid simultaneous failures.<br>
+**Cryptography and Security Controls:** Diversifying these elements to enhance resilience.<br>
 
 ---------------------------------
 ## Test Questions
----------------------------------
-
+---------------------------------<br>
 **Question 1:** What is the primary objective of business continuity planning?
 
 A) To ensure data confidentiality
