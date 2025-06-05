@@ -11,6 +11,7 @@
 - BCP Development
 - BCP Testing, Training, and Maintenance
 - BCP Implementation
+
 ■■ **Business impact analysis**<br>
 - **Quantitative Impact Assessment**: Involves the use of numbers and formulas to reach a decision. This type of data often expresses options in terms of the dollar value to the business.<br>
 - **Qualitative Impact Assessment**: Takes non-numerical factors, such as reputation, investor/customer confidence, workforce stability, and other concerns, into account. This type of data often results in categories of prioritization (such as high, medium, and low).<be>
@@ -20,7 +21,8 @@ There are two primary subtasks involved in continuity planning:<br>
 - Strategy development<br>
 - Provisions and processes<br>
 
-■■ **Approval and implementation**<br>
+■■ **Approval and implementation**<be>
+
 **Scope Definition:** Teams should define the scope upfront, including covered business activities, systems, and controls.<br>
 **Business Impact Assessment (BIA):** A tool used to **identify mission-essential functions, critical IT systems, potential risks, and prioritize risks** based on expected loss.<br>
 **Control Selection:** Mitigate risks within acceptable expense limits, considering cost-effectiveness.<br>
