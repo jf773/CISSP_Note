@@ -7,9 +7,9 @@
 **Focus:** The **primary goal** is to maintain operations, supporting the security objective of **availability**.
 
 **Process:** The BCP process has four main steps:
-■■ **Project scope and planning**
-■■ **Business impact analysis**
-■■ **Continuity planning**
+■■ **Project scope and planning**\n
+■■ **Business impact analysis**\n
+■■ **Continuity planning**\n
 ■■ **Approval and implementation**
 
 **Scope Definition:** Teams should define the scope upfront, including covered business activities, systems, and controls.
