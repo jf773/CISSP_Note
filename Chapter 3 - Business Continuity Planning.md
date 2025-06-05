@@ -1,235 +1,132 @@
 # Chapter 3 - Business Continuity Planning
 
-## Concepts
-### Business Continuity Planning
-**Definition:** Business continuity planning **ensures a business keeps running during adversity**, such as system failures, natural disasters, or human-made incidents.
+1. Planning for Business Continuity
+2. Project Scope and Planning
+3. Business Impact Analysis
+4. Continuity Planning
+5. Plan Approval and Implementation
+6. Summary
+---
+
+## 3.1  Planning for Business Continuity
+Business Continuity Planning (BCP) is the **umbrella discipline** that ensures an organization can **sustain mission-critical operations** during, and quickly recover after, a disruptive event.
+
+* **BCP vs DRP** – DRP (Disaster Recovery Planning) is a technical subset (systems & data), whereas BCP covers people, processes, and facilities.
+* **4 main elements**:<br>
+(1) Project scope and planning<br>
+(2) Business impact analysis<br>
+(3) Continuity planning<br>
+(4) Plan approval and implementation<br>
+* **Objectives:** Safeguard life/safety, minimize financial loss, maintain customer confidence, meet legal/regulatory mandates (ISO 22301, NIST SP 800-34, FFIEC).  
+* **Governance:** Senior management sponsorship, board‐level policy, risk appetite definition.  
+* **Key Terms:** Resilience, redundancy, recovery, survivability, crisis management.
+
+---
+
+## 3.2  Project Scope and Planning  
+Establish a formal, well-funded project—**charter + timeline + owners**—before analysis or solutions begin.
+
+### 3.2.1  Organizational Review
+* **Mission-critical functions**  
+* Lines of business, stakeholders, regulatory landscape  
+* Dependencies: internal, external, upstream/downstream processes  
+
+### 3.2.2  BCP Team Selection
+* **Executive sponsor** (provides authority & budget)  
+* **BCP coordinator / project manager**  
+* Representatives: IT, HR, Legal, Facilities, Comms/PR, Finance, Security, third-party advisors  
+* RACI matrix for accountability  
+
+### 3.2.3  Resource Requirements
+* Budget (CAPEX/OPEX)  
+* Personnel availability, subject-matter experts  
+* Tools: BIA software, risk-analysis platforms, secure documentation system  
+* Training funds & exercise logistics  
+
+### 3.2.4  External Dependencies
+* Cloud & SaaS/PaaS/IaaS providers  
+* Critical suppliers & supply-chain pathways  
+* Public utilities, telecom carriers, emergency services  
+* Contractual SLAs, mutual-aid or reciprocal-site agreements  
+
+---
+
+## 3.3  Business Impact Analysis (BIA)  
+Objective: **Quantify the operational and financial impact** of disruptions to set recovery targets.
+
+### 3.3.1  Identifying Priorities
+* **Process mapping** – document workflows, owner, inputs/outputs  
+* **Criticality rating** – essential, important, non-essential  
+
+### 3.3.2  Risk Identification
+* Threat catalog: natural (flood, hurricane), technological (system failure, cyber-attack), human (sabotage, strike)  
+* Vulnerability analysis, single points of failure  
+
+### 3.3.3  Likelihood Assessment
+* Qualitative (high/med/low) or quantitative (annual rate of occurrence – **ARO**)  
+* Historical data, industry benchmarks, insurance actuarials  
+
+### 3.3.4  Impact Analysis
+* **Maximum Tolerable Downtime (MTD/MTO)**  
+* **Recovery Time Objective (RTO)** – target restoration time  
+* **Recovery Point Objective (RPO)** – maximum tolerable data loss  
+* **Work Recovery Time (WRT)**, **Service Delivery Objective (SDO)**  
+* Financial loss, legal penalties, safety impact, reputational damage  
+
+### 3.3.5  Resource Prioritization
+* Ranked list of assets/processes by criticality  
+* Dependency matrix (people, IT, facilities, vendors)  
+* Cost–benefit for potential controls/strategies  
+
+---
+
+## 3.4  Continuity Planning
+
+### 3.4.1  Strategy Development
+* **People:** cross-training, succession, remote work, shelter-in-place  
+* **Facilities:** hot/warm/cold sites, reciprocal agreements, mobile sites, colo/cloud DRaaS  
+* **Technology:** clustering, fail-over, virtualization, IaC, backups (full, incremental, diff), **CDP**  
+* **Data:** on-site vs off-site vaulting, synchronous/asynchronous replication, immutable backups  
+* **Supply chain:** multi-sourcing, alternate suppliers, inventory buffers  
+* **Risk treatment:** avoidance, transference (insurance), mitigation, acceptance  
+
+### 3.4.2  Provisions and Processes
+* Emergency response procedures (life safety first)  
+* Escalation & declaration criteria  
+* Crisis communications – internal, external, media, regulators  
+* Work-arounds & manual procedures  
+* Alternate communications (VoIP, SAT phone, radio)  
+* Vital records protection; documentation, forms, checklists  
+
+---
+
+## 3.5  Plan Approval and Implementation
 
-**Focus:** The **primary goal** is to maintain operations, supporting the security objective of **availability**.
+### 3.5.1  Plan Approval
+* Executive sign-off, legal/compliance review, budget commitment  
+* Alignment with enterprise risk management (ERM) strategy  
 
-**Process:** The BCP process has four main steps:<br>
-■■ **Project scope and planning**<br>
-- BCP Development
-- BCP Testing, Training, and Maintenance
-- BCP Implementation
+### 3.5.2  Plan Implementation
+* Publish controlled copies (paper & secure digital)  
+* Integrate with change-management & CMDB  
+* Pre-position equipment, seed data to alternates, stage emergency kits  
 
-■■ **Business impact analysis**<br>
-- **Quantitative Impact Assessment**: Involves the use of numbers and formulas to reach a decision. This type of data often expresses options in terms of the dollar value to the business.<br>
-- **Qualitative Impact Assessment**: Takes non-numerical factors, such as reputation, investor/customer confidence, workforce stability, and other concerns, into account. This type of data often results in categories of prioritization (such as high, medium, and low).<be>
+### 3.5.3  Communication, Training and Education
+* Awareness sessions vs role-based training  
+* Orientation drills for new hires, periodic refresher courses  
+* Specialized instruction for recovery-team members  
+* Exercise schedule embedded in policy  
 
-■■ **Continuity planning**
-There are two primary subtasks involved in continuity planning:<br>
-- Strategy development<br>
-- Provisions and processes<br>
+### 3.5.4  BCP Documentation
+* Plan sections: Introduction, Roles/Contacts, Activation, Response, Recovery, Restoration, Appendices  
+* Version control, audit trail, confidentiality classification  
+* Secure storage (on-prem fire-safe + off-site/cloud)
 
-■■ **Approval and implementation**<be>
+---
 
-**Scope Definition:** Teams should define the scope upfront, including covered business activities, systems, and controls.<br>
-**Business Impact Assessment (BIA):** A tool used to **identify mission-essential functions, critical IT systems, potential risks, and prioritize risks** based on expected loss.<br>
-**Control Selection:** Mitigate risks within acceptable expense limits, considering cost-effectiveness.<br>
-**Cloud-Centric Environment:** Collaboration between cloud service providers and customers to mitigate risks, such as replicating services across data centers.<br>
-**External Dependencies:** Include third-party vendors, supply chain partners, and critical infrastructure elements in the continuity plan to anticipate potential disruptions.<br>
+## 3.6  Summary
+Business Continuity Planning **protects mission-critical operations** by integrating risk assessment, impact analysis, strategic safeguards, and ongoing governance. A **mature BCP** earns executive support, is rooted in a thorough BIA, specifies clear RTO/RPO targets, and is continually improved through testing, training, and periodic reviews. Mastery of these concepts—and the associated metrics, roles, and frameworks—is essential for the CISSP exam and, more importantly, for building resilient organizations.
 
-### Business Continuity Controls<br>
-**Redundancy:** Ensuring systems are redundant so that a failure of a single component doesn't bring the entire system down.<br>
-**Single Point of Failure Analysis:** Identifying and removing single points of failure from systems.<br>
-**Example:** Replacing a single web server with a clustered farm of servers to ensure service continuity.<br>
-**High-Availability Firewalls:** Replacing a single firewall with a pair of high-availability firewalls to ensure continuous service if one fails.<br>
-**Network Connections:** Introducing redundancy in internal and external network connections to maintain service if one link fails.<br>
-**Comprehensive Risk Consideration:** Considering other risks such as vendor bankruptcy, utility service failures, and computing/storage capacity issues.<br>
-**Personnel Succession Planning:** Identifying essential team members and potential successors to ensure continuity of operations when someone leaves the organization.<br>
-
-### High Availability and Fault Tolerance<br>
-**High Availability (HA)**<br>
-**Definition:** Uses multiple systems to protect against failures.<br>
-**Example:** A cluster of web servers that can continue to operate even if a single server fails.<br>
-**Geographic Dispersal:** Placing systems in different locations to protect against facility damage.<br>
-**Fault Tolerance (FT)** <br>
-**Definition:** Helps protect a single system from failing by making it resilient to technical failures.<br>
-**Example:** Dual power supplies in servers to ensure continuous operation if one fails.<br>
-**Load Balancing**<br>
-**Definition:** Uses multiple systems to spread the burden of providing a service.<br>
-**Difference from HA:** While both use similar technologies, load balancing focuses on scalability, whereas HA focuses on redundancy.<br>
-**Common Points of Failure**<br>
-**Power Supply:** Dual power supplies and uninterruptible power supplies (UPSs) can mitigate this risk.<br>
-**Storage Media:** RAID technologies like mirroring and striping with parity protect against disk failures.<br>
-**Networking:** Redundancy in network paths and NIC teaming can prevent network failures.<br>
-**RAID Technologies (= Fault Tolerance Technology)** <br>
-**RAID Level 1 (Mirroring):** Two disks with identical contents; if one fails, the other continues operation.<br>
-**RAID Level 5 (Striping with Parity):** Data spread across multiple disks with parity blocks; can regenerate data if one disk fails.<br>
-**Note:** RAID level 5 requires a minimum of 3 disk drives.<br>
-
-**Network Redundancy**<br>
-**NIC Teaming:** Using multiple network interface cards in critical servers.<br>
-**Multi-Path Approaches:** Creating redundancy in network connections to ensure continuous access to storage.<br>
-**Diversity in Technologies**<br>
-**Vendor Diversity:** Using diverse technologies from different vendors to avoid simultaneous failures.<br>
-**Cryptography and Security Controls:** Diversifying these elements to enhance resilience.<br>
-
----------------------------------
-## Test Questions
----------------------------------<br>
-**Question 1:** What is the primary objective of business continuity planning?
-
-A) To ensure data confidentiality
-
-B) To maintain business operations during adverse events
-
-C) To enhance data integrity
-
-D) To improve network security
-
-**Question 2:** Which tool is used to identify mission-essential functions and trace them to critical IT systems in business continuity planning?
-
-A) Risk assessment
-
-B) Business impact assessment (BIA)
-
-C) Security audit
-
-D) Vulnerability scan
-
-**Question 3:** In a cloud-centric environment, who is responsible for mitigating the risk of a hurricane damaging a data center?
-
-A) The cloud service provider only
-
-B) The customer only
-
-C) Both the cloud service provider and the customer
-
-D) The government
-
-**Question 4:** Which of the following is a critical method for ensuring system availability in business continuity planning?
-
-A) Implementing a single point of failure
-
-B) Ensuring redundancy
-
-C) Using a single firewall
-
-D) Relying on a single network connection
-
-
-**Question 5:** What is the purpose of a single point of failure analysis in business continuity planning?
-
-A) To identify and remove single points of failure from systems
-
-B) To create a single point of failure in systems
-
-C) To ensure that only one component is responsible for system failure
-
-D) To increase the number of single points of failure
-
-**Question 6:** Which of the following is NOT a potential risk that should be considered in business continuity planning?
-
-A) Sudden bankruptcy of a key vendor
-
-B) Utility service failures
-
-C) High-availability firewalls
-
-D) Inability to provide computing or storage capacity
-
-**Question 7:** Why is personnel succession planning important in business continuity planning?
-
-A) To identify single points of failure in hardware
-
-B) To ensure that there are backups for critical team members
-
-C) To create redundancy in network connections
-
-D) To implement high-availability firewalls
-
-**Question 8:** Which of the following best describes high availability (HA)?
-
-A) Using multiple systems to protect against failures.
-
-B) Making a single system resilient in the face of technical failures.
-
-C) Spreading the burden of providing a service across multiple systems.
-
-D) Ensuring continuous access to storage.
-
-**Question 9:** What is the primary goal of fault tolerance (FT)?
-
-A) To provide a scalable computing environment.
-
-B) To protect a single system from failing in the first place.
-
-C) To distribute network traffic evenly across multiple systems.
-
-D) To ensure continuous access to storage.
-
-
-**Question 10:** Which RAID level is known as disk mirroring?
-
-A) RAID 0
-
-B) RAID 1
-
-C) RAID 5
-
-D) RAID 10
-
-
-**Question 11:** What is NIC teaming?
-
-A) Using multiple power supplies in a server.
-
-B) Using multiple network interface cards in critical servers.
-
-C) Using multiple disks for data storage.
-
-D) Using multiple firewalls for redundancy.
-
-
-
----------------------------------
-## Answers and Explanations
----------------------------------
-
-**Answer 1:** B) To maintain business operations during adverse events
-
-Explanation: The primary objective of business continuity planning is to keep business operations running during adverse events, ensuring the availability of critical functions.
-
-**Answer 2:** B) Business impact assessment (BIA)
-
-Explanation: A Business Impact Assessment (BIA) helps identify mission-essential functions and trace them to critical IT systems, which is crucial for prioritizing risks and selecting appropriate controls.
-
-**Answer 3:** C) Both the cloud service provider and the customer
-
-Explanation: In a cloud-centric environment, business continuity planning is a collaboration between the cloud service provider and the customer. Both parties play a role in mitigating risks, such as replicating services across data centers and implementing flood prevention systems.
-
-**Answer 4:** B) Ensuring redundancy
-
-Explanation: Ensuring redundancy means designing systems so that the failure of a single component does not bring down the entire system. This is crucial for maintaining system availability.
-
-**Answer 5:** A) To identify and remove single points of failure from systems
-
-Explanation: The single point of failure analysis helps security professionals identify and remove components that could cause the entire system to fail if they malfunction.
-
-**Answer 6:** C) High-availability firewalls
-
-Explanation: High-availability firewalls are a solution to mitigate risks, not a risk themselves. Business continuity planning should consider risks like vendor bankruptcy, utility failures, and capacity issues.
-
-**Answer 7:** B) To ensure that there are backups for critical team members
-
-Explanation: Personnel succession planning ensures that there are trained and prepared successors for critical team members, maintaining continuity in operations if someone leaves the organization.
-
-**Answer 8:** A) Using multiple systems to protect against failures.
-
-Explanation: High availability (HA) involves using multiple systems to ensure that if one system fails, others can continue to operate, thus protecting against failures.
-
-**Answer 9:** B) To protect a single system from failing in the first place.
-
-Explanation: Fault tolerance (FT) aims to make a single system resilient to technical failures, preventing it from failing in the first place.
-
-**Answer 10:** B) RAID 1
-
-Explanation: RAID 1, also known as disk mirroring, involves having two disks with identical contents. If one disk fails, the system can switch to the backup disk without interruption.
-
-**Answer 11:** B) Using multiple network interface cards in critical servers.
-
-Explanation: NIC teaming involves using two or more network interface cards in critical servers to ensure network redundancy and continuous operation if one card fails.
 
 ------------------
 # 📘 CISSP Quantitative Risk Analysis ノート
