@@ -6,6 +6,12 @@
 
 **Focus:** The **primary goal** is to maintain operations, supporting the security objective of **availability**.
 
+**Process:** The BCP process has four main steps:
+■■ **Project scope and planning**
+■■ **Business impact analysis**
+■■ **Continuity planning**
+■■ **Approval and implementation**
+
 **Scope Definition:** Teams should define the scope upfront, including covered business activities, systems, and controls.
 
 **Business Impact Assessment (BIA):** A tool used to **identify mission-essential functions, critical IT systems, potential risks, and prioritize risks** based on expected loss.
