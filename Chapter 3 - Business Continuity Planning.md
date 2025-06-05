@@ -8,10 +8,14 @@
 
 **Process:** The BCP process has four main steps:<br>
 ■■ **Project scope and planning**<br>
+- BCP Development
+- BCP Testing, Training, and Maintenance
+- BCP Implementation
 ■■ **Business impact analysis**<br>
-- Quantitative Impact Assessment Involves the use of numbers and formulas to reach a decision. This type of data often expresses options in terms of the dollar value to the business.<br>
-- Qualitative Impact Assessment Takes non-numerical factors, such as reputation, investor/customer confidence, workforce stability, and other concerns, into account. This type of data often results in categories of prioritization (such as high, medium, and low).<br>
-■■ **Continuity planning**<br>
+- **Quantitative Impact Assessment**: Involves the use of numbers and formulas to reach a decision. This type of data often expresses options in terms of the dollar value to the business.<br>
+- **Qualitative Impact Assessment**: Takes non-numerical factors, such as reputation, investor/customer confidence, workforce stability, and other concerns, into account. This type of data often results in categories of prioritization (such as high, medium, and low).<be>
+
+■■ **Continuity planning**
 There are two primary subtasks involved in continuity planning:<br>
 - Strategy development<br>
 - Provisions and processes<br>
