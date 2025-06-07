@@ -273,6 +273,15 @@ Guarantees people are secure from unreasonable government searches and seizures;
 | **FERPA** | Student educational-record privacy | Inspection/correction rights; limits disclosure without consent |
 | **Identity Theft & Penalty Enhancements 1998/2004** | Criminalizes identity theft against individuals | Up to 15-year sentences & fines |
 
+> HIPAA (1996)
+- First U.S. law to mandate privacy & security safeguards for Protected Health Information (PHI) held by healthcare entities.  
+- Gives patients access/control rights and authorizes HHS/OCR to levy civil & criminal penalties for violations.
+
+> HITECH (2009)
+- Strengthens HIPAA for the electronic-records era.  
+- Makes Business Associates directly liable and requires breach notices (to individuals + HHS/media if > 500 records) within 60 days.
+
+
 ##### U.S. Workplace Privacy  
 Employees have **no reasonable expectation of privacy** on employer-owned devices. Employers should disclose monitoring via contracts, policies, banners, and device labels.
 
