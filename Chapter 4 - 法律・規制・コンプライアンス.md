@@ -70,6 +70,56 @@
 | **越境データ転送** | GDPR 等、域外適用のプライバシー法に従う |
 | **プライバシー法** | GDPR, CCPA など制裁金を伴う法が拡大中 |
 
+### 暗号化製品を海外拠点へ持ち出す／輸出する場合の輸出管理ポイント
+
+*暗号化技術は「軍事にも転用可能な“デュアルユース”」と位置づけられるため、  
+米国なら **EAR/ITAR**、日本なら **外為法（外為令・輸出令）** の管理対象になります。  
+規制を正しく把握し、ライセンス不要の例外（License Exception）を活用しつつ、必要時は輸出許可を取得しましょう。*
+
+---
+
+#### 1. 米国：EAR と ITAR のどちら？
+
+| スキーム | 所管官庁 | 主な対象 | 暗号化が該当する USML/ECCN |
+|----------|-----------|---------|-----------------------------|
+| **EAR**<br>(Export Administration Regulations) | 商務省 BIS | 民生品・デュアルユース | **5A002／5D002** (高度暗号) <br>**5A992／5D992** (マスマーケット暗号) |
+| **ITAR**<br>(International Traffic in Arms Regulations) | 国務省 DDTC | 防衛装備、軍事用暗号 | **USML Cat. XI(a)/(b)**, **Cat. XII(d)** など |
+
+> ✅ **判断基準**  
+> 1. **「設計目的」** が軍事・宇宙・諜報用途 → **ITAR**  
+> 2. それ以外の商用暗号 → **EAR**（BIS 管轄）
+
+---
+
+##### 1.1 EAR（BIS）の暗号分類と輸出許可フロー
+
+```mermaid
+flowchart LR
+    %% ========= 主要フロー =========
+    Start([開発完了 →<br>製品仕様確定])
+    Classify{暗号機能の有無<br>鍵長 / 公開API?}
+    License["輸出ライセンス申請<br>(SNAP-R / 紙申請)"]
+    Notify["30 日事前通知<br>または<br>年次自己申告"]
+    Ship["輸出 / 社内移転"]
+
+    %% ========= 暗号カテゴリ分類 =========
+    subgraph ENC ["暗号分類 — EAR §742.15(Encryption)"]
+        direction TB
+        MassMarket["マスマーケット<br>(ECCN 5A992 / 5D992)"]
+        ENC_b1["高度暗号 ①<br>License Exception ENC (b)(1)"]
+        ENC_b2["高度暗号 ②<br>License Exception ENC (b)(2)"]
+        ENC_b3["政府エンドユーザ向け<br>License Exception ENC (b)(3)"]
+    end
+
+    %% ========= 矢印 =========
+    Start --> Classify
+    Classify -- 該当 --> ENC
+    Classify -- 非該当 --> Ship
+    ENC --> Notify
+    Notify --> Ship
+    ENC -- 要許可国・用途 --> License
+    License --> Ship
+```
 ---
 
 ## 6. よくある疑問 & かんたん回答
