@@ -1,19 +1,19 @@
 # Chapter 4 — Laws, Regulations & Compliance  
 
-- [Categories of Laws]()
-  - [Criminal Law]()
-  - [Civil Law]()
-  - [Administrative Law]()
-- [Laws]()
-  - [Computer Crime]()
-  - [Intellectual Property (IP)]()
-  - [Software Licensing]()
-  - [Import/Export]()
-  - [Privacy]()
-- [State Privacy Laws]()
-- [Compliance]()
-- [Contracting and Procurement]()
-- [Summary]()
+- [Categories of Laws](#categories-of-laws)
+  - [Criminal Law](#criminal-law)
+  - [Civil Law](#civil-law)
+  - [Administrative Law](#administrative-law)
+- [Laws](#laws)
+  - [Computer Crime](#computer-crime)
+  - [Intellectual Property (IP)](#intellectual-property-ip)
+  - [Software Licensing](#software-licensing)
+  - [Import/Export](#importexport)
+  - [Privacy](#privacy)
+- [State Privacy Laws](#state-privacy-laws)
+- [Compliance](#compliance)
+- [Contracting and Procurement](#contracting-and-procurement)
+- [Summary](#summary)
 
 
 ```mermaid
@@ -125,6 +125,14 @@ mindmap
 - Crypto & dual-use tech governed by **EAR, ITAR, Wassenaar**.  
 - Key length thresholds (e.g., >56-bit historically restricted).  
 - Obtain export licenses; apply geoblocking for sanctioned nations.
+
+| Concept | What you need to know for the exam |
+|---------|------------------------------------|
+| **Import / Export controls** | U.S. law restricts sending certain hardware, software, technical data, and even PII across borders. Two core rule sets:<br>• **ITAR** – Defense articles/services on the *U.S. Munitions List* (22 CFR 121).<br>• **EAR** – “Dual-use” commercial items on the *Commerce Control List* (Dept. of Commerce / BIS). EAR Category 5 covers **information-security products**, including cryptography. |
+| **Countries of Concern** | BIS designates embargoed / high-risk destinations (e.g., **Cuba, Iran, North Korea, Syria**). Exports of high-performance computers or strong crypto to these states normally **require a license or are prohibited**. |
+| **Encryption Export Controls** | Historically, strong crypto was almost impossible to export. Current BIS rules create **“retail” / “mass-market”** categories: vendors submit products for a ≤ 30-day review; once approved, items may be exported worldwide except to embargoed countries. Stronger or custom crypto may still fall under EAR 5A002 / 5D002 and need a license. |
+
+> **Exam Tip**: Security professionals must perform **due-diligence and license checks** before shipping equipment, software, or data internationally; negligence can lead to civil or criminal penalties.
 
 ### Privacy  
 - Global requirements:  
