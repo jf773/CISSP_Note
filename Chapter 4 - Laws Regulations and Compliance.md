@@ -275,6 +275,27 @@ Eight processing conditions paralleling GDPR. Highlights: consent, purpose speci
 - Rights to know, delete, and opt-out of sale of personal info; no retaliation.  
 - Inspired similar laws in other states; federal analogue still pending.
 
+States frequently pioneer privacy regulation that later influences nationwide or even federal rules.  
+A prime illustration is **California’s Consumer Privacy Act (CCPA)**, enacted in 2018 (GDPR-inspired) and effective as of 2020.
+
+##### Core Rights Granted by the CCPA
+1. **Right to Know**  
+   *Consumers may request full disclosure of the personal data collected, purposes of use, and third-party sharing.*
+
+2. **Right to Deletion (“Right to be Forgotten”)**  
+   *Under defined conditions, individuals can require a business to erase their personal information.*
+
+3. **Right to Opt-Out of Sale**  
+   *Individuals may direct a business to stop selling their personal data.*
+
+4. **Right to Non-Discrimination**  
+   *Businesses may not retaliate or discriminate against consumers for exercising CCPA rights.*
+
+##### Broader Impact
+- California has already expanded the CCPA (e.g., CPRA amendments).  
+- Multiple other states (CO, CT, UT, VA, etc.) have introduced similar comprehensive privacy statutes.  
+- Organizations operating across the U.S. must now navigate a patchwork of state privacy obligations while anticipating eventual federal harmonization.
+
 ---
 
 ## Compliance  
