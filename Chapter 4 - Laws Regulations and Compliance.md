@@ -138,6 +138,22 @@ Understanding the purpose, scope, enforcement, and CISSP implications of each he
 
 ## Laws  
 
+| Domain | Law / Regulation | Oversight / Enforcement Agency (Primary Jurisdiction) |
+|--------|------------------|------------------------------------------------------|
+| **Privacy** | **GDPR** — General Data Protection Regulation (EU) | European Data Protection Board (EDPB) / Supervisory Authorities in each member state |
+| | **CCPA / CPRA** — California Consumer Privacy Act / California Privacy Rights Act (USA-CA) | California Privacy Protection Agency (CPPA) ; California Office of the Attorney General |
+| | **APPI** — Act on the Protection of Personal Information (Japan) | Personal Information Protection Commission (PPC) |
+| **Health** | **HIPAA** — Health Insurance Portability and Accountability Act (USA) | U.S. Department of Health & Human Services — Office for Civil Rights (HHS-OCR) |
+| **Finance** | **GLBA** — Gramm-Leach-Bliley Act (USA) | Federal Trade Commission (FTC) ; federal banking regulators (FDIC, Federal Reserve, OCC, etc.) |
+| | **SOX** — Sarbanes–Oxley Act (USA) | Securities and Exchange Commission (SEC) ; Public Company Accounting Oversight Board (PCAOB) |
+| | **FISMA** — Federal Information Security Modernization Act (USA) | Office of Management and Budget (OMB) ; National Institute of Standards and Technology (NIST SP-800 series) |
+| **Payments** | **PCI-DSS** — Payment Card Industry Data Security Standard | PCI Security Standards Council (PCI SSC — joint body of Visa, Mastercard, etc.) |
+| **Export Control** | **EAR** — Export Administration Regulations (USA) | Bureau of Industry and Security (BIS), U.S. Department of Commerce |
+| | **ITAR** — International Traffic in Arms Regulations (USA) | Directorate of Defense Trade Controls (DDTC), U.S. Department of State |
+| **Cybercrime** | **CFAA** — Computer Fraud and Abuse Act (USA) | Federal Bureau of Investigation (FBI) ; U.S. Department of Justice (DoJ) |
+| **Critical Infrastructure** | **NERC-CIP** — North American Electric Reliability Corporation Critical Infrastructure Protection standards | North American Electric Reliability Corporation (NERC) |
+| **General Security Framework** | **ISO/IEC 27001** — Information Security Management System standard | International Organization for Standardization (ISO) sets the standard; accredited third-party certification bodies audit implementing organizations |
+
 ### Computer Crime  
 - **Why it matters:** CISSP pros must know the legal landscape impacting information security operations and data flows—domestic **and** international.  
 - **Key point:** Always recognize when to involve legal counsel; the real skill is knowing the limits of your own expertise.<br>
