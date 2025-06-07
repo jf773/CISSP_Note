@@ -276,17 +276,52 @@ Guarantees people are secure from unreasonable government searches and seizures;
 ##### U.S. Workplace Privacy  
 Employees have **no reasonable expectation of privacy** on employer-owned devices. Employers should disclose monitoring via contracts, policies, banners, and device labels.
 
-#### European Union  
+#### European Union Privacy Law
 
-##### GDPR 2016 → 2018  
+##### European Union GDPR Protection Regulation 2016 → 2018  
 - **Applies worldwide** to entities processing EU residents’ data.  
 - Core principles: *lawfulness/fairness/transparency*, *purpose limitation*, *data minimization*, *accuracy*, *storage limitation*, *integrity & confidentiality*, *accountability*.  
 - **Data subject rights**: access, rectification, erasure (“right to be forgotten”), portability, objection.  
 - **Breach notice**: 72 hr to authority.  
 - **Cross-border transfers**: Standard Contractual Clauses (SCCs) or Binding Corporate Rules (BCRs); Privacy Shield invalidated by *Schrems II* (2020).
 
-#### APEC Privacy Framework  
-Voluntary principles (notice, choice, security, etc.) promoting cross-border data flows among Asia-Pacific economies; relies on Accountability Agents and CBPR certification.
+##### 1. EU as Global Privacy Trend-Setter
+* **Comprehensive scope** – EU laws regulate *all* personally identifiable info, unlike the U.S. “sectoral” model.  
+* **Influence** – EU rules often become de-facto standards for orgs operating worldwide.
+
+##### 2. GDPR (General Data Protection Regulation) – 2016/2018
+| Aspect | Summary |
+|--------|---------|
+| **Purpose** | Replaced 1995 Data Protection Directive to deliver *one harmonized privacy law* across the EU. |
+| **Territorial reach** | Applies to any org that *collects* or *processes* EU residents’ data—even if the org is **outside** the EU. |
+| **Penalties** | Up to €20 million or 4 % of global turnover for serious violations. |
+
+###### 2.1 Seven Core Principles  
+1. **Lawfulness, Fairness, Transparency** – Legal basis + honest disclosures.  
+2. **Purpose Limitation** – Collect & process only for stated purposes.  
+3. **Data Minimization** – Limit data to what is adequate & relevant.  
+4. **Accuracy** – Keep data correct; rectify/erase inaccuracies promptly.  
+5. **Storage Limitation** – Retain data only as long as needed; honour the *right to be forgotten*.  
+6. **Integrity & Confidentiality** – Apply proper security controls.  
+7. **Accountability** – Controller must *prove* compliance (records, DPO, DPIAs, etc.).
+
+##### 3. Cross-Border Data Transfers
+| Mechanism | When/How to Use | Notes |
+|-----------|-----------------|-------|
+| **Standard Contractual Clauses (SCCs)** | Attach EU-approved boiler-plate clauses to contracts moving data out of the EEA. | Quickest path; must use unaltered clauses. |
+| **Binding Corporate Rules (BCRs)** | Multinational groups transferring data *internally*. | Lengthy approval by *every* EU DPA where used; suits very large enterprises. |
+
+###### 3.1 End of *Privacy Shield*  
+* **Schrems II (2020)** – CJEU invalidated the EU-US Privacy Shield.  
+* U.S. firms must now rely on **SCCs** or **BCRs** until a new trans-Atlantic framework is approved.
+
+##### 4. Conflict-of-Laws Scenarios
+* U.S. e-discovery demands vs. GDPR restrictions can clash.  
+* Always seek specialized counsel to balance competing obligations.
+
+#### APEC Privacy Framework (Asia-Pacific)
+* Provides *regional* guidance (notice, choice, security, accountability, etc.) to **facilitate smooth cross-border data flow** among APEC economies.  
+* Not legally binding but influences national laws & CBPR certification.
 
 #### Canada – PIPEDA  
 Nationwide commercial-sector law governing identifiable personal information. Grants individuals access, correction rights; superseded by “substantially similar” provincial laws (AB, BC, QC). Exempts personal, non-commercial, and government uses.
