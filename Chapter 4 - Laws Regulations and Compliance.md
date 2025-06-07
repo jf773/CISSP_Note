@@ -107,9 +107,46 @@ mindmap
 ## Laws  
 
 ### Computer Crime  
+- **Why it matters:** CISSP pros must know the legal landscape impacting information security operations and data flows—domestic **and** international.  
+- **Key point:** Always recognize when to involve legal counsel; the real skill is knowing the limits of your own expertise.<br>
+- The earliest “computer-centric” statutes sought to criminalize hacking‐style activities that didn’t cleanly fit traditional theft or fraud laws.  
+- Each U.S. state also has its own computer-crime laws, but Internet incidents typically cross state lines, giving **federal courts** jurisdiction.
+
 - Statutes: **CFAA, DMCA, ECPA (US); CMA 1990 (UK); Budapest Convention**.  
 - Offenses: unauthorized access, malware distribution, DDoS, identity theft.  
 - Penalties include felony charges, *up to 20 yrs* prison in severe cases.
+
+#### Computer Fraud and Abuse Act (CFAA) — 1986 (original)  
+- **Focus:** Federal-interest computers (later broadened), classified info, banking records.  
+- **Criminalized:** Unauthorized access, fraud via federal systems, password trafficking, and damage > $5 000.  
+- **Exam cue:** First broad U.S. anti-hacking law; foundation for nearly all federal cyber prosecutions.
+
+#### CFAA Amendments (1994 → 2008)
+- Added **malicious-code outlaw**, expanded scope to **any computer in interstate commerce**, and allowed **civil suits** by victims.  
+- Criticized for over-breadth: violating a website’s Terms of Service **could** be charged as a crime.  
+- Recent cases (e.g., *Van Buren* 2021) are narrowing that scope.
+
+#### National Information Infrastructure Protection Act (NIIPA) — 1996
+- **Broadened CFAA** to cover computers in **international** commerce.  
+- Extended felony penalties to attacks on critical infrastructure (power grids, pipelines, telecom, rail, etc.).
+
+#### Federal Information Security Management Act (FISMA) — 2002
+- Mandates **agency-wide information-security programs** for U.S. federal systems and contractor systems.  
+- Requires **risk assessments, policies, training, annual testing, incident handling, and continuity planning**.
+
+#### Federal Cybersecurity Laws (Modernization) — 2014
+| Law | Core Idea (CISSP view) | Lead Agency |
+| ---- | ---------------------- | ----------- |
+| **FISMA Modernization Act** | Centralizes most federal cyber-oversight with **DHS**; DoD & Intel remain separate. | DHS |
+| **Cybersecurity Enhancement Act** | NIST made the national coordinator for **voluntary standards** (→ NIST CSF). | NIST |
+| **National Cybersecurity Protection Act** | Creates NCCIC as the **public/private info-sharing hub** for threats & incidents. | DHS |
+
+#### NIST Special Publications & CSF
+- **SP 800-53:** Baseline security & privacy controls for **federal** (and often commercial) systems.  
+- **SP 800-171:** Extends similar controls to contractors handling **Controlled Unclassified Information (CUI)**.  
+- **Cybersecurity Framework (CSF):** Voluntary, risk-based guidance (Identify, Protect, Detect, Respond, Recover) used globally.
+
+> **Exam-Side Tip:** Be able to pair each law with its primary purpose, scope, and responsible agency—and know that export/import, privacy, and IP laws appear elsewhere in Domain 1.
 
 ### Intellectual Property (IP)  
 - **Copyright** (software code, docs), **Trademark**, **Patent**, **Trade secret**.  
