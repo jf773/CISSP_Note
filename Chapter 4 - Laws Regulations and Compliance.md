@@ -211,12 +211,6 @@ Understanding the purpose, scope, enforcement, and CISSP implications of each he
 - **Privacy in the U.S. vs. Europe** – U.S. privacy protections arise piecemeal from court decisions and sector-specific statutes, whereas the EU historically adopts comprehensive, omnibus laws that apply to all personal data.
 
 #### U.S. Privacy Laws  
-- Notable US examples: **CCPA/CPRA (California)**, **NY SHIELD Act**, **Virginia CDPA**, **Colorado CPA**.
-
-- Often add:  
-  - “**Private right of action**” for consumers.  
-  - 30-day cure periods, statutory damages per record.  
-  - stricter breach-notification timelines (<30 days).  
 
 ##### Fourth Amendment  
 Guarantees people are secure from unreasonable government searches and seizures; courts extend this to wiretaps and surveillance, providing the constitutional basis for modern privacy claims.
