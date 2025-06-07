@@ -197,6 +197,11 @@ Understanding the purpose, scope, enforcement, and CISSP implications of each he
 | **Trade Secrets** | • Valuable, non-public business info (formulas, source code, processes). <br>• No registration; protection requires **reasonable secrecy measures** (NDA, need-to-know, access controls). <br>• Protection lasts indefinitely while secrecy is maintained. | Implement DLP, strong IAM, and NDAs; breach could void protection and harm competitiveness. |
 | **Economic Espionage Act (1996) & Defend Trade Secrets Act (2016)** | • Criminal penalties up to 15 yrs/$10 M for theft benefiting foreign gov’t; 10 yrs/$5 M otherwise. <br>• 2016 amendment adds federal civil lawsuit option for companies. | Insider-threat monitoring and incident response plans must account for trade-secret theft; federal remedies available. |
 
+> Bottom line:
+- A pure algorithm for solving a mathematical problem is not patentable.
+- A specific, practical implementation of that algorithm that yields a technical effect may be patent-eligible if the claims are drafted carefully.
+- Consult a patent attorney to evaluate novelty, draft claims emphasizing the technical application, and file before any public disclosure.
+
 ### Software Licensing  
 - Models: **Per-seat, OEM, subscription (SaaS), GPL/MIT (open-source)**.  
 - Violations → vendor audits, civil damages, sometimes criminal copyright suits.  
