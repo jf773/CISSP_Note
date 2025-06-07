@@ -83,24 +83,56 @@ mindmap
 
 ## Categories of Laws  
 **Core idea:**  Different legal branches govern how infractions are prosecuted and penalized. Know which applies to a given security scenario.
+U.S. information-security professionals routinely encounter **three categories of law**.  
+Understanding the purpose, scope, enforcement, and CISSP implications of each helps determine when to call legal counsel and how to design compliant security programs.
 
-### Criminal Law  
-- **Purpose:**  Protect society; acts viewed as offenses against the state.  
-- **Burden of proof:** *Beyond a reasonable doubt* (highest standard).  
-- **Penalties:**  Prison, fines, probation, asset forfeiture.  
-- **CISSP angle:**  Computer fraud, unauthorized access, sabotage can trigger criminal liability.
+| Law Category | What It Covers | Who Enforces It | Typical Penalties | CISSP Angle |
+|--------------|---------------|-----------------|-------------------|-------------|
+| **Criminal Law** | Acts viewed as offenses against society (e.g. hacking, fraud, assault, arson) | Prosecutors, police, FBI/Secret Service, DoJ | Fines, imprisonment, community service, loss of civil liberties | Know key federal cyber-crime statutes (CFAA, ECPA, ITADA, etc.) and incident-response evidence handling. |
+| **Civil Law** | Disputes between private parties (contracts, employment, real-estate, negligence) | Plaintiff’s attorneys; adjudicated by civil courts | Monetary damages, injunctions, specific performance | Contract language, SLAs, privacy and negligence exposure; common source of **liability** for data breaches. |
+| **Administrative Law** | Regulations issued by executive-branch agencies to operationalize statutes (e.g. FCC, FTC, DHS, SEC rules) | Regulator itself (audits, fines); reviewed by courts | Fines, revocation of licenses, cease-and-desist orders | Compliance frameworks (HIPAA, GLBA, SOX, FISMA, FedRAMP) stem from administrative rules; non-compliance can trigger separate civil/criminal actions. |
 
-### Civil Law  
-- **Purpose:**  Resolve disputes; compensate injured parties (torts, contracts).  
-- **Burden:** *Preponderance of evidence* (>50%).  
-- **Penalties:**  Monetary damages, injunctions, specific performance.  
-- **CISSP angle:**  Breach-of-contract, negligence in data protection → civil lawsuits/class actions.
+### 1. Criminal Law
 
-### Administrative Law  
-- **Purpose:**  Grant regulatory agencies rule-making/enforcement power.  
-- **Burden:**  Varies (“substantial evidence” or “clear weight”).  
-- **Penalties:**  Fines, license revocation, consent decrees.  
-- **CISSP angle:**  HIPAA OCR fines, GDPR administrative penalties, SEC cyber-disclosure rules.
+* **Purpose** – Protect society at large, deter harmful acts, and punish offenders.  
+* **Source** – Federal & state legislatures; must align with the U.S. Constitution.  
+* **Process** – Government (prosecution) vs. defendant; burden of proof *beyond a reasonable doubt*.  
+* **Cyber-Security Focus**  
+  * **Computer Fraud and Abuse Act (CFAA)** – Primary federal anti-hacking statute.  
+  * **ECPA & Wiretap Act** – Unauthorized interception of electronic communications.  
+  * **Identity Theft & Assumption Deterrence Act (ITADA)** – Criminalizes identity theft.  
+* **Exam Tip** – Be able to cite when criminal authorities must be involved and understand chain-of-custody requirements for digital evidence.
+
+---
+
+### 2. Civil Law
+
+* **Purpose** – Resolve non-criminal disputes and provide restitution to injured parties.  
+* **Source** – Same legislative process as criminal law; codified in the **United States Code (USC)** or state statutes.  
+* **Process** – Plaintiff vs. defendant; burden of proof is *preponderance of evidence* (lower threshold).  
+* **Cyber-Security Focus**  
+  * **Tort liability** – Negligence in safeguarding PII may result in class-action lawsuits.  
+  * **Contract enforcement** – Breach of NDA or SLA due to security failure.  
+* **Exam Tip** – Understand organizational exposure to civil suits after a breach and the role of insurance, due care, and due diligence.
+
+---
+
+### 3. Administrative Law
+
+* **Purpose** – Enable executive agencies to implement and enforce detailed regulations that support statutes.  
+* **Source** – Published in the **Code of Federal Regulations (CFR)**; must not conflict with higher laws.  
+* **Process** – Agency rule-making (notice-and-comment), compliance audits, fines; subject to judicial review.  
+* **Cyber-Security Focus**  
+  * **NIST standards via FISMA/FISMA-2014** (e.g. SP 800-53)  
+  * **HIPAA Security Rule** (HHS), **GLBA Safeguards Rule** (FTC), **SOX IT controls** (SEC/PCAOB)  
+  * **FTC Act §5** – “Unfair or deceptive” practices for poor security.
+
+* **Exam Tip** – Map administrative requirements to controls; ensure policies and procedures satisfy agency mandates to avoid fines and injunctions.
+
+---
+
+> **Remember for CISSP:**  
+> *Criminal = society vs. individual, Civil = individual vs. individual, Administrative = agency rules.* Always verify which category applies before acting, and engage qualified legal counsel for gray areas.
 
 ---
 
