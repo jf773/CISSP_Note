@@ -15,6 +15,72 @@
 - [Contracting and Procurement]()
 - [Summary]()
 
+
+```mermaid
+mindmap
+  root((Chapter 4 – Laws, Regulations & Compliance))
+
+    Categories of Laws
+      Criminal Law
+        State prosecution
+        Fines and imprisonment
+      Civil / Tort Law
+        Party vs party
+        Damages and injunctions
+      Administrative / Regulatory Law
+        Agency rules
+        Monetary penalties
+
+    Major Laws
+      Computer Crime
+        CFAA
+        DMCA
+        CAN-SPAM
+      Intellectual Property
+        Copyright
+        Patent
+        Trademark
+        Trade secret
+      Software Licensing
+        EULA
+        FOSS licenses
+        SaaS terms
+      Import / Export Controls
+        ITAR
+        EAR
+        Crypto export rules
+      Privacy (Global)
+        GDPR
+        HIPAA
+        GLBA
+        CCPA / CPRA
+
+    State Privacy Laws
+      NY SHIELD Act
+      VA VCDPA
+      CO CPA
+
+    Compliance Frameworks
+      PCI-DSS
+      SOX
+      ISO 27001
+      SOC 1 &amp; SOC 2
+      FedRAMP
+
+    Contracting & Procurement
+      Service Level Agreements
+      Master Service Agreement
+      Indemnity & liability caps
+      Right to audit
+      Vendor due diligence
+
+    Exam Flags
+      GDPR penalties 4 % or €20 M
+      Copyright arises automatically
+      AES export governed by EAR
+      Security clauses in contracts
+```
+
 ## Categories of Laws  
 **Core idea:**  Different legal branches govern how infractions are prosecuted and penalized. Know which applies to a given security scenario.
 
