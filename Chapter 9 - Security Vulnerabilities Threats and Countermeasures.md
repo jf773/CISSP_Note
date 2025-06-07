@@ -18,7 +18,7 @@
 - [Real-Time Operating Systems]()
 - [Internet of Things]()
 - [Edge and Fog Computing]()
-- [Embedded Devices and Cyber-Physical Systems]()
+- [Embedded Devices & Cyber-Physical Systems]()
   - [Static Systems]()
   - [Cyber-Physical Systems]()
   - [Security Concerns of Embedded and Static Systems]()
@@ -40,192 +40,200 @@
   - [Root of Trust]()
   - [System Security Policy]()
 - [Common Security Architecture Flaws and Issues]()
-  - [Convert Channels]()
+  - [Covert Channels]()
   - [Attacks Based on Design or Coding Flaws]()
   - [Rootkits]()
   - [Incremental Attacks]()
 - [Summary]()
 
-## [Shared Responsibility]()
+---
 
-* **Cloud / Outsourcing rule** — Provider secures **the cloud**, customer secures **what’s IN the cloud** (workloads, data, IAM).  
-* Model shifts by service: IaaS (“you patch OS”), PaaS (just code & data), SaaS (mostly identity & configs).  
-* Contractual artifacts: **CSA CAIQ, CSPM findings, FedRAMP RAR**.
+### Shared Responsibility
+* **Cloud mantra:** provider secures *the* cloud; customer secures *in* the cloud.  
+* Varies by service model (IaaS > PaaS > SaaS).  
+* Contractual artifacts: CSPM reports, CSA CAIQ, FedRAMP ATO letters.  
+* **Exam cue:** Identify mis-scoped duties (patching hypervisor ≠ tenant job).
 
 ---
 
-## [Data Localization and Data Sovereignty]()
-
-* **Data residency laws** (GDPR, POPIA, PDPA) dictate *where* PII can live/flow.  
-* Requires region-pinned storage, geo-fencing, **geo-key management (HSM cluster by region)**, and lawful-access assessments.
-
----
-
-## [Assess and Mitigate the Vulnerabilities of Security Architectures, Designs, and Solution Elements]()
-
-### [Hardware]()
-- Side-channel (Spectre/Meltdown, Rowhammer).  
-- **Secure/Measured Boot**, PUF, chip burn-in, tamper seals.
-
-### [Firmware]()
-- UEFI rootkits; mitigate with **Secure Boot, attestation, signed updates**.  
-- BMC/iLO isolation, firmware SBOM.
+### Data Localization and Data Sovereignty
+* Laws (GDPR Art 3, POPIA, PDPA) dictate where data may rest/flow.  
+* Controls: region-pinned buckets, geo-fenced keys (HSM-cluster per region), lawful-access reviews.  
+* **Hot topic for multinational scenarios.**
 
 ---
 
-## [Client-Based Systems]()
+## Assess & Mitigate  
 
-### [Mobile Code]()
-- Java, JavaScript, ActiveX, Flash ➜ sandboxing, code signing.
+### Hardware
+| Threat | Vector | Mitigation |
+|--------|--------|------------|
+| **Side-channel** (Spectre, Meltdown) | Speculative execution | Micro-code, kernel page-table isolation |
+| **Rowhammer** | Repeated RAM writes | ECC RAM, TRR, LPDDR4/5 |
 
-### [Local Caches]()
-- Browser, DNS, SSO tokens — attack: **cache poisoning/side-jacking**; defense: no-store headers, cache busting.
-
----
-
-## [Server-Based Systems]()
-
-### [Large-Scale Parallel Data Systems]()
-- Hadoop / Spark – threats: **data node compromise, unsecured REST APIs**.
-
-### [Grid Computing]()
-- BOINC style — authenticate nodes, encrypt jobs/results.
-
-### [Peer to Peer]()
-- Risks: **uncontrolled propagation, DDoS amplification, data leakage**.
+### Firmware
+* UEFI rootkits, BMC/iLO backdoors.  
+* Signed updates, Secure Boot, measured boot (**TPM PCRs**), firmware SBOM.
 
 ---
 
-## [Industrial Control Systems]()
-* **SCADA / DCS / PLC**; legacy OT protocols (Modbus, DNP3) unauthenticated ⇒ add **data-diodes, ICS-DMZ, ISA/IEC 62443 zoning**.
+## Client-Based Systems  
+
+### Mobile Code
+- Java, JavaScript, ActiveX, Flash → sandbox, CSP, code signing.
+
+### Local Caches
+- Browser, DNS, SSO tokens → poisoning & side-jacking; use *no-store*, cache-busting, TLS.
 
 ---
 
-## [Distributed Systems]()
-* CAP theorem trade-offs; secure RPC, **service mesh (mTLS)**; clock/timestamp integrity.
+## Server-Based Systems  
+
+### Large-Scale Parallel Data Systems
+* Hadoop/Spark risk: unauth REST, mis-set ACLs.  
+* Use **Kerberos, TLS, Ranger**, node segmentation.
+
+### Grid Computing
+* Federated volunteer nodes; sign work units, encrypt comms.
+
+### Peer to Peer
+* Threats: DDoS amplification, data leakage; fix via **whitelist peers, rate-limit**.
 
 ---
 
-## [High-Performance Computing (HPC) Systems]()
-* Focus on **MPI isolation, job-scheduler authN, InfiniBand segmentation**; risk: IP theft of research data.
+### Industrial Control Systems
+* **SCADA, DCS, PLC**; legacy protocols (Modbus, DNP3) unauth’d.  
+* ISA/IEC 62443 zoning, data diodes, passive monitoring (ICS-IDS).
 
 ---
 
-## [Real-Time Operating Systems]()
-* Deterministic latency; security vs timing.  
-* Use **memory-safe languages**, W^X, MPU.
+### Distributed Systems
+* CAP-theorem trade-offs; secure gRPC, clock integrity, service-mesh mTLS.  
 
 ---
 
-## [Internet of Things]()
-* Constrained devices, default creds, weak update paths.  
-* Controls: **device ID attestation, network micro-segmentation, MUD, SBOM**.
+### High-Performance Computing (HPC) Systems
+* MPI job hijack, high-speed interconnect eavesdropping; InfiniBand VLANs, node-level SELinux.  
 
 ---
 
-## [Edge and Fog Computing]()
-* Push compute near data; widens threat surface.  
-* Secure via **zero-trust, lightweight EDR, 5G slice isolation**.
+### Real-Time Operating Systems
+* Deterministic timing > complex crypto; use lightweight algorithms, MPU, static analysis.
 
 ---
 
-## [Embedded Devices and Cyber-Physical Systems]()
-
-### [Static Systems]()
-- “Set-and-forget” (ATMs, kiosks). Patching & physical locks critical.
-
-### [Cyber-Physical Systems]()
-- Sensors/actuators—safety + security; **IEC 61508, NIST SP 800-82**.
-
-### [Security Concerns of Embedded and Static Systems]()
-- Hard-coded creds, JTAG ports, EEPROM dumps; add **secure enclave, fuse keys, conformal coating**.
+### Internet of Things
+* Constrained devices, default creds, insecure OTA.  
+* Controls: SBOM, secure element, MUD profiles, micro-segmentation.
 
 ---
 
-## [Microservices]()
-* REST/gRPC, containers, **service mesh**.  
-* Threats: privilege sprawl, API abuse ➜ OPA, mTLS, JWT lifetimes.
+### Edge and Fog Computing
+* Push compute near data; threats = physical capture, rogue workload.  
+* Zero-trust, slice isolation (5G), lightweight EDR.
 
 ---
 
-## [Infrastructure as Code]()
-* Terraform, Ansible. Security = **code reviews, secrets mgmt, drift detection, pre-commit scans**.
+## Embedded & Cyber-Physical Systems  
+
+### Static Systems
+* Fixed-function (ATM, kiosk). Patch difficulty → compensate with physical hardening, template rebuild.
+
+### Cyber-Physical Systems
+* Sensors+actuators; safety first. IEC 61508, NIST 800-82.
+
+### Security Concerns of Embedded and Static Systems
+* Hard-coded keys, JTAG ports, EEPROM dumps.  
+* Mitigation: conformal coating, fuse bits, secure enclave.
 
 ---
 
-## [Immutable Architecture]()
-* Rebuild not patch. Benefits: eliminates config drift, faster rollback.  
-* Requires **CI/CD, blue-green**, image signing.
+### Microservices
+* Small stateless units; issues: **API sprawl, broken authZ, secret leakage**.  
+* Use OPA policies, short-lived JWT, service mesh.
 
 ---
 
-## [Virtualized Systems]()
-
-### [Virtual Software]()
-- **Hypervisor escapes** (VENOM); patch, use Type-1, disable clipboard.
-
-### [Virtualized Networking]()
-- vSwitch/VXLAN; inspect with **vTAP, micro-segmentation**.
-
-### [Software-Defined Everything]()
-- Control plane compromise ⇒ whole fabric; protect via **RBAC, API certs**.
-
-### [Virtualization Security Management]()
-- vCenter hardening, **VM templates**, snapshot chain integrity.
+### Infrastructure as Code
+* Terraform/Ansible; risks = secrets in code, drift.  
+* Guardrails: SAST, policy-as-code (OPA), secret vaults.
 
 ---
 
-## [Containerization]()
-* Image poisoning, breakout (runC). Mitigate with **namespaces, seccomp, AppArmor/SELinux**, signed images (Notary, cosign).
+### Immutable Architecture
+* Re-deploy not patch → eliminates drift, speeds rollback.  
+* Requires CI/CD, image signing, blue-green canaries.
 
 ---
 
-## [Mobile Devices]()
+## Virtualized Systems  
 
-### [Mobile Device Security Features]()
-- Root of Trust, Secure Element, sandbox, biometric, FDE.
+### Virtual Software
+* Hypervisor escape (VENOM); prefer Type-1, keep patch cadence.
 
-### [Mobile Device Deployment Policies]()
-- **COPE, CYOD, BYOD**; enforce with MDM/UEM, containerization, remote wipe.
+### Virtualized Networking
+* vSwitch/VXLAN; inspect via vTAP, enforce micro-segmentation.
 
----
+### Software-Defined Everything
+* SDN, SDS, SDC; protect controllers (RBAC, certs, MFA).
 
-## [Essential Security Protection Mechanisms]()
-
-### [Process Isolation]()
-- Process rings, user/kernel separation, ASLR for each process.
-
-### [Hardware Segmentation]()
-- IOMMU, SR-IOV, **TPM PCR** measurements.
-
-### [Root of Trust]()
-- Hardware anchor verifying firmware/OS chain.
-
-### [System Security Policy]()
-- Formal statement of **MAC rules, multilevel labels, P0 vs P4 priorities**.
+### Virtualization Security Management
+* Harden vCenter/SCVMM, template VMs, secure snapshot chain.
 
 ---
 
-## [Common Security Architecture Flaws and Issues]()
-
-### [Convert Channels]()
-- Covert storage/timing; mitigate → noise, auditing, *noninterference* design.
-
-### [Attacks Based on Design or Coding Flaws]()
-- Buffer overflow, use-after-free. Defense: **memory-safe languages, fuzzing, SAST/DAST**.
-
-### [Rootkits]()
-- Kernel-mode or firmware; detect with **integrity measurement architecture (IMA)**, offline scan.
-
-### [Incremental Attacks]()
-- “Salami slicing,” bit-flipping, **TOCTOU** — input validation, atomic ops.
+### Containerization
+* Risks: poisoned images, breakout (runC).  
+* Controls: namespaces, seccomp, AppArmor/SELinux, signed images (Notary, cosign).
 
 ---
 
-## [Summary]()
-- Modern architecture → sprawling attack surface (cloud, edge, OT, IoT).  
-- **Shared-responsibility & data-sovereignty** shape control choices.  
-- Harden layers: hardware, firmware, OS, containers, micro-services.  
-- Key mechanisms: **process isolation, secure boot, segmentation, IaC guardrails**.  
-- Watch for covert channels, rootkits, design-level bugs; employ defense-in-depth & continuous monitoring to mitigate.
+## Mobile Devices  
 
+### Mobile Device Security Features
+* Secure Element, biometric auth, FDE, sandbox, SafetyNet/Attestation.
+
+### Mobile Device Deployment Policies
+* BYOD, COPE, CYOD. Enforce via MDM/UEM, enterprise container, remote wipe.
+
+---
+
+## Essential Security Protection Mechanisms  
+
+### Process Isolation
+* Address space separation, ring protections, ASLR.
+
+### Hardware Segmentation
+* IOMMU (VT-d), SR-IOV, TPM PCRs.
+
+### Root of Trust
+* Hardware anchor → verifies firmware, OS chain.
+
+### System Security Policy
+* Formal MAC rulesets, multilevel labels, ABCS matrices.
+
+---
+
+## Common Security Architecture Flaws and Issues  
+
+### Covert Channels
+* Storage vs timing. Mitigate w/ noise, strict reference monitor, auditing.
+
+### Attacks Based on Design or Coding Flaws
+* Buffer overflow, integer wrap, race (TOCTOU). Counter: memory-safe lang, fuzzing, SAST.
+
+### Rootkits
+* Kernel-mode, firmware. Detect with offline baseline, IMA, trusted boot logs.
+
+### Incremental Attacks
+* “Salami slicing,” bit-flipping, Rowhammer; mitigated by boundary checks, ECC.
+
+---
+
+## Summary
+- Modern stacks (cloud, edge, IoT, OT) widen the attack surface.  
+- Map **shared-responsibility** & **data-sovereignty** to control selection.  
+- Harden every layer: hardware → firmware → OS → container → microservice.  
+- Core mechanisms = **isolation, segmentation, secure boot, IaC guardrails**.  
+- Recognize covert channels, rootkits, and design-level flaws; employ defense-in-depth + continuous monitoring for mitigation.  
+- Expect CISSP scenarios on *who owns what risk*, patch vs immutability, and safeguarding ICS / IoT environments.
