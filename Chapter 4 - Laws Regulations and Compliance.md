@@ -92,7 +92,7 @@ Understanding the purpose, scope, enforcement, and CISSP implications of each he
 | **Civil Law** | Disputes between private parties (contracts, employment, real-estate, negligence) | Plaintiff’s attorneys; adjudicated by civil courts | Monetary damages, injunctions, specific performance | Contract language, SLAs, privacy and negligence exposure; common source of **liability** for data breaches. |
 | **Administrative Law** | Regulations issued by executive-branch agencies to operationalize statutes (e.g. FCC, FTC, DHS, SEC rules) | Regulator itself (audits, fines); reviewed by courts | Fines, revocation of licenses, cease-and-desist orders | Compliance frameworks (HIPAA, GLBA, SOX, FISMA, FedRAMP) stem from administrative rules; non-compliance can trigger separate civil/criminal actions. |
 
-### 1. Criminal Law
+### Criminal Law
 
 * **Purpose** – Protect society at large, deter harmful acts, and punish offenders.  
 * **Source** – Federal & state legislatures; must align with the U.S. Constitution.  
@@ -105,7 +105,7 @@ Understanding the purpose, scope, enforcement, and CISSP implications of each he
 
 ---
 
-### 2. Civil Law
+### Civil Law
 
 * **Purpose** – Resolve non-criminal disputes and provide restitution to injured parties.  
 * **Source** – Same legislative process as criminal law; codified in the **United States Code (USC)** or state statutes.  
@@ -117,7 +117,7 @@ Understanding the purpose, scope, enforcement, and CISSP implications of each he
 
 ---
 
-### 3. Administrative Law
+### Administrative Law
 
 * **Purpose** – Enable executive agencies to implement and enforce detailed regulations that support statutes.  
 * **Source** – Published in the **Code of Federal Regulations (CFR)**; must not conflict with higher laws.  
@@ -184,6 +184,18 @@ Understanding the purpose, scope, enforcement, and CISSP implications of each he
 - **Copyright** (software code, docs), **Trademark**, **Patent**, **Trade secret**.  
 - Security role: protect employer IP (NDAs, DLP) & avoid infringement.  
 - Exam watchword: *“Work for hire”*, *“first-sale doctrine”*, *“fair use”*.
+
+| Concept | Key Points to Know | Why It Matters for Security Pros |
+|---------|--------------------|----------------------------------|
+| **Shift to IP-driven economy** | • Services & brand value dominate modern firms  <br>• Intangible assets (logos, names, formulas, creative works) = “IP” | Protecting IP often means protecting *data*: source code, formulas, designs, brand assets. |
+| **Copyright** | • Covers *original works of authorship* (8 categories incl. software as “literary works”).  <br>• Protection is automatic at creation; formal registration strengthens enforcement. <br>• Creator holds rights unless it’s a *work for hire*. <br>• Term: Author’s life + 70 yrs (or 95/120 yrs for works-for-hire). | Source code, documentation, videos, training materials all fall under copyright—controls must prevent unauthorized copying. |
+| **Digital Millennium Copyright Act (DMCA)** | • 1998 U.S. law aligning with WIPO treaties. <br>• Criminalizes circumvention of copy-protection tech. <br>• Grants “safe-harbor” to ISPs if they meet strict pass-through criteria. <br>• Allows limited backup copies of licensed software, clarifies streaming rules. | Security teams must not build or deploy tools that break DRM; know takedown & notice obligations if hosting content. |
+| **Trademarks** | • Protect words, slogans, logos that identify goods/services. <br>• ™ can be claimed upon use; ® requires USPTO registration (<10 yr terms, renewable). <br>• Must not be “confusingly similar” or merely descriptive. | Brand impersonation (phishing, fake apps) violates trademark—security policies should monitor for misuse. |
+| **Patents (Utility)** | • 20-year exclusive right to exploit a *new, useful, non-obvious* invention. <br>• Software & crypto algorithms can be patented but are controversial. | Assess patent risks when deploying code/algorithms; infringement can halt products. |
+| **Design & Plant Patents** | • Design: protects *appearance* (15 yrs).  <br>• Plant: protects engineered species. | Typically less relevant to infosec, but design patents may apply to UI/UX security features. |
+| **Software IP Protection Debate** | • Copyright covers expression (code) but **not** underlying ideas. <br>• Patents cover functional ideas but may be too broad. <br>• “Patent trolls” monetize overly broad software patents via lawsuits. | Choose licensing & defensive publication strategies; maintain code secrecy where possible. |
+| **Trade Secrets** | • Valuable, non-public business info (formulas, source code, processes). <br>• No registration; protection requires **reasonable secrecy measures** (NDA, need-to-know, access controls). <br>• Protection lasts indefinitely while secrecy is maintained. | Implement DLP, strong IAM, and NDAs; breach could void protection and harm competitiveness. |
+| **Economic Espionage Act (1996) & Defend Trade Secrets Act (2016)** | • Criminal penalties up to 15 yrs/$10 M for theft benefiting foreign gov’t; 10 yrs/$5 M otherwise. <br>• 2016 amendment adds federal civil lawsuit option for companies. | Insider-threat monitoring and incident response plans must account for trade-secret theft; federal remedies available. |
 
 ### Software Licensing  
 - Models: **Per-seat, OEM, subscription (SaaS), GPL/MIT (open-source)**.  
