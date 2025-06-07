@@ -269,7 +269,7 @@ Eight processing conditions paralleling GDPR. Highlights: consent, purpose speci
 
 ---
 
-#### United States – State Privacy Laws  
+#### State Privacy Laws  
 
 ##### CCPA (California) 2018  
 - Rights to know, delete, and opt-out of sale of personal info; no retaliation.  
