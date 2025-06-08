@@ -97,15 +97,16 @@ mindmap
 Automated scans, tool-assisted pen tests, or manual exploits run on a **scheduled, risk-prioritized** basis.
 
 #### Scheduling / Prioritization Factors  
-- ❑ Testing resources available  
-- ❑ **Criticality** of protected systems  
-- ❑ **Sensitivity** of data involved  
-- ❑ Tech **failure** likelihood  
-- ❑ **Misconfiguration** probability  
-- ❑ Threat / **attack** risk  
-- ❑ Rate **of change** of control  
-- ❑ Environmental changes  
-- ❑ Effort & **business impact** of test  
+- ❑ Availability of security testing resources
+- ❑ Criticality of the systems and applications protected by the tested controls
+- ❑ Sensitivity of information contained on tested systems and applications
+- ❑ Likelihood of a technical failure of the mechanism implementing the control
+- ❑ Likelihood of a misconfiguration of the control that would jeopardize security
+- ❑ Risk that the system will come under attack
+- ❑ Rate of change of the control configuration
+- ❑ Other changes in the technical environment that may affect the control performance
+- ❑ Difficulty and time required to perform a control test
+- ❑ Impact of the test on normal business operations
 
 #### Good Practice  
 1. Design a **comprehensive plan** (no haphazard “scan-everything” approach).  
