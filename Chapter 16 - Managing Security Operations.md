@@ -90,7 +90,7 @@ mindmap
 
 | Concept | Key Points for CISSP | Why It Matters |
 |---------|---------------------|----------------|
-| **16.1.1 Need-to-Know & Least Privilege** | *Need-to-Know* = grant access **only** to information required for a task (most common with classified data).<br>*Least Privilege* = grant the **minimum** permissions/rights (file permissions, system commands) required to perform job functions.<br>Assumes well-defined job roles; revisit when roles change. | ✔ Limits attack surface & insider curiosity.<br>✔ Protects confidentiality **and** integrity.<br>❓ Exam trick: clearance ≠ automatic access—need-to-know still applies. |
+| **16.1.1 Need-to-Know & Least Privilege** | *Need-to-Know* = grant access **only** to information (= permission only) required for a task (most common with classified data).<br>*Least Privilege* = grant the **minimum** permissions/rights (file permissions, system commands) required to perform job functions.<br>Assumes well-defined job roles; revisit when roles change. | ✔ Limits attack surface & insider curiosity.<br>✔ Protects confidentiality **and** integrity.<br>❓ Exam trick: clearance ≠ automatic access—need-to-know still applies. |
 | &emsp;• Need-to-Know Access | Examples: DBA can patch DB server but **not** read customer PII tables.<br>Secret-cleared user must still be added to each individual Secret project. | |
 | &emsp;• Principle of Least Privilege | Applies to **users, apps, services, processes**.<br>Never add “everyone” to *Administrators* or run services as *root*.<br>Privilege escalation = threat when violated. | |
 | **16.1.2 Segregation of Duties (SoD)** | No single person can perform **all** steps of a critical task.<br>Requires collusion to commit fraud ⇒ deterrent. | ✔ Checks & balances.<br>✔ Reduces single-point failure. |
@@ -107,7 +107,7 @@ Both principles **constrain access**, but they answer two different questions:
 
 | Principle | **What it limits** | **Core Question** | Typical Controls / Examples |
 |-----------|-------------------|-------------------|-----------------------------|
-| **Need-to-Know** | *Which* **information** a subject can see | “**Do I need this specific data to do my job right now?**” | • Row- or field-level DB masking<br>• Compartmented military intel (“read into” a program)<br>• HR staff can open personnel files only for employees they administer |
+| **Need-to-Know** | *Which* **information** (permission only) a subject can see | “**Do I need this specific data to do my job right now?**” | • Row- or field-level DB masking<br>• Compartmented military intel (“read into” a program)<br>• HR staff can open personnel files only for employees they administer |
 | **Least Privilege** | *Which* **capabilities** (rights/permissions) a subject can exercise | “**What is the minimum set of actions I must be allowed to carry out?**” | • No local-admin rights for ordinary users<br>• Service account granted only *Read* on its log directory<br>• Cloud IAM role with `GetObject` but not `PutObject` |
 
 ### Quick Memory Aids
