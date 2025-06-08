@@ -24,55 +24,162 @@
   - [Key Performance and Risk Indicators]()
 - [Summary]()
 
-## Building a Security Assessment & Testing Program  
-Establishes a structured cycle of **tests, assessments, and audits** that confirm controls exist, work as intended, and protect assets across on-prem, cloud, and hybrid environments.
+```mermaid
+mindmap
+  root((Chapter 15<br>Security Assessment & Testing))
+    Program
+      Scope:::leaf(On-prem • Cloud • Hybrid)
+    Tests
+      "Purpose:\nVerify control works"
+      Methods
+        "Automated\nvuln scans"
+        "Tool-assisted\npen tests"
+        "Manual\nexploits"
+      "Scheduling Factors"
+        Resources
+        Criticality
+        Sensitivity
+        "Tech failure\nlikelihood"
+        "Misconfig\nprobability"
+        "Attack/threat\nrisk"
+        "Rate of\nchange"
+        "Env.\nchanges"
+        "Test effort &\ntime"
+        "Business\nimpact"
+      Results
+        "Manual review"
+        "Automated\nalert/ ticket"
+    Assessments
+      "Comprehensive\nrisk review"
+      "Outputs:\nMgmt report + recs"
+      Teams
+        Internal
+        External
+      "NIST SP 800-53A"
+        Specifications
+        Mechanisms
+        Activities
+        Individuals
+    Audits
+      "Independent\nassurance"
+      Types
+        "Internal\nAudit"
+        "External\nAudit"
+        "Third-Party\nAudit"
+      "SOC / SSAE-18\n(ISAE 3402)"
+        "SOC 1\n(Financial)"
+        "SOC 2\n(Sec/Privacy)"
+        "SOC 3\n(Public)"
+        "Report Types"
+          "Type I\n(Design, point-in-time)"
+          "Type II\n(Effectiveness, ≥6 mo)"
+      Frameworks
+        COBIT
+        "ISO 27001"
+        "ISO 27002"
+      Example
+        "2015 GAO audit\nFAA ATC flaws"
+    KeyTakeaways
+      "Tests vs\nAssess vs\nAudit"
+      "Risk-prioritized\nroutine testing"
+      "Independence in\naudits"
+      "Cover all\nenvironments"
+```
 
-### Security Testing  
-Tool-driven or manual **control checks** (e.g., vulnerability scans, pen-tests).  
-Scheduling is risk-based—considering resource availability, system criticality, data sensitivity, probability of failure/attack, change rate, business impact, and test difficulty.  
-Results are **reviewed, prioritized, and acted on**; alerts or tickets are raised for significant findings.
+> **Goal of the chapter:** Understand how to **plan, execute, and evaluate** tests, assessments, and audits that prove security controls are *present, operating correctly, and effective* across on-prem, cloud, and hybrid environments.
 
-### Security Assessments  
-Holistic, **human-led risk reviews** that combine testing results with threat context and asset value.  
-Deliverable is a **management report** written in plain language with specific remediation advice.  
-May be performed by internal staff or third-party specialists.
+## Building a Security Assessment & Testing Program
+| What | Why |
+|------|-----|
+|**Security Tests**|Verify **control operation** (working as intended).|
+|**Security Assessments**|Broader **risk-focused reviews**; identify & remediate weaknesses.|
+|**Security Audits**|**Independent attestation** that controls meet a defined standard; results shared with 3rd-parties.|
 
-#### NIST SP 800-53A  
-U.S. best-practice guide for assessing security & privacy controls.  
-Looks at four “assessment objects”:  
-* **Specifications** (policies, designs)  
-* **Mechanisms** (technical controls)  
-* **Activities** (operational tasks)  
-* **Individuals** (people operating controls)  
+> ✅ **CISSP-Key:** A *test* checks a control; an *assessment* weighs risk & gives recs; an *audit* proves compliance **independently**.
 
-Assessors **examine, interview, and test** to judge control effectiveness.
+### Security Testing
+#### Definition  
+Automated scans, tool-assisted pen tests, or manual exploits run on a **scheduled, risk-prioritized** basis.
 
-### Security Audits  
-Independent evaluations aimed at proving control effectiveness to outsiders (board, regulators, customers).
+#### Scheduling / Prioritization Factors  
+- ❑ Testing resources available  
+- ❑ **Criticality** of protected systems  
+- ❑ **Sensitivity** of data involved  
+- ❑ Tech **failure** likelihood  
+- ❑ **Misconfiguration** probability  
+- ❑ Threat / **attack** risk  
+- ❑ Rate **of change** of control  
+- ❑ Environmental changes  
+- ❑ Effort & **business impact** of test  
 
-| Audit Type | Who Performs | Primary Audience |
-|------------|--------------|------------------|
-| **Internal** | In-house audit team with separate reporting line | Leadership / board |
-| **External** | Independent audit firm (often “Big Four”) | Investors / regulators |
-| **Third-Party** | Hired by an external stakeholder (e.g., regulator, customer) | The hiring organization |
+#### Good Practice  
+1. Design a **comprehensive plan** (no haphazard “scan-everything” approach).  
+2. Blend **frequent automated** scans (low impact) with **periodic manual** testing (higher assurance).  
+3. **Review results**:  
+   * Manual analyst validation *or*  
+   * Automated log + alert/ticket on findings.  
 
-#### SOC Reports (SSAE 18 / ISAE 3402)  
-Standardized attestation that lets service providers undergo **one audit** and share the report widely.
+### Security Assessments
+#### Definition  
+A **trained security professional** performs a holistic risk assessment, factoring **threats, vulnerabilities, asset value, and future risks**.  
+**Deliverable:** *Management report* (plain language) + **remediation recommendations**.
 
-* **SOC 1** – Controls impacting financial reporting  
-* **SOC 2** – Controls protecting security, availability, processing integrity, confidentiality, privacy (results under NDA)  
-* **SOC 3** – Same scope as SOC 2 but **publicly shareable**
+#### Execution  
+- May be **internal** or **outsourced**.  
+- Uses testing tools **plus** reasoning & expert judgment (beyond raw scan output).
 
-Report levels:  
-* **Type I** – Snapshot: design suitability only  
-* **Type II** – Operating effectiveness tested over ≥ 6 months (more credible)
+#### NIST SP 800-53A “Assessing Security & Privacy Controls”  
+| Assessment **Objects** | Meaning |
+|-|-|
+|**Specifications**|Docs: policies, procedures, requirements, designs.|
+|**Mechanisms**|Security controls (hw / sw / fw).|
+|**Activities**|Human actions (backups, log reviews).|
+|**Individuals**|People who implement the above.|
 
-#### Case Study – GAO FAA Audit  
-A 2015 **Government Accountability Office** review found serious cyber weaknesses in U.S. air-traffic-control systems and issued 17 remediation recommendations—illustrating the impact of third-party audits on critical infrastructure.
+*Assessors **examine, interview, and test** these objects to rate control effectiveness.*
 
-#### Auditing Standards  
-* **COBIT** – ISACA framework defining control objectives for IT governance and assurance.  
-* **ISO 27001 / 27002** – International standards for building and measuring an Information Security Management System (ISMS); organizations may become ISO 27001-certified.
+### Security Audits
+**Purpose:** Provide an **impartial, unbiased opinion** on control effectiveness against a standard.  
+*Must be performed by auditors **independent** of those who design/operate the controls.*
+
+#### Audit Types  
+| Type | Who controls scope? | Typical Audience |
+|-|-|-|
+|**Internal**|Organization’s own **independent audit dept** | Management / Board |
+|**External**|Outside audit firm hired by org (e.g., **Big 4**) | Shareholders, regulators |
+|**Third-Party**|Initiated & scoped by **another entity** (client, regulator) | Requesting entity |
+
+> **Exam Tip:** *Control of the engagement* distinguishes internal, external, and third-party audits.
+
+#### SOC / SSAE-18 / ISAE 3402 Audits  
+| Engagement | Focus |
+|-|-|
+|**SOC 1**|Controls that affect **financial reporting**.|
+|**SOC 2**|Controls over **security, availability, confidentiality, processing integrity, privacy** (results = confidential).|
+|**SOC 3**|Same domains as SOC 2, but **public report**.|
+
+**Report Types**  
+- **Type I:** Design & description of controls at a **point-in-time**.  
+- **Type II:** Design **and operating effectiveness** over **≥ 6 months** (more trusted on the exam).
+
+#### Real-World Example  
+*2015 GAO audit* → found significant weaknesses in **FAA Air Traffic Control** systems (boundary, authn, encryption, logging).
+
+#### Auditing Standards & Frameworks
+| Standard | Use in CISSP context |
+|-|-|
+|**COBIT (ISACA)**|Control objectives for IT & assurance framework.|
+|**ISO 27001**|Specifies **ISMS** requirements (can certify).|
+|**ISO 27002**|Code of practice — detailed **control catalog**.|
+
+*(Know that audits/assessments compare org controls to a chosen **standard**.)*
+
+#### Key Takeaways for the Exam
+1. **Test ≠ Assessment ≠ Audit** – know definitions & goals.  
+2. **Risk-prioritized schedule** drives testing frequency.  
+3. Assessment objects per **NIST 800-53A:** specifications, mechanisms, activities, individuals.  
+4. Audit independence: internal vs external vs third-party; **SOC reports (Type I vs II)**.  
+5. Common frameworks (COBIT, ISO 27001/27002) provide **control objectives** for audits.
 
 ---
 
