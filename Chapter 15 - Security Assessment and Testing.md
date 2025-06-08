@@ -238,6 +238,21 @@ Major categories & typical 🛠:
 | RDP | 3389 | Windows remote desktop |
 | *…know list from book* |
 
+#### Vulnerability-Management Workflow
+
+| Phase | Objective | Typical Actions |
+|-------|-----------|-----------------|
+| **1&nbsp;· Detection** | Identify potential weaknesses. | - Run scheduled/continuous vulnerability scans.<br>- Consume threat‐feed or vendor alerts. |
+| **2&nbsp;· Validation** | Separate real issues from noise. | - Security team reviews each finding.<br>- Confirm true positives; discard false positives.<br>- Log verified vulnerabilities in tracking system. |
+| **3&nbsp;· Remediation** | Eliminate or reduce the validated risk. | - Apply vendor patches / hot-fixes.<br>- Harden configurations or disable vulnerable services.<br>- Deploy compensating controls (e.g., WAF rules, segmentation, work-arounds). |
+
+##### Prioritization Matrix
+1. **Severity / CVSS** – business impact of the flaw.  
+2. **Likelihood of Exploitation** – public exploits, ease of attack, exposure.  
+3. **Remediation Effort & Cost** – downtime, manpower, complexity.
+
+> **Goal:** Establish a repeatable pipeline that **detects → validates → remediates** vulnerabilities in risk-based order, ensuring issues are handled promptly and consistently.
+
 ### Penetration Testing  
 **Differences from vuln scanning**: actively *exploits* weaknesses to prove impact.  
 NIST SP 800-115 phases (memorise diagram!):  
@@ -280,3 +295,159 @@ Tools & Automation:
 
 ---
 
+## Testing Your Software
+- Software often runs **privileged**, manipulates **sensitive data**, and is **business-critical**.  
+- **Exception handling** principle: apps must *anticipate* invalid/ malicious input, never trust users.  
+- Goal of all testing: assure **Confidentiality, Integrity, Availability** (CIA) before production release.
+
+### Code Review and Testing
+
+#### Code Review
+| Fact | Exam Nugget |
+|------|-------------|
+| Peer examination of source before prod | AKA **peer review** or **walk-through** |
+| Detects **security, reliability, performance** flaws early | cheapest fix occurs pre-deploy |
+| Outputs: *approve* ⟶ prod **or** *rework* back to dev | part of SDLC 📚 |
+
+##### Code Review Process - Fagan Inspections
+Six rigorously gated steps (used in high-risk industries):  
+`Planning → Overview → Preparation → Inspection → Rework → Follow-up`
+
+#### Static Testing (SAST)
+- **No execution**; analyzes **source or binaries**.  
+- Finds classic coding errors (buffer overflow, injection sinks).  
+- Integrated into IDE/CI for *shift-left* security.
+
+#### Dynamic Testing (DAST)
+- Runs code in **runtime**; black-box friendly for 3rd-party apps.  
+- Common: **web app scanners** (XSS, SQLi).  
+- **Coordinate** carefully in prod to avoid outages.
+
+##### Synthetic Transactions & Benchmarks
+- **Synthetic/ scripted** actions with known outputs → verify correctness & perf.  
+- **Benchmarks** = target metrics (response time, throughput, error rate).
+
+##### IAST & RASP
+- **IAST**: real-time, in-app sensor; combines SAST+DAST.  
+- **RASP**: protective agent inside runtime, intercepts & blocks malicious calls.
+
+#### Ethical Disclosure
+1. **Privately notify vendor** of discovered vuln.  
+2. **Allow reasonable fix window.**  
+3. If ignored, **publicly disclose** so users can protect themselves.  
+*Purpose: balance customer safety vs. vendor readiness.*
+
+#### Fuzz Testing
+Stress test by feeding **invalid / unexpected** input.
+
+##### Mutation vs. Generational
+| Style | How It Works | Pros | Cons |
+|-------|--------------|------|------|
+| **Mutation (dumb)** | Tweak **real** inputs | Quick, no spec needed | Lower code coverage |
+| **Generational (intelligent)** | Build inputs from **data model** | Deeper logic reach | More prep effort |
+
+##### Bit Flipping & **zzuf**
+- `zzuf` mutates file/stream by random bit flips → reveals crashes, overflows.
+
+##### Fuzz Limitations
+- Rarely covers 100 % paths; best for **simple, input-driven** vulns.  
+- Pair with **test-coverage analysis** to quantify reach.
+
+#### Interface Testing
+Ensure separately built modules **communicate securely**.
+
+| Interface Type | What To Check |
+|----------------|---------------|
+| **APIs / Web Services** | AuthZ, input validation |
+| **User Interfaces (GUI/CLI)** | Usability, error handling |
+| **Network Interfaces** | Encryption, throughput, error recovery |
+| **Physical Interfaces (ICS, PLC)** | Safety, fail-safe states |
+
+#### Misuse (Abuse) Case Testing
+- Enumerate *how attackers/ bad users could misuse* features.  
+- Craft tests to **exploit** those scenarios; verify defenses.
+
+#### Test Coverage Analysis
+Formula:  
+Coverage % = (Number of use cases tested ÷ Total possible use cases) × 100
+
+Common criteria the exam loves:
+
+| Criterion | Meaning |
+|-----------|---------|
+| **Branch** | every `if/else` path |
+| **Condition** | each boolean expression outcome |
+| **Function** | every method called & returned |
+| **Loop** | loops run 0, 1, many times |
+| **Statement** | every line executed |
+
+#### Website Monitoring
+| Technique | Method | Strength | Weakness |
+|-----------|--------|----------|----------|
+| **Passive (Real User Monitoring)** | Capture live traffic | True user view | Detects only *after* issue |
+| **Synthetic (Active)** | Bot runs scripted transactions | Catch issues *before* users | May miss un-scripted problems |
+
+> **Best practice:** use both for full coverage.
+
+#### 🔑 Exam Takeaways
+* Adopt **multi-layer testing** (SAST → DAST → IAST/RASP → Fuzz).  
+* **Peer code review** is baseline; **Fagan** for high assurance.  
+* Understand **ethical disclosure** flow.  
+* Be able to match **test type ↔ goal ↔ example tool**.  
+* Quantify testing with **coverage metrics**.  
+* **Interfaces, misuse cases, website monitoring** are all fair game questions.
+
+### Training and Exercises
+
+| **Concept** | **What You Must Know for the CISSP** |
+|-------------|---------------------------------------|
+| **Purpose of Cyber Exercises** | • Safe way to discover unseen vulns—similar outcome to penetration testing.<br>• Builds **hands-on skills** for both offense & defense.<br>• Raises enterprise-wide cyber awareness. |
+| **Exercise Teams** | - **Red Team** → _Attackers_.<br>- **Blue Team** → _Defenders_ (often get lead time to harden).<br>- **White Team** → _Observers / Judges / Referees_; ensure fairness **and** protect production. |
+| **Purple Teaming** | Post-exercise knowledge-sharing session where Red & Blue merge tactics → continuous improvement. (_Red + Blue = Purple_). |
+| **Capture-the-Flag (CTF)** | • Gamified scenario—Red scores by completing attack objectives; Blue scores by preventing.<br>• Clear, measurable goals (e.g., steal file, deface site). |
+| **Test Environments** | • Prefer **isolated lab / sandbox** to protect production.<br>• Table-top exercise = discussion-only simulation—no real systems needed, but still tests procedures. |
+
+###  Implementing Security-Management Processes & Collecting Data
+
+> These ongoing reviews create a **feedback loop** that deters insiders, surfaces weak controls, and feeds metrics into risk governance.
+
+#### Log Reviews
+- **SIEM + syslog/NXLog/Windows GPO** centralize event data.
+- **NTP sync** is mandatory for accurate timelines.
+- Managers must **audit privileged activities** (e.g., eDiscovery searches).
+- **NetFlow**/flow logs = gold for incident forensics (records “who-talked-to-whom” & byte counts).
+
+#### Account Management
+1. Pull actual privileged-account list from admins (under supervision).  
+2. Compare with **approved entitlements list**.  
+3. Resolve discrepancies (excess rights, orphaned/terminated users).
+- **Sampling** allowed only if selection is **truly random**.
+- Modern IAM suites provide **workflow & audit trail** automation.
+
+#### Disaster Recovery & Business Continuity Oversight
+- Periodic **backup verification**: review logs, compare hashes, or perform real restores.
+- Regular **DR/BC testing** (walk-through, parallel, full-interruption, etc.) validates readiness.
+
+#### Training & Awareness Programs
+| **Phase** | **Key Points** |
+|-----------|---------------|
+| **Initial / Role-based** | Tailored to new hires or employees changing duties. |
+| **Recurring** | Year-round refreshers; reflect new threats & policy changes. |
+| **Phishing Simulations** | Measure susceptibility; auto-train clickers. |
+
+#### Key Performance & Risk Indicators (KPIs / KRIs)
+Typical dashboard metrics:
+- Open vulns & **mean-time-to-remediate (MTTR)**
+- Vuln/defect **recurrence rate**
+- Compromised account count
+- Pre-production code flaw count
+- Repeat audit findings
+- User attempts to hit malicious URLs  
+⮩ Display results on an **intranet dashboard** for constant visibility.
+
+#### 🔑 Exam Takeaways
+- **Red/Blue/White** roles, **Purple teaming**, and **CTF** objectives.
+- Why labs or tabletop settings are safer than live prod.
+- Continuous-monitoring trio: **Log reviews**, **account audits**, **KPI dashboards**.
+- Backup checks & DR/BC drills are management responsibilities.
+- Security awareness isn’t one-and-done—expect questions on **initial vs. recurring** training and **phishing simulations**.
