@@ -102,6 +102,14 @@ mindmap
 | &emsp;• Detecting APT Activity | APT playbook: escalate, wipe logs, create admin users, open RDP (3389), schedule tasks.<br>PAM + SIEM correlation catches anomalies early. | |
 | **16.1.6 Service-Level Agreements (SLAs)** | Contract with vendor defining **measurable** performance (uptime, RTO, RPO, response time) and penalties.<br>Often paired with **MOU** (intent, no penalties). | ✔ Sets expectations for cloud/outsourced services.<br>✔ Supports availability objectives. |
 
+### Need-to-Know vs. Least Privilege
+Both principles **constrain access**, but they answer two different questions:
+
+| Principle | **What it limits** | **Core Question** | Typical Controls / Examples |
+|-----------|-------------------|-------------------|-----------------------------|
+| **Need-to-Know** | *Which* **information** a subject can see | “**Do I need this specific data to do my job right now?**” | • Row- or field-level DB masking<br>• Compartmented military intel (“read into” a program)<br>• HR staff can open personnel files only for employees they administer |
+| **Least Privilege** | *Which* **capabilities** (rights/permissions) a subject can exercise | “**What is the minimum set of actions I must be allowed to carry out?**” | • No local-admin rights for ordinary users<br>• Service account granted only *Read* on its log directory<br>• Cloud IAM role with `GetObject` but not `PutObject` |
+
 ### Quick Memory Aids
 - **Need-to-Know → Data** access; **Least Privilege → Function** access.
 - **SoD + Two-Man Rule + Split Knowledge** = “No one can cheat alone.”
