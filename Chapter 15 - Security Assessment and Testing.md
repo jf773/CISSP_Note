@@ -1,94 +1,89 @@
 # Chapter 15: Security Assessment and Testing
 
-- [Building a Security Assessment and Testing Program]()
-  - [Security Testing]()
-  - [Security Assessments]()
-  - [Security Audits]()
-- [Performing Vulnerability Assessments]()
-  - [Describing Vulnerabilities]()
-  - [Vulnerability Scans]()
-  - [Penetration Testing]()
-  - [Compliance Checks]()
-- [Testing Your Software]()
-  - [Code Review and Testing]()
-  - [Interface Testing]()
-  - [Misuse Case Testing]()
-  - [Test Coverage Analysis]()
-  - [Website Monitoring]()
-- [Training and Exercises]()
-- [Implementing Security Management Processes and Collecting Security Process Data]()
-  - [Log Reviews]()
-  - [Account Management]()
-  - [Disaster Recovery and Business Continuity]()
-  - [Training and Awareness]()
-  - [Key Performance and Risk Indicators]()
-- [Summary]()
+- [Building a Security Assessment and Testing Program](#building-a-security-assessment-and-testing-program)
+  - [Security Testing](#security-testing)
+  - [Security Assessments](#security-assessments)
+  - [Security Audits](#security-audits)
+- [Performing Vulnerability Assessments](#performing-vulnerability-assessments)
+  - [Describing Vulnerabilities](#describing-vulnerabilities)
+  - [Vulnerability Scans](#vulnerability-scans)
+  - [Penetration Testing](#penetration-testing)
+  - [Compliance Checks](#compliance-checks)
+- [Testing Your Software](#testing-your-software)
+  - [Code Review and Testing](#code-review-and-testing)
+  - [Interface Testing](#interface-testing)
+  - [Misuse Case Testing](#misuse-case-testing)
+  - [Test Coverage Analysis](#test-coverage-analysis)
+  - [Website Monitoring](#website-monitoring)
+- [Training and Exercises](#training-and-exercises)
+- [Implementing Security Management Processes and Collecting Security Process Data](#implementing-security-management-processes-and-collecting-security-process-data)
+  - [Log Reviews](#log-reviews)
+  - [Account Management](#account-management)
+  - [Disaster Recovery and Business Continuity](#disaster-recovery-and-business-continuity)
+  - [Training and Awareness](#training-and-awareness)
+  - [Key Performance and Risk Indicators](#key-performance-and-risk-indicators)
+- [Summary](#summary)
+
 
 ```mermaid
 mindmap
-  root((Chapter 15<br>Security Assessment & Testing))
-    Program
-      Scope:::leaf(On-prem • Cloud • Hybrid)
-    Tests
-      "Purpose:\nVerify control works"
-      Methods
-        "Automated\nvuln scans"
-        "Tool-assisted\npen tests"
-        "Manual\nexploits"
-      "Scheduling Factors"
-        Resources
-        Criticality
-        Sensitivity
-        "Tech failure\nlikelihood"
-        "Misconfig\nprobability"
-        "Attack/threat\nrisk"
-        "Rate of\nchange"
-        "Env.\nchanges"
-        "Test effort &\ntime"
-        "Business\nimpact"
-      Results
-        "Manual review"
-        "Automated\nalert/ ticket"
-    Assessments
-      "Comprehensive\nrisk review"
-      "Outputs:\nMgmt report + recs"
-      Teams
-        Internal
-        External
-      "NIST SP 800-53A"
-        Specifications
-        Mechanisms
-        Activities
-        Individuals
-    Audits
-      "Independent\nassurance"
-      Types
-        "Internal\nAudit"
-        "External\nAudit"
-        "Third-Party\nAudit"
-      "SOC / SSAE-18\n(ISAE 3402)"
-        "SOC 1\n(Financial)"
-        "SOC 2\n(Sec/Privacy)"
-        "SOC 3\n(Public)"
-        "Report Types"
-          "Type I\n(Design, point-in-time)"
-          "Type II\n(Effectiveness, ≥6 mo)"
-      Frameworks
-        COBIT
-        "ISO 27001"
-        "ISO 27002"
-      Example
-        "2015 GAO audit\nFAA ATC flaws"
-    KeyTakeaways
-      "Tests vs\nAssess vs\nAudit"
-      "Risk-prioritized\nroutine testing"
-      "Independence in\naudits"
-      "Cover all\nenvironments"
+  root((Chapter 15 – Security Assessment & Testing))
+
+    %% 1. Build the programme
+    Building a Security Assessment & Testing Program
+      Security Tests
+        Automated Scans
+        Tool-Assisted Pen Tests
+        Manual Tests
+      Security Assessments
+        Risk-Focused Review
+        NIST SP 800-53A (Objects)
+          Specifications
+          Mechanisms
+          Activities
+          Individuals
+      Security Audits
+        Internal Audit
+        External Audit
+        Third-Party Audit
+          SSAE-18 / ISAE 3402
+            SOC 1 (Financial Reporting)
+            SOC 2 (Security & Privacy - NDA)
+            SOC 3 (Security & Privacy - Public)
+
+    %% 2. Vulnerability assessment workflow
+    Performing Vulnerability Assessments
+      Describing Vulnerabilities
+      Vulnerability Scans
+      Penetration Testing
+      Compliance Checks
+
+    %% 3. Software testing techniques
+    Testing Your Software
+      Code Review & Testing
+      Interface Testing
+      Misuse Case Testing
+      Test Coverage Analysis
+      Website Monitoring
+
+    %% 4. Training / Exercises
+    Training and Exercises
+
+    %% 5. Security-management data collection
+    Implementing Security Management Processes & Collecting Data
+      Log Reviews
+      Account Management
+      DR & Business Continuity
+      Training & Awareness
+      Key Performance & Risk Indicators
+
+    %% 6. Chapter wrap-up
+    Summary
 ```
 
 > **Goal of the chapter:** Understand how to **plan, execute, and evaluate** tests, assessments, and audits that prove security controls are *present, operating correctly, and effective* across on-prem, cloud, and hybrid environments.
 
-## Building a Security Assessment & Testing Program
+## Building a Security Assessment and Testing Program
 | What | Why |
 |------|-----|
 |**Security Tests**|Verify **control operation** (working as intended).|
