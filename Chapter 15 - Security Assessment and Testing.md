@@ -407,7 +407,7 @@ Common criteria the exam loves:
 | **Capture-the-Flag (CTF)** | • Gamified scenario—Red scores by completing attack objectives; Blue scores by preventing.<br>• Clear, measurable goals (e.g., steal file, deface site). |
 | **Test Environments** | • Prefer **isolated lab / sandbox** to protect production.<br>• Table-top exercise = discussion-only simulation—no real systems needed, but still tests procedures. |
 
-###  Implementing Security-Management Processes & Collecting Data
+###  Implementing Security-Management Processes and Collecting Data
 
 > These ongoing reviews create a **feedback loop** that deters insiders, surfaces weak controls, and feeds metrics into risk governance.
 
@@ -424,7 +424,7 @@ Common criteria the exam loves:
 - **Sampling** allowed only if selection is **truly random**.
 - Modern IAM suites provide **workflow & audit trail** automation.
 
-#### Disaster Recovery & Business Continuity Oversight
+#### Disaster Recovery and Business Continuity Oversight
 - Periodic **backup verification**: review logs, compare hashes, or perform real restores.
 - Regular **DR/BC testing** (walk-through, parallel, full-interruption, etc.) validates readiness.
 
