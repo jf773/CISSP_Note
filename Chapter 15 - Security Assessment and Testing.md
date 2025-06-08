@@ -353,15 +353,15 @@ Stress test by feeding **invalid / unexpected** input.
 - Rarely covers 100 % paths; best for **simple, input-driven** vulns.  
 - Pair with **test-coverage analysis** to quantify reach.
 
-#### Interface Testing
+#### Interface Testing  
 Ensure separately built modules **communicate securely**.
 
-| Interface Type | What To Check |
-|----------------|---------------|
-| **APIs / Web Services** | AuthZ, input validation |
-| **User Interfaces (GUI/CLI)** | Usability, error handling |
-| **Network Interfaces** | Encryption, throughput, error recovery |
-| **Physical Interfaces (ICS, PLC)** | Safety, fail-safe states |
+| Interface Type | What To Check | Example(s) |
+|----------------|---------------|------------|
+| **APIs / Web Services** | • Authentication / authorization<br>• Input validation & output encoding<br>• Rate-limiting / throttling | *RESTful* `POST /accounts/transfer` endpoint that moves funds between accounts; *GraphQL* schema for customer-PII queries |
+| **User Interfaces&nbsp;(GUI / CLI)** | • Usability & accessibility<br>• Consistent error/exception handling<br>• Session management (timeouts, re-auth) | ATM touchscreen workflow for cash withdrawal; Linux `sudo` CLI prompts for privileged commands |
+| **Network Interfaces** | • Encryption in transit (TLS/IPsec)<br>• Bandwidth / latency / throughput<br>• Resilience: retry, error recovery | HTTPS on TCP 443 for e-commerce checkout; IPsec tunnel between HQ and cloud VPC |
+| **Physical Interfaces&nbsp;(ICS, PLC)** | • Safety interlocks & fail-safe states<br>• EMI shielding & tamper detection<br>• Command authentication | Modbus serial link controlling a chemical-plant valve; CAN bus in automotive brake-by-wire system |
 
 #### Misuse (Abuse) Case Testing
 - Enumerate *how attackers/ bad users could misuse* features.  
