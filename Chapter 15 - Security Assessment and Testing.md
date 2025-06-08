@@ -407,7 +407,7 @@ Common criteria the exam loves:
 | **Capture-the-Flag (CTF)** | • Gamified scenario—Red scores by completing attack objectives; Blue scores by preventing.<br>• Clear, measurable goals (e.g., steal file, deface site). |
 | **Test Environments** | • Prefer **isolated lab / sandbox** to protect production.<br>• Table-top exercise = discussion-only simulation—no real systems needed, but still tests procedures. |
 
-###  Implementing Security-Management Processes and Collecting Data
+###  Implementing Security Management Processes and Collecting Data
 
 > These ongoing reviews create a **feedback loop** that deters insiders, surfaces weak controls, and feeds metrics into risk governance.
 
