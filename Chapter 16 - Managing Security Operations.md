@@ -244,11 +244,82 @@ Both principles **constrain access**, but they answer two different questions:
   - Enable detailed logging for forensic visibility  
   - Deploy via Group Policy to enforce across all endpoints  
 
----
-
 > **Exam Tips:**  
 > - Know the difference between **provisioning**, **baselining**, **imaging**, and **automation**.  
 > - Remember the four hardening steps under provisioning.  
 > - Visualize the 3-step image workflow.  
 > - Be able to explain how GPO (or equivalent) drives registry hardening at scale.
 
+# Chapter 16 – Manage Change
+
+> **Goal:** Keep systems secure and available by controlling every change  
+> **Why it matters for the exam:** Unauthorized or untested changes → outages, security gaps, failed audits.
+
+---
+
+## Index
+
+- [Manage Change](#manage-change)  
+- [Change Management](#change-management)  
+- [Versioning](#versioning)  
+- [Configuration Documentation](#configuration-documentation)  
+
+---
+
+## Manage Change
+
+- **Definition:** Formal process ensures systems stay as secure & stable as when first deployed.  
+- **Primary goal:** Prevent unplanned outages by reviewing, approving, testing & documenting every change.  
+- **CIA impact:** Unauthorized changes hurt **Availability**; CM protects it.  
+- **Real-world “gotcha”:**  
+  - Firewall admin closes a “mystery” port → web server can’t reach DB → site outage & blame game ensues.  
+- **Trade-off:** Occasionally weaken security for usability/performance—but only after risk vs. benefit analysis.
+
+### Change Management
+
+1. **Request the change**  
+   - User/IT submits a ticket or web form; logged in CM system.  
+
+2. **Review the change**  
+   - Cross-functional experts (network, server, security, app teams) analyze impact & side-effects.  
+   - High-risk changes → Change Advisory Board (CAB).  
+
+3. **Approve or reject**  
+   - Decision logged.  
+   - If approved: create a **rollback/back-out plan**.  
+
+4. **Test the change**  
+   - In a non-production/lab environment to catch unintended failures.  
+
+5. **Schedule & implement**  
+   - Pick low-impact window (off-peak hours).  
+   - Execute with rollback plan ready.  
+
+6. **Document the change**  
+   - Update CM records: what changed, why, who approved, test results, rollback steps.  
+   - Critical for audits, rebuilds, and scaling the same change elsewhere.
+
+> **Emergency changes** must also be **documented** afterward to maintain the audit trail.
+
+### Versioning
+
+- **What it is:** Numbering or labeling each software/config iteration (e.g., v1.0 → v1.1 → v2.0).  
+- **Why it matters:**  
+  - Tracks “which version runs where.”  
+  - Enables safe rollbacks and consistent deployments.  
+- **Key points:**  
+  - Vital for code repos (Git, SVN).  
+  - Prevents “it worked on my box” situations when something breaks in production.
+
+### Configuration Documentation
+
+- **What it is:** A living record of every system’s secure configuration, ownership, purpose, and change history.  
+- **Must include:**  
+  - **Baseline settings** + all deviations/patches  
+  - Responsible owners & dates  
+  - Approval & test results  
+- **Where to store:**  
+  - CMDB, secured wiki, or version‐controlled docs (avoid single‐point paper logs).  
+- **Exam tip:** Well‐maintained docs enable disaster recovery and forensic audits—your “recipe” for any rebuild.
+
+---
