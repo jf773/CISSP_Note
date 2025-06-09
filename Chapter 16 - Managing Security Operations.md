@@ -250,22 +250,7 @@ Both principles **constrain access**, but they answer two different questions:
 > - Visualize the 3-step image workflow.  
 > - Be able to explain how GPO (or equivalent) drives registry hardening at scale.
 
-# Chapter 16 – Manage Change
-
-> **Goal:** Keep systems secure and available by controlling every change  
-> **Why it matters for the exam:** Unauthorized or untested changes → outages, security gaps, failed audits.
-
 ---
-
-## Index
-
-- [Manage Change](#manage-change)  
-- [Change Management](#change-management)  
-- [Versioning](#versioning)  
-- [Configuration Documentation](#configuration-documentation)  
-
----
-
 ## Manage Change
 
 - **Definition:** Formal process ensures systems stay as secure & stable as when first deployed.  
