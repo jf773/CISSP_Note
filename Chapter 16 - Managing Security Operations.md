@@ -193,4 +193,62 @@ Both principles **constrain access**, but they answer two different questions:
 - [ ] Differentiate **scalability** (manual) vs. **elasticity** (auto).  
 - [ ] Recall **serverless/FaaS** cost & security implications.
 
+## Perform Configuration Management (CM)
+
+### Provisioning
+- **Definition:** Installing + configuring OS & apps on new systems.
+- **Don’t use defaults!** Default installs enable many vulnerabilities.
+- **Hardening steps:**
+  1. **Disable unused services**  
+     e.g. file server → turn off FTP if not used  
+  2. **Close unused logical ports**  
+     typically done by disabling services  
+  3. **Remove unused applications**  
+     uninstall any bundled apps you don’t need  
+  4. **Change default passwords**  
+     attackers know vendor defaults  
+
+### Baselining
+- **Definition:** A “starting configuration” – a list of secure settings for a system role.
+- **Role-specific:**  
+  - File server baseline ≠ desktop baseline  
+- **Flexible:** Admins tailor the baseline for variations (e.g. branch office file server).
+
+### Using Images for Baselining
+1. **Build & Harden**  
+   - Install OS + apps on a “gold” machine  
+   - Apply all secure settings & test thoroughly  
+2. **Capture Image**  
+   - Use imaging software to snapshot the “gold” machine  
+   - Store on an image server (or USB/DVD)  
+3. **Deploy Image**  
+   - Push the snapshot to new systems  
+   - Finalize each (hostname, IP, group membership)  
+
+> **Benefits:**  
+> - **Consistency:** identical secure configs every time  
+> - **Speed:** deploy in minutes vs. hours  
+> - **Recovery:** rapidly rebuild corrupted machines  
+>
+> **Warning:** Protect image files! A malware-tainted image propagates infections.
+
+### Automation
+- **Combine images + scripts:**  
+  - One base image + automated post-install tasks  
+  - e.g. install department-specific apps via PowerShell or Ansible  
+- **Group Policy (Windows):**  
+  - Centralize registry & security settings for all domain machines  
+  - Apply per-OU or per-role (file servers, desktops, accounting PCs)  
+- **Registry hardening:**  
+  - Block or restrict PowerShell to thwart attackers (see Chapter 14)  
+  - Enable detailed logging for forensic visibility  
+  - Deploy via Group Policy to enforce across all endpoints  
+
+---
+
+> **Exam Tips:**  
+> - Know the difference between **provisioning**, **baselining**, **imaging**, and **automation**.  
+> - Remember the four hardening steps under provisioning.  
+> - Visualize the 3-step image workflow.  
+> - Be able to explain how GPO (or equivalent) drives registry hardening at scale.
 
