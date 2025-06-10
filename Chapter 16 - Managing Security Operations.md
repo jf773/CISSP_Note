@@ -119,9 +119,120 @@ Both principles **constrain access**, but they answer two different questions:
 
 > **Exam-Ready Tip:**  When asked which control *prevents* an administrator from single-handedly altering logs **and** enforces peer review, choose **Segregation (Separation) of Duties** or **Two-Person Control**, not least privilege.
 
-# Chapter 16 – Managed Services in the Cloud (CISSP Quick-Notes)
+---
+## Address Personnel Safety and Security  
+*People are irreplaceable—controls must protect them even over protecting assets.*
 
-> **Purpose:** capture every testable concept from the “Managed Services in the Cloud” section so you can recall responsibilities, security requirements, and key terms on exam day.
+### Duress  
+- **Definition**: A silent alarm mechanism for personnel under coercion or threat.  
+- **Examples**:  
+  - Panic-button on a duress alarm panel  
+  - Alternate “duress” codes on cipher locks (opens door + signals alarm)  
+- **Process**:  
+  1. User triggers duress system (secret button or code).  
+  2. Monitoring center notified in real time.  
+  3. Center calls back for a codeword (“Everything is awesome”) to confirm safety.  
+  4. If codeword omitted or incorrect, alarm response is escalated.  
+- **CISSP Focus**: Difference between panic vs duress, silent vs audible alarms, codeword verification.
+
+### Travel  
+- **Threats**:  
+  - **Device loss/theft** → always encrypt data at rest & in transit.  
+  - **Malware / hardware implants** → never leave devices unattended; consider travel–only loaner devices.  
+  - **Evil-twin Wi-Fi / MITM** → avoid open hotspots; use personal cellular hotspots or VPNs.  
+- **Best Practices**:  
+  - Enable full-disk encryption & strong endpoint protection.  
+  - Disable unnecessary services before travel.  
+  - Don’t store plaintext credentials—use OTP apps or hardware tokens.  
+  - Verify visitors (e.g., hotel staff) before opening doors.  
+- **CISSP Tip**: Know risks of free Wi-Fi, VPN necessity, MDM for mobile devices.
+
+### Emergency Management  
+- **Scope**: Natural disasters (floods, earthquakes) & man-made events (fires, power outages).  
+- **Key Elements**:  
+  1. **Evacuation plans** & safe-exit designs (e.g., fail-safe locks that unlock on power loss).  
+  2. **Communication plans** (mass notification, call trees, redundant channels).  
+  3. **Continuity of critical roles** (cross-trained backups, alternate worksites).  
+- **Design Principle**: Always balance asset protection vs life safety—never lock people in.  
+- **Exam Focus**: BC vs DR vs emergency response; door-unlock fail-safe designs.
+
+### Security Training and Awareness  
+- **Purpose**: Build staff skills & vigilance in safety/security practices.  
+- **Formats**:  
+  - **Tabletop exercises** (walk-through scenarios)  
+  - **Capture the Flag (CTF)** gamified attack/defense  
+  - **Red/Blue/White teaming** & **Purple teaming** (post-exercise knowledge-share)  
+- **Core Topics**:  
+  - **Duress procedures** & codewords  
+  - **Travel security** (device hygiene, secure comms)  
+  - **Emergency procedures** & drills  
+  - **Insider threat**, **social media hygiene**, **2FA fatigue**  
+- **CISSP Tip**: Understand the roles of red, blue, white, and purple teams; CTF scoring basics.
+
+---
+## Provision Information and Assets Securely  
+Ensure all hardware, software, and data are accounted for and protected from creation to disposal.
+
+### Information and Asset Ownership  
+- **Data Owners**  
+  - Senior managers (e.g. CEO, department head) who bear ultimate responsibility for specific data sets.  
+  - Delegate daily tasks (e.g. access control, backups) to **Data Custodians**.  
+- **Hardware Owners**  
+  - IT department or facilities manager responsible for physical assets (servers, routers).  
+- **Why it matters**  
+  - Assigns accountability: each asset has a named executive sponsor.  
+  - Clarifies who makes decisions on classification, protection level, and disposal.
+
+### Asset Management  
+Track and protect both tangible and intangible assets throughout their lifecycle.
+
+#### Tangible Assets  
+1. **Hardware Inventory**  
+   - **Bar-Code / RFID tagging**  
+     - Tag each device (PC, server, printer) with a unique barcode or RFID.  
+     - Perform periodic scans to verify on-network presence.  
+2. **Software Inventory**  
+   - **License key management**  
+     - Track activation counts vs. purchased licenses.  
+     - Alert on unauthorized installs or expired licenses.  
+   - **Unauthorized software detection**  
+     - Use endpoint agents or network scans to find unapproved applications.  
+3. **Media Sanitization**  
+   - **Before disposal**: wipe or destroy storage (HDD, SSD, USB) per NIST 800-88r1.  
+   - **CDs/DVDs**: physical shredding or degaussing.
+
+#### Intangible Assets  
+- **Patents, Trademarks, Copyrights, Brand Reputation**  
+  - Maintain a registry (e.g. patent numbers, expiry dates).  
+  - Assign a Senior Manager “owner” for each.  
+  - Report in financial statements (GAAP) where required.
+
+---
+## Apply Resource Protection  
+Protect data-holding media and assets throughout their lifecycle.
+
+### Media Management  
+- **Media Types**: tapes, HDD/SSD, USB drives, optical, mobile devices.  
+- **Inventory & Tracking**  
+  - Tag & scan removable media (bar-code/RFID).  
+  - Track issuance, custody transfers, and return.  
+- **Storage Controls**  
+  - Secure vaults or locked cabinets for classified media.  
+  - Environmental controls (temperature, humidity).  
+- **Lifecycle Controls**  
+  - Retire media before Mean Time to Failure (MTTF).  
+  - Centralized tracking of media age and error rates.
+
+### Media Protection Techniques  
+- **Logical Controls**  
+  - Disable unauthorized USB ports via GPO or endpoint management.  
+  - Whitelist approved devices (e.g. hardware-encrypted IronKey).  
+- **Physical Controls**  
+  - Secure transport (tamper-evident containers, chain of custody).  
+  - Off-site backups in geographically separated, secure facilities.  
+- **Encryption**  
+  - Full-disk / file-level encryption on all portable and backup media.  
+  - Customer-managed keys (not vendor-controlled).
 
 --- 
 ##  Managed Services in the Cloud
@@ -363,7 +474,7 @@ Automated tools probe for **known** flaws: missing patches, misconfigurations, w
 
 > **Warning:** Always get written permission—unauthorized scanning can violate CFAA.
 
-### Common Vulnerabilities and Exposures (CVE)
+### Common Vulnerabilities and Exposures
 
 - **CVE:** Standard ID for each known vulnerability (e.g., `CVE-2020-0601`).  
 - **Maintained by:** MITRE (funded by DHS/CISA).  
