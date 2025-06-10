@@ -308,3 +308,65 @@ Both principles **constrain access**, but they answer two different questions:
 - **Exam tip:** Well‐maintained docs enable disaster recovery and forensic audits—your “recipe” for any rebuild.
 
 ---
+
+## Manage Patches and Reduce Vulnerabilities
+
+Security = **Patch Management** + **Vulnerability Management**  
+They work hand-in-hand: patches fix known bugs, vulnerability scans verify they’re applied and catch remaining issues.
+
+### Systems to Manage
+
+> **All devices with an OS**, not just servers & workstations.
+
+- **Network gear:** routers, switches, firewalls, UTM appliances  
+- **IoT / Embedded:** IP cameras, printers, medical devices, smart appliances  
+- **Mobile:** smartphones & tablets via MDM  
+
+**Exam tip:** The famous 2016 Mirai DDoS used unpatched IoT devices—every OS matters!
+
+### Patch Management
+
+**Patch = code update** to fix a bug or vulnerability (aka hotfix/update).
+
+**Lifecycle:**
+1. **Evaluate:** Does this patch apply to your OS/app?  
+2. **Test:** On non-prod systems—catch side effects (e.g., reboot loops).  
+3. **Approve:** Follow change management & document rollback plan.  
+4. **Deploy:** Automate with vendor tools (WSUS, SCCM, third-party).  
+5. **Verify:** Scan/audit to ensure deployment succeeded.
+
+**Key:** Never skip testing—bad patches can break production.
+
+#### Patch Tuesday & Exploit Wednesday
+
+- **Patch Tuesday:** Microsoft (and others) release security updates on the 2nd Tuesday monthly.  
+- **Exploit Wednesday:** Attackers reverse-engineer these patches & weaponize exploits within ~24 hrs.  
+
+> **Don’t wait too long:** Many breaches exploit months-old unpatched flaws, not just “Wednesday.”
+
+### Vulnerability Management
+
+> **Goal:** Find, prioritize, and mitigate weaknesses—recognize you can’t fix everything.
+
+- **Detect:** Run vulnerability scans regularly.  
+- **Validate:** Confirm real issues (avoid false positives).  
+- **Remediate or Accept:** Apply patches/config changes or formally accept residual risk.
+
+**Segregation of Duties:** Separate patch deployment vs. scan validation for checks & balances.
+
+### Vulnerability Scans
+
+Automated tools probe for **known** flaws: missing patches, misconfigurations, weak credentials.
+
+- **Unauthenticated scans:** Simulate an external attacker (no credentials).  
+- **Authenticated scans:** Provide read-only credentials → deeper visibility, fewer false positives.
+
+> **Warning:** Always get written permission—unauthorized scanning can violate CFAA.
+
+### Common Vulnerabilities and Exposures (CVE)
+
+- **CVE:** Standard ID for each known vulnerability (e.g., `CVE-2020-0601`).  
+- **Maintained by:** MITRE (funded by DHS/CISA).  
+- **Why use it?**  
+  - Vendors & tools map patches and scans to CVE IDs.  
+  - Streamlines reporting & patch prioritization.  
