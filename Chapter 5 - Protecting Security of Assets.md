@@ -33,8 +33,6 @@
   - [Standards Selection]()
 - [Summary]()
 
-# Chapter 5 – Protecting Security of Assets
-
 ## Identifying and Classifying Information and Assets
 - **Life-cycle protection**: safeguard data **from creation through destruction**  
 - **Assets**: not just data—also the **hardware** processing it and the **media** storing it  
