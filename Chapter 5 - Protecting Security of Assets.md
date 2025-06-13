@@ -33,6 +33,154 @@
   - [Standards Selection](#standards-selection)  
 - [Summary](#summary)  
 
+```mermaid
+mindmap
+  root((Chapter 5: Protecting Security of Assets))
+    Identifying & Classifying Information & Assets
+      Defining Sensitive Data
+        PII
+          “Can distinguish/trace an individual”
+          NIST SP 800-122
+          Breach & notification obligations (GDPR, CCPA)
+        PHI
+          HIPAA scope: providers, insurers, clearinghouses
+          Exclusions: education/employment records, >50 yrs deceased
+        Proprietary Data
+          Source code, designs, trade secrets
+          Legal controls vs technical controls
+      Defining Data Classifications
+        Tiers → {Highest, High, Moderate, None}
+        Labels → {Top Secret → Confidential, Secret → Private, etc.}
+        Impact → {Exceptionally grave → No damage}
+        Sub-labels → {FOUO, SBU, CUI}
+      Defining Asset Classifications
+        Inheritance of data labels
+        Physical & electronic marking
+      Understanding Data States
+        At Rest → Encrypt (AES-256)
+        In Transit → TLS, IPSec (hybrid crypto)
+        In Use → Flush buffers, homomorphic
+      Determining Compliance Requirements
+        Applicable laws: PII, PHI, export, industry
+        Compliance officer role
+      Determining Data Security Controls
+        Map policy → controls (e.g., “encrypt all non-public email”)
+        Select tech: DLP gateways, mail servers, endpoint encryption
+        Automate labeling/enforcement (“no forward,” “no print”)
+        Tip: Classification → control selection
+    Establishing Info & Asset Handling Requirements
+      Data Maintenance
+        Life-cycle care (create → destroy)
+        Segmentation (air-gaps, one-way guards)
+        Policy reviews & breach lessons
+      Data Loss Prevention (DLP)
+        Network DLP: perimeter monitoring & block
+        Endpoint DLP: stops copy/print; mass scans
+        Cloud DLP: native cloud services
+        Discovery mode & limitations (no inspect encrypted)
+      Labeling Sensitive Data & Assets
+        Physical tags on tapes/drives
+        Electronic labels: headers, metadata watermarks
+        “Public” marking to avoid unlabeled suspicion
+        Downgrade controls & sanitization
+      Handling Sensitive Info & Assets
+        Secure transport: locked containers
+        Physical security: vaults, safes, HVAC, fire suppression
+        Cloud caution: secure buckets, IAM rules
+        Verify via logs, monitoring, audits
+      Data Collection Limitation
+        Minimize scope → only necessary fields
+        Privacy by design → reduce breach risk
+      Data Location
+        On-site + off-site backups
+        Geographic diversity (regions, AZs)
+        Cloud replication across zones
+      Storing Sensitive Data
+        Encryption at rest (AES-256)
+        Quality media (biometric USBs)
+        Physical safeguards for removable media
+      Data Destruction
+        Erasing vs Clearing vs Purging
+        Degaussing (HDD/tapes) vs Destruction (SSDs)
+        Cryptographic erasure (SED + key destroy)
+        Verification of sanitization
+      Ensuring Appropriate Retention
+        Schedules by law/business need
+        EOL/EOS alignment → no unsupported hardware
+        Litigation holds vs over-retention risk
+        Right-size retention vs cost & risk
+    Data Protection Methods
+      Digital Rights Management (DRM)
+        Licenses + usage terms + decryption keys
+        Always-on authentication
+        Watermarks & metadata
+        Pros/Cons: piracy prevention vs fair-use friction
+      Cloud Access Security Broker (CASB)
+        Middleware between users & cloud
+        AuthN/AuthZ, encryption enforcement
+        Monitoring, audit, DLP extension, Shadow IT
+      Pseudonymization
+        Replace IDs with stable aliases
+        GDPR: still personal data but relaxed controls
+        Mapping stored separately under strict controls
+        Use case: medical data for research
+      Tokenization
+        Replace data with random tokens
+        Vault stores real data + issues token
+        PCI scope reduction, recurring billing
+        Contrast with pseudonymization
+      Anonymization
+        Irreversibly remove identifiers
+        Randomized masking → preserves stats only
+        Resist reidentification attacks
+    Understanding Data Roles
+      Data Owners
+        Senior execs/department heads
+        Define acceptable use, classify & label data
+        Approve controls, assign privileges
+        Liable for negligence
+      Data Controllers & Processors
+        Controller: “why/how” of personal data (GDPR)
+        Processor: handles data per controller’s instructions
+        GDPR fines: up to 4 % global revenue or €20 M
+      Data Custodians
+        IT/admin staff
+        Implement controls, backups, audits
+        Enforce owner-assigned permissions
+      Users & Subjects
+        Users: employees with least-privilege access
+        Data Subjects: natural persons identified by data
+    Using Security Baselines
+      Imaging & Group Policy
+        Golden image → deploy clones
+        GPO for drift detection & correction
+      NIST SP 800-53 Baselines
+        Low / Moderate / High-impact → CIA loss levels
+        Privacy baseline for PII systems
+      Selecting a Baseline
+        Estimate worst-case CIA impact
+        Choose matching baseline + privacy
+        Implement all controls
+    Comparing Tailoring & Scoping
+      Tailoring
+        Adjust parameters (e.g., lockout 5→3)
+        Add compensating/supplemental controls
+        Follow NIST SP 800-53B process
+      Scoping
+        Review each control → justify omissions
+        Document rationale for due diligence
+    Standards Selection
+      Mandatory: PCI DSS, GDPR, HIPAA, SOX, FedRAMP
+      Community: NIST SP, ISO 27001, CIS Benchmarks
+      Voluntary adoption → maturity & audit ease
+    Summary
+      Classify & label → lifecycle protection → destruction
+      Role clarity → owner/controller/custodian/accountability
+      Protection techniques: DLP, DRM, CASB, tokenization
+      Tailoring/scoping baselines → risk-aligned controls
+
+```
+
 ## Identifying and Classifying Information and Assets
 - **Life-cycle protection**: safeguard data **from creation through destruction**  
 - **Assets**: not just data—also the **hardware** processing it and the **media** storing it  
