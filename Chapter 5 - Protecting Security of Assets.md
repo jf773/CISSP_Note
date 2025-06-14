@@ -258,12 +258,22 @@ A data breach occurs when unauthorized parties access sensitive data. To prevent
 ### Data Destruction
 Align your methods to the classification level, per NIST SP 800-88:
 
-1. **Erasing:** “Delete”—only removes pointers; _not_ secure.  
-2. **Clearing:** Single or multi-pass overwrite (e.g., write 0xFF, 0x00, then random) to thwart most recovery tools.  
-3. **Purging:** High-assurance overwrite or firmware-based secure erase—_may_ leave hidden remanence.  
-4. **Degaussing:** Strong magnetic field to wipe HDDs/tapes—_destroys_ media, _doesn’t_ work on SSDs or optical.  
-5. **Destruction:** Shredding, pulverizing, incinerating, or NSA-approved disintegration of SSDs to ≤2 mm fragments.  
-6. **Cryptographic erasure:** Destroy only the keys—_always_ combine with a self-encrypting drive and verify.  
+| Rank | Method                      | Description                                                                                               | Effectiveness | Notes                                                                 |
+|------|-----------------------------|-----------------------------------------------------------------------------------------------------------|----------------|-----------------------------------------------------------------------|
+| 🥇 1 | **Destruction**             | Physically destroys media (e.g., shredding, pulverizing, incinerating, NSA-approved ≤2mm disintegration) | ✅✅ Maximum     | Best for SSDs, HDDs, tapes; **irreversible** and final                |
+| 🥈 2 | **Purging**                 | High-assurance overwrite or firmware-based secure erase                                                   | ✅ High         | More thorough than clearing; may miss hidden sectors (e.g., HPA)      |
+| 🥉 3 | **Degaussing**              | Strong magnetic field destroys magnetic domains on HDDs/tapes                                             | ✅ High         | **Not effective on SSDs or optical media**; also renders media unusable |
+| 4️⃣ | **Clearing**                | Overwriting with single/multiple patterns (e.g., 0xFF, 0x00, random)                                      | ⚠️ Medium-High  | Suitable for HDDs; not reliable for SSDs due to wear leveling         |
+| 5️⃣ | **Formatting the disks**    | Removes file system metadata (quick or full format)                                                       | ❌ Low–Medium   | Full format is better, but still leaves recoverable data              |
+| 6️⃣ | **Deleting the files**      | Removes file pointers only; content remains on disk                                                       | ❌ Very Low     | Easily recovered using common forensic tools                          |
+| 7️⃣ | **Defragmenting the disks** | Reorganizes data for performance; does **not** delete any data                                            | ❌ None         | **Not a destruction method at all**                                   |
+                  |
+
+### **🧊 Cryptographic Erasure**
+- **Definition**: Involves deleting or overwriting the encryption keys used to protect data on a self-encrypting drive (SED).
+- **Effectiveness**: Extremely secure **if** the drive is truly encrypted and keys are unrecoverable.
+- **Use Case**: Ideal for SSDs and cloud environments where physical destruction is impractical.
+- **Important**: Should always be used in combination with **SEDs** and **key management verification**.
 
 > **Always verify** each sanitization step—software bugs, hardware quirks, or user errors can leave remnants.
 
