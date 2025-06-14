@@ -25,10 +25,12 @@
 - [Cryptographic Life Cycle]()
 - [Summary]()
 
+## Cryptographic Foundations ⚙️
+Cryptography underpins all secure systems. This section covers its main goals and core concepts.
 
-## Cryptographic Foundations  
+### Goals of Cryptography 🎯
+Security uses crypto to meet **four** key objectives. Not every system does all four—know which goals your design needs!
 
-### Goals of Cryptography  
 | Goal | Security Service Provided | Example Control |
 |------|---------------------------|-----------------|
 | **Confidentiality** | Prevent disclosure | AES, TLS |
@@ -36,21 +38,63 @@
 | **Authentication** | Verify identity/source | Digital signature, MAC |
 | **Non-repudiation** | Prevent sender denial | PKI sigs, log hashes |  
 
-### Cryptography Concepts  
-- **Plaintext ↔ Ciphertext** via algorithm + key.  
-- **Confusion** (hide relationship between key & ciphertext) & **Diffusion** (spread influence over output) → Claude Shannon.  
-- **Key space** size = 2^bits; work factor measures brute-force difficulty.  
-- **Kerckhoffs’ principle:** secrecy should reside **only in the key**.
+#### Confidentiality 🔒  
+- Keeps data **private** in three states:  
+  - **At Rest** 💾 (stored on disk, tapes, USB)  
+  - **In Transit** 📡 (on the wire/network)  
+  - **In Use** 🖥️ (active in memory)  
+- **Symmetric** ciphers (one shared secret key)  
+- **Asymmetric** ciphers (public / private key pair)  
 
-### Cryptographic Mathematics  
-- **Modular arithmetic**, prime factoring, discrete logarithms, elliptic curves.  
-- *n ≡ a (mod m)* forms basis of RSA, DH, ECC.  
-- **Avalanche effect:** small input change ⇒ ~50 % output bits flip.
+#### Integrity ✉️  
+- Ensures data **isn’t altered** (no tampering)  
+- Protects against:  
+  - Malicious insertion/deletion  
+  - Transmission faults  
+- Enforced via **hashes** & **digital signatures**  
 
-### Ciphers  
-- **Substitution** (Caesar, Vigenère), **Transposition**, **Stream** vs **Block**.  
-- **One-Time Pad** offers perfect secrecy if key random, same length, used once.
+#### Authentication 🆔  
+- Verifies **identity** of sender/receiver  
+- Example: **Challenge–Response** protocol  
+  1. Alice ↔️ Bob share secret  
+  2. Alice “challenges” Bob  
+  3. Bob returns correct encrypted reply  
+  4. Alice trusts Bob’s identity  
 
+#### Nonrepudiation 🖋️  
+- Prevents sender from **denying** they sent a message  
+- **Only** provided by **public-key** (asymmetric) signatures  
+- **Symmetric** systems cannot prove which party encrypted
+
+### Cryptography Concepts 💡
+
+#### Plaintext & Ciphertext 🔄  
+- **Plaintext (P)**: original message  
+- **Ciphertext (C)**: encrypted output
+
+C = Encryptₖ(P)
+P = Decryptₖ(C)
+
+#### Keys & Keyspace 🔑  
+- **Key** = large binary number  
+- **Keyspace** = all possible keys = 2ⁿ (n = key bit-length)  
+  - e.g. 128-bit → 2¹²⁸ ≈ 3.4×10³⁸ possibilities  
+
+#### Kerckhoffs’s Principle 📜  
+> “The enemy knows the system.”  
+- **Algorithm** = public  
+- **Key** = secret  
+- Avoid **security through obscurity**
+
+#### Cryptography vs. Cryptanalysis 🥊🔍  
+- **Cryptography**: designing ciphers  
+- **Cryptanalysis**: breaking ciphers  
+- Together = **Cryptology**
+
+#### Cryptosystems & Standards 🛡️  
+- **Cryptosystem** = hardware/software implementing a cipher  
+- **FIPS 140-3**: U.S. Federal standard for crypto modules  
+- **Cryptovariable** = key
 ---
 
 ## Modern Cryptography  
