@@ -381,6 +381,28 @@ Beyond encrypting data in transit or at rest and using DLP to block unauthorized
 
 Many hands touch an organization’s data—each with distinct responsibilities. Clear role definitions ensure accountability and proper protection of sensitive information.
 
+| **Role**             | **Description**                                                                            | **Key Responsibilities**                                                                                      | **Example**                                                                 |
+|----------------------|--------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| **Data Owner**        | Person or entity ultimately accountable for a dataset                                     | - Define data classification<br>- Approve access rights<br>- Set usage policy<br>- Ensure data is protected  | Department head sets classification and access policy for financial data    |
+| **Data Controller**   | Entity that decides **why** and **how** personal data is processed (GDPR-specific)        | - Determine purpose and means of processing<br>- Ensure GDPR compliance<br>- Choose & oversee processors      | HR department defines how employee data is collected and managed            |
+| **Data Processor**    | Third party that processes data **on behalf** of the controller (per instruction only)     | - Perform processing as directed<br>- Implement technical and organizational safeguards                       | A payroll company processes salary data for a client company                |
+| **Data Custodian**    | Technical role managing the day-to-day security and storage of data                       | - Apply encryption, backups, logging<br>- Maintain access controls<br>- Ensure data integrity and availability| System administrator manages backups and security patches on servers        |
+| **Data User**         | End user who accesses or uses data as part of their job                                  | - Access data per policy<br>- Use data responsibly<br>- Report anomalies or breaches                           | Salesperson views customer data in CRM to follow up on leads                |
+
+## ✅ Summary Table
+
+| **Feature**             | **Owner** | **Controller** | **Processor** | **Custodian** | **User** |
+|-------------------------|-----------|----------------|----------------|----------------|----------|
+| Sets purpose of use     | ✅        | ✅             | ❌             | ❌             | ❌       |
+| Uses data directly      | ❌        | ✅ (sometimes) | ✅             | ❌             | ✅       |
+| Implements technical controls | ❌ | ❌             | ✅ (if delegated) | ✅             | ❌       |
+| Legal accountability    | ✅        | ✅             | ✅ (shared)     | ❌             | ❌       |
+
+> 📝 **Tip for CISSP:**  
+> - Understand who is **legally responsible** (Owner, Controller)  
+> - Know who **implements controls** (Processor, Custodian)  
+> - Remember users should follow **least privilege** and security policies 
+
 ### Data Owners  
 - **Who?**  
   Senior executives or department heads with ultimate responsibility for specific data sets.  
@@ -629,13 +651,27 @@ Asset protection starts with **proper classification** and **role assignment**, 
 
 ## 👥 情報に関わる役割と責任
 
-| 役割             | 内容                                       |
-|------------------|--------------------------------------------|
-| データオーナー   | 部門責任者。分類・ルール策定・アクセス決定 |
-| データ管理者     | IT管理者。運用・バックアップ・制御実施     |
-| データコントローラー | 収集・利用の目的を決める人（GDPR用語）     |
-| データプロセッサー   | コントローラーの指示で処理する外部委託先   |
-| ユーザー         | システムやデータを使う全社員・職員         |
+| **役割**               | **説明**                                                                 | **主な責任**                                                                                          | **具体例**                                                                 |
+|------------------------|--------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| **データオーナー**     | 特定のデータに対して最終的な責任を持つ人または部門                        | - データの分類を決定<br>- アクセス権の承認<br>- 使用ポリシーの設定<br>- 保護策の指示                  | 経理部長が財務レポートの分類と共有ルールを決定                             |
+| **データコントローラー** | 個人データの **収集目的と方法** を決定する組織（GDPR用語）                | - 収集の目的と方法を定義<br>- GDPR等の法令遵守<br>- 外部処理業者（プロセッサ）の選定・管理           | 人事部が社員情報の収集・使用方針を定める                                   |
+| **データプロセッサー**   | コントローラーの **指示に従って** データを処理する第三者（外部業者）        | - 指示された範囲内でのみ処理を実施<br>- 技術的・組織的なセキュリティ対策を実装                       | 給与処理会社が企業の給与データを処理する                                   |
+| **データカストディアン** | データの **日常的な管理とセキュリティ** を担当するIT技術者や管理者          | - 暗号化、バックアップ、アクセス制御の実装<br>- システムログ管理と保守                               | システム管理者がデータベースの暗号化とバックアップを実施                 |
+| **データユーザー**       | 業務でデータを使用する一般利用者                                           | - 許可された範囲内でデータを使用<br>- セキュリティポリシーの遵守<br>- 不正使用の報告                 | 営業担当が顧客情報をCRMで閲覧して営業フォローを行う                        |
+
+## ✅ サマリー比較表
+
+| **特徴**                        | **オーナー** | **コントローラー** | **プロセッサー** | **カストディアン** | **ユーザー** |
+|----------------------------------|---------------|----------------------|--------------------|---------------------|----------------|
+| 目的・方法の決定                 | ✅            | ✅                   | ❌                 | ❌                  | ❌             |
+| データの直接利用                 | ❌            | ✅（場合による）     | ✅                 | ❌                  | ✅             |
+| 技術的対策の実装                 | ❌            | ❌                   | ✅（委託時）        | ✅                  | ❌             |
+| 法的責任                         | ✅            | ✅                   | ✅（一部共有）       | ❌                  | ❌             |
+
+> 💡 **CISSP試験対策ヒント**  
+> - 誰が「目的・方法」を決めるか（Owner / Controller）  
+> - 誰が「技術的な保護策」を実行するか（Processor / Custodian）  
+> - ユーザーは**最小権限の原則**に従って行動することが重要
 
 ---
 
