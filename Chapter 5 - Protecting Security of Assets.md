@@ -158,6 +158,8 @@ mindmap
 
 ```
 
+[CISSP Study Guide 10ed 2024 Chapter 5](https://www.youtube.com/watch?v=c-D9SBeHBl4&t=679s)
+
 ## Identifying and Classifying Information and Assets
 - **Life-cycle protection**: safeguard data **from creation through destruction**  
 - **Assets**: not just data—also the **hardware** processing it and the **media** storing it  
