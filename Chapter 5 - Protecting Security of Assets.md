@@ -258,16 +258,15 @@ A data breach occurs when unauthorized parties access sensitive data. To prevent
 ### Data Destruction
 Align your methods to the classification level, per NIST SP 800-88:
 
-| Rank | Method                      | Description                                                                                               | Effectiveness | Notes                                                                 |
-|------|-----------------------------|-----------------------------------------------------------------------------------------------------------|----------------|-----------------------------------------------------------------------|
-| 🥇 1 | **Destruction**             | Physically destroys media (e.g., shredding, pulverizing, incinerating, NSA-approved ≤2mm disintegration) | ✅✅ Maximum     | Best for SSDs, HDDs, tapes; **irreversible** and final                |
-| 🥈 2 | **Purging**                 | High-assurance overwrite or firmware-based secure erase                                                   | ✅ High         | More thorough than clearing; may miss hidden sectors (e.g., HPA)      |
-| 🥉 3 | **Degaussing**              | Strong magnetic field destroys magnetic domains on HDDs/tapes                                             | ✅ High         | **Not effective on SSDs or optical media**; also renders media unusable |
-| 4️⃣ | **Clearing**                | Overwriting with single/multiple patterns (e.g., 0xFF, 0x00, random)                                      | ⚠️ Medium-High  | Suitable for HDDs; not reliable for SSDs due to wear leveling         |
-| 5️⃣ | **Formatting the disks**    | Removes file system metadata (quick or full format)                                                       | ❌ Low–Medium   | Full format is better, but still leaves recoverable data              |
-| 6️⃣ | **Deleting the files**      | Removes file pointers only; content remains on disk                                                       | ❌ Very Low     | Easily recovered using common forensic tools                          |
-| 7️⃣ | **Defragmenting the disks** | Reorganizes data for performance; does **not** delete any data                                            | ❌ None         | **Not a destruction method at all**                                   |
-                  |
+| Rank | Method                      | Description                                                                                               | Effectiveness   | NIST Classification        | Notes                                                                 |
+|------|-----------------------------|-----------------------------------------------------------------------------------------------------------|------------------|-----------------------------|-----------------------------------------------------------------------|
+| 🥇 1 | **Destruction**             | Physically destroys media (e.g., shredding, pulverizing, NSA-approved ≤2mm particle size)                 | ✅✅ Maximum      | **Destruction**             | Irreversible; applies to HDDs, SSDs, tapes, optical media             |
+| 🥈 2 | **Degaussing**              | Strong magnetic field disrupts magnetic domains in HDDs and tapes                                         | ✅ High          | **Purging (magnetic)**      | Not effective on SSDs or optical; also renders media unusable         |
+| 🥉 3 | **Purging**                 | High-assurance firmware-based or software-level secure erase                                              | ✅ High          | **Purging**                 | Suitable for HDDs/SSDs if verified; may leave hidden sectors          |
+| 4️⃣ | **Clearing**                | Overwrites data with one or more patterns (e.g., 0xFF, 0x00, random)                                       | ⚠️ Medium-High   | **Clearing**                | Reliable for HDDs; **not sufficient** for SSDs                        |
+| 5️⃣ | **Formatting the Disks**    | Removes filesystem structure (Quick/Full); does **not** overwrite actual data                             | ❌ Low–Medium    | ❌ Not NIST-sanctioned       | Full format is better, but recovery still possible                    |
+| 6️⃣ | **Erasing (Deleting Files)**| Deletes file pointers from the directory table, but leaves data intact on disk                            | ❌ Very Low      | ❌ Not NIST-sanctioned       | Easily recoverable using forensic tools                               |
+| 7️⃣ | **Defragmenting the Disks** | Reorganizes data blocks for performance; **does not remove or modify** data                               | ❌ None          | ❌ Not a destruction method | Zero impact on data security — only affects disk layout               |
 
 ### **🧊 Cryptographic Erasure**
 - **Definition**: Involves deleting or overwriting the encryption keys used to protect data on a self-encrypting drive (SED).
