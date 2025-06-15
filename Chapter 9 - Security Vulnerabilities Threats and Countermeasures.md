@@ -99,20 +99,20 @@ mindmap
 ---
 ## Shared Responsibility
 
-- **Everyone’s Role** 👥  
+1. **Everyone’s Role** 👥  
   - CISO & security team set up and maintain controls  
   - Employees follow security policies in daily tasks  
   - Auditors monitor for violations
 
-- **Stakeholder Accountability** 📊  
+2. **Stakeholder Accountability** 📊  
   - Organizations must protect investor, customer & partner interests  
   - Security decisions safeguard reputation and legal compliance
 
-- **Cloud Shared Responsibility Model ☁️**  
+3. **Cloud Shared Responsibility Model ☁️**  
   - Understand which security tasks you vs. your cloud provider handle  
   - See Chapter 16 for in-depth coverage
 
-- **Responsible Vulnerability Disclosure 🛠️**  
+4. **Responsible Vulnerability Disclosure 🛠️**  
   - When you find a new flaw, report it to the vendor or threat-intel hub  
   - Protect users by sharing details responsibly
 
