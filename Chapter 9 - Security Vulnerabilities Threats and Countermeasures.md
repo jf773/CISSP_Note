@@ -97,7 +97,7 @@ mindmap
 ```
 
 ---
-## Shared Responsibility 🔄
+## Shared Responsibility
 
 - **Everyone’s Role** 👥  
   - CISO & security team set up and maintain controls  
