@@ -1,29 +1,83 @@
 # Chapter 6: Cryptography and Symmetric Key Algorithms
 
-- [Cryptographic Foundations]()
-  - [Goals of Cryptography]()
-  - [Cryptography Concepts]()
-  - [Cryptographic Mathematics]()
-  - [Ciphers]()
-- [Modern Cryptography]()
-  - [Cyrptographic Keys]()
-  - [Symmetic Key Algorithms]()
-  - [Asymmetic Key Algorithms]()
-  - [Hashing Algorithms]()
-- [Symmetric Cryptography]()
-  - [Block Cipher Modes of Operation]()
-  - [Data Encryption Standard]()
-  - [Triple DES]()
-  - [International Data Encryption Algorithm]()
-  - [Blowfish]()
-  - [SKIPJACK]()
-  - [Rivest Ciphers]()
-  - [Advanced Encryption Standard]()
-  - [CAST]()
-  - [Comparison of Symmetric Encryption Algorithms]()
-  - [Symmetric Key Management]()
-- [Cryptographic Life Cycle]()
-- [Summary]()
+- [Cryptographic Foundations](#cryptographic-foundations)
+  - [Goals of Cryptography](#goals-of-cryptography)
+  - [Cryptography Concepts](#cryptography-concepts)
+  - [Cryptographic Mathematics](#cryptographic-mathematics)
+  - [Ciphers](#ciphers)
+- [Modern Cryptography](#modern-cryptography)
+  - [Cryptographic Keys](#cryptographic-keys)
+  - [Symmetric Key Algorithms](#symmetric-key-algorithms)
+  - [Asymmetric Key Algorithms](#asymmetric-key-algorithms)
+  - [Hashing Algorithms](#hashing-algorithms)
+- [Symmetric Cryptography](#symmetric-cryptography)
+  - [Block Cipher Modes of Operation](#block-cipher-modes-of-operation)
+  - [Data Encryption Standard](#data-encryption-standard)
+  - [Triple DES](#triple-des)
+  - [International Data Encryption Algorithm](#international-data-encryption-algorithm)
+  - [Blowfish](#blowfish)
+  - [SKIPJACK](#skipjack)
+  - [Rivest Ciphers](#rivest-ciphers)
+  - [Advanced Encryption Standard](#advanced-encryption-standard)
+  - [CAST](#cast)
+  - [Comparison of Symmetric Encryption Algorithms](#comparison-of-symmetric-encryption-algorithms)
+  - [Symmetric Key Management](#symmetric-key-management)
+- [Cryptographic Life Cycle](#cryptographic-life-cycle)
+- [Summary](#summary)
+
+```mermaid
+mindmap
+  root[Chapter 6: Cryptography & Symmetric Key Algorithms]
+    Foundations[Cryptographic Foundations]
+      Goals[Goals of Cryptography 🔑]
+        Confidentiality[Confidentiality 🔒]
+          Data_at_Rest[Data at Rest]
+          Data_in_Transit[Data in Transit]
+          Data_in_Use[Data in Use]
+          Symmetric[Symmetric Cryptosystems]
+          Asymmetric[Asymmetric Cryptosystems]
+        Integrity[Integrity 📑]
+        Authentication[Authentication ✅]
+        Nonrepudiation[Nonrepudiation ✍️]
+      Concepts[Cryptography Concepts]
+        Plaintext[Plaintext P]
+        Ciphertext[Ciphertext C]
+        Keys[Keys & Key Space 🔑]
+        Kerckhoffs[Kerckhoffs’s Principle]
+      Mathematics[Cryptographic Mathematics ➗]
+        Modular_Arithmetic[Modular Arithmetic]
+        Prime_Numbers[Prime Numbers]
+        Discrete_Math[Discrete Mathematics]
+      Ciphers[Ciphers 🔐]
+        Substitution[Substitution]
+        Transposition[Transposition]
+    Modern[Modern Cryptography]
+      Keys2[Cryptographic Keys]
+        Symmetric_Keys[Symmetric Keys]
+        Asymmetric_Keys[Asymmetric Keys]
+      Symmetric_Algorithms[Symmetric Key Algorithms]
+      Asymmetric_Algorithms[Asymmetric Key Algorithms]
+      Hash_Algorithms[Hashing Algorithms]
+    SymmetricCrypto[Symmetric Cryptography]
+      Block_Modes[Block Cipher Modes 📦]
+        ECB[ECB]
+        CBC[CBC]
+        CFB[CFB]
+        OFB[OFB]
+        CTR[CTR]
+      DES[Data Encryption Standard]
+      Triple_DES[Triple DES]
+      IDEA[International Data Encryption Algorithm]
+      Blowfish[Blowfish]
+      Skipjack[SKIPJACK]
+      Rivest_Ciphers[Rivest Ciphers RC2 RC4 RC5 RC6]
+      AES[Advanced Encryption Standard]
+      CAST[CAST]
+      Comparison[Algorithm Comparison]
+      Key_Management[Symmetric Key Management]
+    LifeCycle[Cryptographic Life Cycle 🔄]
+    Summary[Summary 📝]
+```
 
 ## Cryptographic Foundations ⚙️
 Cryptography underpins all secure systems. This section covers its main goals and core concepts.
