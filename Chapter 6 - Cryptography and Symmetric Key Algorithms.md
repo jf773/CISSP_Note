@@ -363,13 +363,15 @@ Modern cryptography uses complex algorithms and long keys to meet the four secur
 ## Symmetric Cryptography  
 
 ### Block Cipher Modes of Operation  
-| Mode | Feature | Caveat |
-|------|---------|--------|
-| **ECB** | Simple, parallelizable | Pattern leaks |
-| **CBC** | Adds IV, good default | Sequential, error-propagation |
-| **CFB/OFB** | Self-synchronizing stream | Throughput = 1 block |
-| **CTR** | Parallel, random access | Requires unique nonce |
-| **GCM, XTS** | Authenticated & disk encryption | Tag management critical |
+| Mode  | Type        | IV Required | Parallelizable (E/D) | Error Propagation    | Authenticated 🔒 | Typical Use                     |
+|:------|:------------|:------------|:---------------------|:---------------------|:-----------------|:--------------------------------|
+| **ECB**  | Block cipher | No          | Yes / Yes             | No                   | No               | Small blocks (keys, params)     |
+| **CBC**  | Block cipher | Yes         | No / Yes              | Yes (current + next) | No               | File encryption, disk drives    |
+| **CFB**  | Stream cipher| Yes         | No / No               | Yes (one register)   | No               | Real-time streams, legacy SSH   |
+| **OFB**  | Stream cipher| Yes         | No / No               | No                   | No               | Low-error links, one-time pads   |
+| **CTR**  | Stream cipher| Yes (nonce+ctr) | Yes / Yes          | No                   | No               | High-speed, parallel systems     |
+| **GCM**  | Authenticated| Yes         | Yes / Yes             | No                   | Yes              | TLS 1.2+, IPsec, secure storage  |
+| **CCM**  | Authenticated| Yes         | Yes / Yes             | No                   | Yes              | 802.11 wpa2-enterprise, IoT      |
 
 Describe **how** a block cipher (e.g. AES, DES) processes data.  
 
