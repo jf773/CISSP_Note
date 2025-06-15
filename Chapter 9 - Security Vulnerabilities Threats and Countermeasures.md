@@ -48,58 +48,52 @@
 
 ```mermaid
 mindmap
-  root((Chapter 9: Security Vulnerabilities, Threats & Countermeasures))
-    Shared_Responsibility(("Shared Responsibility"))
-    Assess_and_Mitigate(("Assess & Mitigate Vulnerabilities"))
+  root(("Chap 9\nSec Vulnerabilities"))
+    Shared_Responsibility(("Shared\nResponsibility"))
+    Data_Localization_Sovereignty(("Data Localization\n& Data Sovereignty"))
+    Assess_and_Mitigate(("Assess & Mitigate\nVulnerabilities"))
       Hardware(("Hardware"))
-        Processor(("Processor"))
-          Execution_Types(("Execution Types"))
-            Multitasking
-            Multicore
-            Multiprocessing
-            Multiprogramming
-            Multithreading
-        Memory(("Memory"))
-          Read_Only_Memory(("ROM"))
-            PROM
-            EPROM
-            EEPROM
-            Flash
-          Random_Access_Memory(("RAM"))
-            Real_Memory
-            Cache_RAM
-            Registers
-            Addressing_Modes(("Addressing Modes"))
-              Register
-              Immediate
-              Direct
-              Indirect
-              Base_+_Offset
-            Virtual_Memory(("Virtual Memory"))
-      Client_Based_Systems(("Client-Based Systems"))
-      Server_Based_Systems(("Server-Based Systems"))
-      Industrial_Control_Systems(("Industrial Control Systems"))
-      Distributed_Systems(("Distributed Systems"))
-      High_Performance_Computing(("High-Performance Computing"))
-      Internet_of_Things(("Internet of Things"))
-      Edge_and_Fog_Computing(("Edge & Fog Computing"))
-      Embedded_and_Cyber_Physical(("Embedded & Cyber-Physical"))
+      Firmware(("Firmware"))
+      Client_Based(("Client-Based\nSystems"))
+      Mobile_Code(("Mobile\nCode"))
+      Local_Caches(("Local\nCaches"))
+      Server_Based(("Server-Based\nSystems"))
+      Large_Scale_Parallel(("Large-Scale\nParallel\nData Systems"))
+      Grid_Computing(("Grid\nComputing"))
+      Peer_to_Peer(("Peer-to-Peer"))
+      Industrial_Control(("Industrial Control\nSystems"))
+      Distributed_Systems(("Distributed\nSystems"))
+      HPC_Systems(("HPC\nSystems"))
+      Real_Time_OS(("Real-Time\nOS"))
+      IoT(("IoT"))
+      Edge_Fog(("Edge & Fog\nComputing"))
+      Embedded_CPS(("Embedded & CPS"))
+        Static_Systems(("Static\nSystems"))
+        Cyber_Physical(("Cyber-Physical\nSystems"))
+        Embedded_Security_Concerns(("Security Concerns\n(Embedded & Static)"))
       Microservices(("Microservices"))
-      Infrastructure_as_Code(("Infrastructure as Code"))
-      Virtualized_Systems(("Virtualized Systems"))
+      Infrastructure_as_Code(("Infrastructure\nas Code"))
+      Immutable_Architecture(("Immutable\nArchitecture"))
+      Virtualized_Systems(("Virtualized\nSystems"))
+        Virtual_Software(("Virtual\nSoftware"))
+        Virtualized_Networking(("Virtualized\nNetworking"))
+        Software_Defined(("Software-Defined\nEverything"))
+        Virtualization_Management(("Virtualization\nMgmt"))
       Containerization(("Containerization"))
-      Serverless(("Serverless"))
-      Mobile_Devices(("Mobile Devices"))
-    Protection_Mechanisms(("Protection Mechanisms"))
-      Process_Isolation
-      Hardware_Segmentation
-      Protection_Rings
-      Process_States
-    Common_Flaws(("Common Architecture Flaws & Issues"))
-      Covert_Channels
-      Coding_Flaws(("Design/Coding Flaws"))
-      Rootkits
-      Incremental_Attacks(("Incremental Attacks"))
+      Mobile_Devices(("Mobile\nDevices"))
+        Mobile_Security_Features(("Mobile\nSecurity Features"))
+        Mobile_Deployment_Policies(("Mobile Deployment\nPolicies"))
+    Protection_Mechanisms(("Protection\nMechanisms"))
+      Process_Isolation(("Process\nIsolation"))
+      Hardware_Segmentation(("Hardware\nSegmentation"))
+      Root_of_Trust(("Root of\nTrust"))
+      System_Security_Policy(("System Sec\nPolicy"))
+    Common_Flaws(("Common Flaws & Issues"))
+      Covert_Channels(("Covert\nChannels"))
+      Coding_Flaws(("Coding\nFlaws"))
+      Rootkits(("Rootkits"))
+      Incremental_Attacks(("Incremental\nAttacks"))
+
 ```
 
 ---
