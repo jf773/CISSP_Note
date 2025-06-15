@@ -1,53 +1,52 @@
 # Chapter 9: Security Vulnerabilities, Threats, and Countermeasures
 
-- [Shared Responsibility]()
-- [Data Localization and Data Sovereignty]()
-- [Assess and Mitigate the Vulnerabilities of Security Architectures, Designs, and Solution Elements]()
-  - [Hardware]()
-  - [Firmware]()
-- [Client-Based Systems]()
-  - [Mobile Code]()
-  - [Local Caches]()
-- [Server-Based Systems]()
-  - [Large-Scale Parallel Data Systems]()
-  - [Grid Computing]()
-  - [Peer to Peer]()
-- [Industrial Control Systems]()
-- [Distributed Systems]()
-- [High-Performance Computing (HPC) Systems]()
-- [Real-Time Operating Systems]()
-- [Internet of Things]()
-- [Edge and Fog Computing]()
-- [Embedded Devices & Cyber-Physical Systems]()
-  - [Static Systems]()
-  - [Cyber-Physical Systems]()
-  - [Security Concerns of Embedded and Static Systems]()
-- [Microservices]()
-- [Infrastructure as Code]()
-- [Immutable Architecture]()
-- [Virtualized Systems]()
-  - [Virtual Software]()
-  - [Virtualized Networking]()
-  - [Software-Defined Everything]()
-  - [Virtualization Security Management]()
-- [Containerization]()
-- [Mobile Devices]()
-  - [Mobile Device Security Features]()
-  - [Mobile Device Deployment Policies]()
-- [Essential Security Protection Mechanisms]()
-  - [Process Isolation]()
-  - [Hardware Segmentation]()
-  - [Root of Trust]()
-  - [System Security Policy]()
-- [Common Security Architecture Flaws and Issues]()
-  - [Covert Channels]()
-  - [Attacks Based on Design or Coding Flaws]()
-  - [Rootkits]()
-  - [Incremental Attacks]()
-- [Summary]()
+- [Shared Responsibility](#shared-responsibility)
+- [Data Localization and Data Sovereignty](#data-localization-and-data-sovereignty)
+- [Assess and Mitigate the Vulnerabilities of Security Architectures, Designs, and Solution Elements](#assess-and-mitigate-the-vulnerabilities-of-security-architectures-designs-and-solution-elements)
+  - [Hardware](#hardware)
+  - [Firmware](#firmware)
+- [Client-Based Systems](#client-based-systems)
+  - [Mobile Code](#mobile-code)
+  - [Local Caches](#local-caches)
+- [Server-Based Systems](#server-based-systems)
+  - [Large-Scale Parallel Data Systems](#large-scale-parallel-data-systems)
+  - [Grid Computing](#grid-computing)
+  - [Peer to Peer](#peer-to-peer)
+- [Industrial Control Systems](#industrial-control-systems)
+- [Distributed Systems](#distributed-systems)
+- [High-Performance Computing (HPC) Systems](#high-performance-computing-hpc-systems)
+- [Real-Time Operating Systems](#real-time-operating-systems)
+- [Internet of Things](#internet-of-things)
+- [Edge and Fog Computing](#edge-and-fog-computing)
+- [Embedded Devices & Cyber-Physical Systems](#embedded-devices--cyber-physical-systems)
+  - [Static Systems](#static-systems)
+  - [Cyber-Physical Systems](#cyber-physical-systems)
+  - [Security Concerns of Embedded and Static Systems](#security-concerns-of-embedded-and-static-systems)
+- [Microservices](#microservices)
+- [Infrastructure as Code](#infrastructure-as-code)
+- [Immutable Architecture](#immutable-architecture)
+- [Virtualized Systems](#virtualized-systems)
+  - [Virtual Software](#virtual-software)
+  - [Virtualized Networking](#virtualized-networking)
+  - [Software-Defined Everything](#software-defined-everything)
+  - [Virtualization Security Management](#virtualization-security-management)
+- [Containerization](#containerization)
+- [Mobile Devices](#mobile-devices)
+  - [Mobile Device Security Features](#mobile-device-security-features)
+  - [Mobile Device Deployment Policies](#mobile-device-deployment-policies)
+- [Essential Security Protection Mechanisms](#essential-security-protection-mechanisms)
+  - [Process Isolation](#process-isolation)
+  - [Hardware Segmentation](#hardware-segmentation)
+  - [Root of Trust](#root-of-trust)
+  - [System Security Policy](#system-security-policy)
+- [Common Security Architecture Flaws and Issues](#common-security-architecture-flaws-and-issues)
+  - [Covert Channels](#covert-channels)
+  - [Attacks Based on Design or Coding Flaws](#attacks-based-on-design-or-coding-flaws)
+  - [Rootkits](#rootkits)
+  - [Incremental Attacks](#incremental-attacks)
+- [Summary](#summary)
 
 ---
-
 ### Shared Responsibility
 * **Cloud mantra:** provider secures *the* cloud; customer secures *in* the cloud.  
 * Varies by service model (IaaS > PaaS > SaaS).  
@@ -55,14 +54,12 @@
 * **Exam cue:** Identify mis-scoped duties (patching hypervisor ≠ tenant job).
 
 ---
-
 ### Data Localization and Data Sovereignty
 * Laws (GDPR Art 3, POPIA, PDPA) dictate where data may rest/flow.  
 * Controls: region-pinned buckets, geo-fenced keys (HSM-cluster per region), lawful-access reviews.  
 * **Hot topic for multinational scenarios.**
 
 ---
-
 ## Assess & Mitigate  
 
 ### Hardware
