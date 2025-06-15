@@ -149,8 +149,134 @@ P = Decryptₖ(C)
 - **Cryptosystem** = hardware/software implementing a cipher  
 - **FIPS 140-3**: U.S. Federal standard for crypto modules  
 - **Cryptovariable** = key
----
 
+---
+### Cryptographic Mathematics 🔢  
+Cryptography relies on mathematical foundations—binary math and logical operations—to secure data. Understanding these basics is essential to grasp modern algorithms.
+
+#### Boolean Mathematics 🔳  
+- **Definition**: Bit‐level math with only two values: 0 (FALSE) and 1 (TRUE).  
+- **Origin**: Matches computer hardware states (off/on).  
+- **Why it matters**: All cryptographic operations manipulate bits using Boolean logic.
+
+#### Logical Operations ➕✖️  
+Fundamental bit‐wise functions used in ciphers.
+
+##### AND (∧)  
+- **Rule**: Output is 1 only if both inputs are 1.  
+- **Truth table**:
+  | X | Y | X ∧ Y |
+  |:-:|:-:|:-----:|
+  | 0 | 0 |   0   |
+  | 0 | 1 |   0   |
+  | 1 | 0 |   0   |
+  | 1 | 1 |   1   |  
+- **Use**: Masks bits; preserves only shared 1s.
+
+##### OR (∨)  
+- **Rule**: Output is 1 if at least one input is 1.  
+- **Truth table**:
+  | X | Y | X ∨ Y |
+  |:-:|:-:|:-----:|
+  | 0 | 0 |   0   |
+  | 0 | 1 |   1   |
+  | 1 | 0 |   1   |
+  | 1 | 1 |   1   |  
+- **Use**: Combines bit‐streams; sets bits present in either input.
+
+##### NOT (~)  
+- **Rule**: Inverts a bit: 0→1, 1→0.  
+- **Truth table**:
+  | X | ~X |
+  |:-:|:--:|
+  | 0 |  1 |
+  | 1 |  0 |  
+- **Use**: Bit flipping; often used in building other functions.
+
+##### Exclusive OR (⊕) ❌  
+- **Rule**: Output is 1 if exactly one input is 1.  
+- **Truth table**:
+  | X | Y | X ⊕ Y |
+  |:-:|:-:|:-----:|
+  | 0 | 0 |   0   |
+  | 0 | 1 |   1   |
+  | 1 | 0 |   1   |
+  | 1 | 1 |   0   |  
+- **Use**: Fundamental in stream ciphers & mixing bits.
+
+#### Modulo Function (%) 🔄  
+- **Definition**: Remainder after integer division.  
+- **Notation**: `a mod n` or `a % n`.  
+- **Examples**:
+  - `8 mod 6 = 2`  
+  - `10 mod 3 = 1`  
+  - `32 mod 26 = 6`  
+- **Why it matters**: Wraps values within a range; key in many algorithms (e.g., RSA).
+
+#### One‐Way Functions 🔒  
+- **Definition**: Easy to compute forward, infeasible to invert without secret.  
+- **Importance**: Basis of public‐key systems (e.g., factoring large primes).  
+- **Real‐world**: Multiplying large primes vs. factoring the product.
+
+#### Nonce 🔢  
+- **Meaning**: “Number used once.”  
+- **Role**: Adds randomness to encryption (e.g., Initialization Vector).  
+- **Requirement**: Must be unique per use to prevent replay attacks.
+
+#### Zero‐Knowledge Proof (ZKP) 🤐  
+- **Goal**: Prove knowledge of a secret without revealing it.  
+- **Classic example**: Peggy demonstrates she knows a cave’s secret door password by entering one path and exiting the other, without revealing the password.  
+- **Use**: Authentication protocols where privacy is critical.
+
+#### Split Knowledge 🧩  
+- **Concept**: Divide secret across multiple parties so no one person can reconstruct it alone.  
+- **Example**: Key escrow with M-of-N control—requires multiple agents to recover the key.  
+- **Benefit**: Prevents insider compromise; enforces two-person control.
+
+#### Work Function ⚙️  
+- **Definition**: Effort (time/cost) required to break a cryptosystem (e.g., brute‐force).  
+- **Selection**: Should exceed the value‐lifespan of the protected data.  
+- **Considerations**: Advances in computing (parallel, quantum) can reduce work factor.
+
+---
+### Ciphers 🔐  
+Mechanisms to transform plaintext into unreadable ciphertext.
+
+#### Codes vs. Ciphers  
+- **Codes**: Map words/phrases to other words (e.g., “10-4”).  
+- **Ciphers**: Operate on bits/characters (e.g., Caesar cipher).  
+
+#### Transposition Ciphers 🔄  
+- **Method**: Rearranges letters of plaintext.  
+- **Example**: Columnar transposition using a keyword to permute columns.  
+
+#### Substitution Ciphers 🔁  
+- **Method**: Replace each letter with another.  
+- **Caesar cipher**: Shift letters by a fixed amount (e.g., ROT3).  
+- **Vigenère cipher**: Polyalphabetic shift using a repeating key.  
+
+#### One‐Time Pads 🗝️  
+- **Definition**: Key as long as message; used only once.  
+- **Property**: Provably unbreakable if key is random, secret, single-use, and ≥ message length.  
+
+#### Running Key Ciphers 📖  
+- **Definition**: Key is a text (e.g., book passage) as long as message.  
+- **Trade‐off**: Easier key distribution but vulnerable if key text is known.  
+
+#### Block Ciphers 📦  
+- **Definition**: Encrypt fixed‐size blocks (e.g., 64-bit) with a single key.  
+- **Examples**: AES, DES.  
+
+#### Stream Ciphers 🎛️  
+- **Definition**: Encrypt data bit‐by‐bit or byte‐by-byte, often using XOR with keystream.  
+- **Examples**: RC4, one‐time pad as a stream cipher.  
+
+#### Confusion and Diffusion 🌪️  
+- **Confusion**: Obscures relationship between key and ciphertext (complex substitution).  
+- **Diffusion**: Spreads plaintext changes across ciphertext (transposition).  
+- **Goal**: Make cryptanalysis (e.g., frequency analysis) difficult.
+
+---
 ## Modern Cryptography  
 
 ### Cryptographic Keys  
