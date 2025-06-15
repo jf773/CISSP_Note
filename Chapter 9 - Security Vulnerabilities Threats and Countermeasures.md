@@ -48,52 +48,52 @@
 
 ```mermaid
 mindmap
-  root(("Chap 9\nSec Vulnerabilities"))
-    Shared_Responsibility(("Shared\nResponsibility"))
-    Data_Localization_Sovereignty(("Data Localization\n& Data Sovereignty"))
-    Assess_and_Mitigate(("Assess & Mitigate\nVulnerabilities"))
-      Hardware(("Hardware"))
-      Firmware(("Firmware"))
-      Client_Based(("Client-Based\nSystems"))
-      Mobile_Code(("Mobile\nCode"))
-      Local_Caches(("Local\nCaches"))
-      Server_Based(("Server-Based\nSystems"))
-      Large_Scale_Parallel(("Large-Scale\nParallel\nData Systems"))
-      Grid_Computing(("Grid\nComputing"))
-      Peer_to_Peer(("Peer-to-Peer"))
-      Industrial_Control(("Industrial Control\nSystems"))
-      Distributed_Systems(("Distributed\nSystems"))
-      HPC_Systems(("HPC\nSystems"))
-      Real_Time_OS(("Real-Time\nOS"))
-      IoT(("IoT"))
-      Edge_Fog(("Edge & Fog\nComputing"))
-      Embedded_CPS(("Embedded & CPS"))
-        Static_Systems(("Static\nSystems"))
-        Cyber_Physical(("Cyber-Physical\nSystems"))
-        Embedded_Security_Concerns(("Security Concerns\n(Embedded & Static)"))
-      Microservices(("Microservices"))
-      Infrastructure_as_Code(("Infrastructure\nas Code"))
-      Immutable_Architecture(("Immutable\nArchitecture"))
-      Virtualized_Systems(("Virtualized\nSystems"))
-        Virtual_Software(("Virtual\nSoftware"))
-        Virtualized_Networking(("Virtualized\nNetworking"))
-        Software_Defined(("Software-Defined\nEverything"))
-        Virtualization_Management(("Virtualization\nMgmt"))
-      Containerization(("Containerization"))
-      Mobile_Devices(("Mobile\nDevices"))
-        Mobile_Security_Features(("Mobile\nSecurity Features"))
-        Mobile_Deployment_Policies(("Mobile Deployment\nPolicies"))
-    Protection_Mechanisms(("Protection\nMechanisms"))
-      Process_Isolation(("Process\nIsolation"))
-      Hardware_Segmentation(("Hardware\nSegmentation"))
-      Root_of_Trust(("Root of\nTrust"))
-      System_Security_Policy(("System Sec\nPolicy"))
-    Common_Flaws(("Common Flaws & Issues"))
-      Covert_Channels(("Covert\nChannels"))
-      Coding_Flaws(("Coding\nFlaws"))
-      Rootkits(("Rootkits"))
-      Incremental_Attacks(("Incremental\nAttacks"))
-
+  root(("Chapter 9: Security Vulnerabilities, Threats & Countermeasures"))
+    Shared Responsibility
+    Data Localization and Data Sovereignty
+    Assess and Mitigate the Vulnerabilities of Security Architectures, Designs, and Solution Elements
+      Hardware
+      Firmware
+    Client-Based Systems
+      Mobile Code
+      Local Caches
+    Server-Based Systems
+      Large-Scale Parallel Data Systems
+      Grid Computing
+      Peer to Peer
+    Industrial Control Systems
+    Distributed Systems
+    High-Performance Computing HPC Systems
+    Real-Time Operating Systems
+    Internet of Things
+    Edge and Fog Computing
+    Embedded Devices & Cyber-Physical Systems
+      Static Systems
+      Cyber-Physical Systems
+      Security Concerns of Embedded and Static Systems
+    Microservices
+    Infrastructure as Code
+    Immutable Architecture
+    Virtualized Systems
+      Virtual Software
+      Virtualized Networking
+      Software-Defined Everything
+      Virtualization Security Management
+    Containerization
+    Mobile Devices
+      Mobile Device Security Features
+      Mobile Device Deployment Policies
+    Essential Security Protection Mechanisms
+      Process Isolation
+      Hardware Segmentation
+      Root of Trust
+      System Security Policy
+    Common Security Architecture Flaws and Issues
+      Covert Channels
+      Attacks Based on Design or Coding Flaws
+      Rootkits
+      Incremental Attacks
+    Summary
 ```
 
 ---
