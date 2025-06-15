@@ -46,27 +46,248 @@
   - [Incremental Attacks](#incremental-attacks)
 - [Summary](#summary)
 
----
-### Shared Responsibility
-* **Cloud mantra:** provider secures *the* cloud; customer secures *in* the cloud.  
-* Varies by service model (IaaS > PaaS > SaaS).  
-* Contractual artifacts: CSPM reports, CSA CAIQ, FedRAMP ATO letters.  
-* **Exam cue:** Identify mis-scoped duties (patching hypervisor ≠ tenant job).
+```
+mindmap
+  root((Chapter 9: Security Vulnerabilities, Threats & Countermeasures))
+    Shared_Responsibility(("Shared Responsibility"))
+    Assess_and_Mitigate(("Assess & Mitigate Vulnerabilities"))
+      Hardware(("Hardware"))
+        Processor(("Processor"))
+          Execution_Types(("Execution Types"))
+            Multitasking
+            Multicore
+            Multiprocessing
+            Multiprogramming
+            Multithreading
+        Memory(("Memory"))
+          Read_Only_Memory(("ROM"))
+            PROM
+            EPROM
+            EEPROM
+            Flash
+          Random_Access_Memory(("RAM"))
+            Real_Memory
+            Cache_RAM
+            Registers
+            Addressing_Modes(("Addressing Modes"))
+              Register
+              Immediate
+              Direct
+              Indirect
+              Base_+_Offset
+            Virtual_Memory(("Virtual Memory"))
+      Client_Based_Systems(("Client-Based Systems"))
+      Server_Based_Systems(("Server-Based Systems"))
+      Industrial_Control_Systems(("Industrial Control Systems"))
+      Distributed_Systems(("Distributed Systems"))
+      High_Performance_Computing(("High-Performance Computing"))
+      Internet_of_Things(("Internet of Things"))
+      Edge_and_Fog_Computing(("Edge & Fog Computing"))
+      Embedded_and_Cyber_Physical(("Embedded & Cyber-Physical"))
+      Microservices(("Microservices"))
+      Infrastructure_as_Code(("Infrastructure as Code"))
+      Virtualized_Systems(("Virtualized Systems"))
+      Containerization(("Containerization"))
+      Serverless(("Serverless"))
+      Mobile_Devices(("Mobile Devices"))
+    Protection_Mechanisms(("Protection Mechanisms"))
+      Process_Isolation
+      Hardware_Segmentation
+      Protection_Rings
+      Process_States
+    Common_Flaws(("Common Architecture Flaws & Issues"))
+      Covert_Channels
+      Coding_Flaws(("Design/Coding Flaws"))
+      Rootkits
+      Incremental_Attacks(("Incremental Attacks"))
+```
 
 ---
-### Data Localization and Data Sovereignty
-* Laws (GDPR Art 3, POPIA, PDPA) dictate where data may rest/flow.  
-* Controls: region-pinned buckets, geo-fenced keys (HSM-cluster per region), lawful-access reviews.  
-* **Hot topic for multinational scenarios.**
+## Shared Responsibility
+- **Concept**: Security is not isolated—everyone and every organization shares the duty to secure data and systems.  
+- **Key Points**:  
+  - 👥 **All Roles Matter**  
+    - CISO & security team set and maintain policies  
+    - Employees follow rules in day-to-day tasks  
+    - Auditors monitor compliance  
+  - 🏛 **Stakeholder Accountability**  
+    - Organizations must safeguard stakeholder interests  
+    - Poor security decisions can harm investors, customers, partners  
+  - ☁️ **Cloud Shared-Responsibility Model**  
+    - Cloud provider secures infrastructure (hardware, hypervisor)  
+    - Customer secures data, applications, configurations  
+  - 🐞 **Responsible Disclosure**  
+    - Report newly discovered vulnerabilities to vendors or threat-sharing centers  
+    - Helps protect the wider community  
+  - 🇺🇸 **Automated Indicator Sharing (AIS)**  
+    - DHS-led program for sharing Indicators of Compromise (IoCs) at “machine speed”  
+    - Uses **STIX** (Structured Threat Information eXpression) and  
+      **TAXII** (Trusted Automated eXchange of Intelligence Information)  
+    - Managed by NCCIC (National Cybersecurity & Communications Integration Center)  
 
 ---
-## Assess & Mitigate  
+
+## Data Localization and Data Sovereignty
+- **Data Localization** 📍  
+  - **Definition**: Storing/processing data within a country’s borders  
+  - **Why It Matters**:  
+    - Ensures compliance with local laws on privacy & security  
+    - May restrict cross-border data flows  
+    - Drives decisions on where to build data centers or use regional cloud services  
+- **Data Sovereignty** ⚖️  
+  - **Definition**: Data is subject to the laws of the country where it resides  
+  - **Implications**:  
+    - Governments control data collected within their jurisdiction  
+    - Requires adherence to local regulations on data protection  
+    - Affects data governance, legal compliance, and vendor contracts  
+- **Comparing the Two**  
+  | Aspect      | Data Localization                       | Data Sovereignty                              |
+  |-------------|-----------------------------------------|-----------------------------------------------|
+  | Focus       | Physical storage location               | Legal authority & control over data          |
+  | Scope       | “Where” data lives                      | “Who” has rights & “how” data is governed     |
+  | Drivers     | Specific regulations on data location   | Broader legal/political/cultural considerations |
+  | Impact      | Infrastructure costs, latency, design   | Data governance, third-party agreements      |
+
+---
+## Assess and Mitigate the Vulnerabilities of Security Architectures Designs and Solution Elements
+
+> **What it is:** Computer architecture is about designing systems at a logical level and building in controls like layering, abstraction, data hiding, trusted recovery, process isolation, and hardware segmentation.  
+> **Why it matters:** More complexity → more attack surface → lower assurance. Keep it simple! 🛠️
 
 ### Hardware
-| Threat | Vector | Mitigation |
-|--------|--------|------------|
-| **Side-channel** (Spectre, Meltdown) | Speculative execution | Micro-code, kernel page-table isolation |
-| **Rowhammer** | Repeated RAM writes | ECC RAM, TRR, LPDDR4/5 |
+
+- **Definition:** Any tangible part of a computer you can touch (CPU, memory chips, disks, keyboard, monitor).  
+- **Note:** Data on disks/flash is _not_ hardware, it’s software/data (bits).
+
+#### Processor (CPU) ⚙️
+- **Role:** “Nerve center” that performs or coordinates all calculations.  
+- **Instruction set:** Limited low-level operations—designed for speed.  
+- **OS & compilers:** Translate high-level code into CPU instructions.
+
+##### Execution Types 🚀
+
+> Users want “doing two things at once” → various techniques:
+
+| Term                | What it Means                                                                 | Emoji  |
+|---------------------|-------------------------------------------------------------------------------|--------|
+| **Multitasking**    | OS _simulates_ → juggles multiple processes on a single core, time- slicing 🤹‍♂️ | 🤹‍♂️   |
+| **Multicore**       | CPU chip with multiple independent cores → true parallelism 🧩                  | 🧩     |
+| **Multiprocessing** | Multiple CPU chips/cores run threads in parallel (sometimes pinned=affinity) 🤝 | 🤝     |
+| **Multiprogramming**| OS batches many jobs on 1 CPU → each waits for I/O, then next runs ⏳            | ⏳     |
+| **Multithreading**  | Multiple threads _within_ one process share resources, low context-switch overhead ⚡ | ⚡ |
+
+##### Protection Mechanisms 🔒
+
+> When running, OS + apps form a **runtime environment**. We need controls to enforce:
+> - Integrity of OS ✔️  
+> - Which users access which data 👤  
+> - Authorize/deny operations ✅  
+
+##### PROTECTION RINGS 🎯
+
+- **Concept:** Code/components in concentric rings by privilege (inner = highest).  
+- **Classic Model:** Rings 0–3  
+  - **Ring 0:** Kernel (always in memory) – full access 👑  
+  - **Ring 1:** OS services & drivers ⚙️  
+  - **Ring 2:** I/O drivers & utilities 📂  
+  - **Ring 3:** User apps 📱  
+- **Enforcement:** Lower-ring code preempts higher. Higher-ring must call lower via _system call_ (mediated access).
+
+##### Rings Compared to Levels 🆚
+
+- **Similarity:**  
+  - Ring 0 ↔ top layer (highest privilege)  
+  - Ring 3 ↔ bottom layer (least privilege)  
+- **Usage:** Some OSs collapse rings 0–2 into “kernel mode” and ring 3 into “user mode.”
+
+##### Process States 📋
+> A process’s lifecycle in the OS:
+
+1. **New → Ready**  
+   - Queued, waiting for CPU 📝  
+2. **Ready → Running**  
+   - Executes until done, time slice end, or blocked ▶️  
+3. **Running → Waiting**  
+   - Paused for I/O, then back to Ready when I/O done ⏸️  
+4. **Running → Stopped**  
+   - Finished or terminated (error/resource failure) ❌  
+5. **Supervisory (Kernel Mode)**  
+   - When code needs _higher_ privilege than user mode (e.g., changing config) 🔧  
+
+🎓 Key Takeaways:
+- Keep it simple to reduce vulnerabilities 🔍
+- Understand each execution type’s parallelism model 🤔
+- Protection rings enforce privilege separation 🛡️
+- Process states define how tasks run and wait ⏳
+
+## Memory
+### Read-Only Memory (ROM) 💾
+- **Definition:** Non-volatile storage burned at manufacture; system **can read** but **not write**.  
+- **Uses:**  
+  - **Bootstrap code** (e.g., POST diagnostics) 🔧  
+  - **Firmware** that must not change ✔️  
+- **Variants:**  
+  - **PROM:** User “burns” data once; then read-only 🔥  
+  - **EPROM (UVEPROM):** Erase with UV light → re-program ☀️  
+  - **EEPROM:** Electrically erase/write ⚡  
+  - **Flash:** Block-level erase/write (e.g., SSDs, thumb drives) 🔋  
+
+### Random Access Memory (RAM) 🔄
+- **Definition:** Volatile, read/write memory; loses data on power-off ⚡❌  
+- **Never store critical data only in RAM!** Backup elsewhere. 💾
+
+#### Real (Main) Memory 🏦
+- **Dynamic RAM (DRAM):** Cheap; capacitor-based → CPU must refresh periodically 🔄  
+- **Static RAM (SRAM):** Flip-flop based; faster, no refresh; more expensive 💨  
+
+#### Cache RAM 🗄️
+- **Purpose:** Speed up repeated access → small, fast memory layers  
+- **Levels:**  
+  - **L1/L2:** On-core, per CPU core 🧩  
+  - **L3:** Shared among cores 🔗  
+  - **L4:** Onboard motherboard/GPU (rare) 🎮  
+- **Peripheral caches:** HDD, SSD caches must be **flushed** before power-off 🔥  
+
+### Dynamic vs. Static RAM ⚔️
+| Feature        | DRAM                          | SRAM                          |
+| -------------- | ----------------------------- | ----------------------------- |
+| Technology     | Capacitors (must refresh)     | Flip-flops (no refresh)       |
+| Speed          | Slower (refresh overhead)     | Faster (no refresh)           |
+| Cost           | Cheaper                       | More expensive                |
+| Use Case       | Main memory                  | CPU registers, cache          |
+
+### Registers 📋
+- **Definition:** Tiny, on-CPU storage (8–32 registers of 32/64 bits)  
+- **Use:** Holds operands/instructions for the ALU → highest speed 🚀  
+
+### Memory Addressing 🗺️
+| Scheme            | How It Works                                                                                             |
+| ----------------- | -------------------------------------------------------------------------------------------------------- |
+| **Register**      | CPU accesses data directly in register (e.g., “R1”)                                                      |
+| **Immediate**     | Operand given in instruction itself (e.g., “ADD 2”)                                                      |
+| **Direct**        | Instruction supplies an address → CPU reads data there                                                    |
+| **Indirect**      | Instruction supplies an address → that holds another address → CPU reads final data                       |
+| **Base+Offset**   | CPU adds offset from instruction to base pointer (in register) → access data                              |
+
+> **Pointers & Race Conditions:**  
+> - **Pointer:** Variable holding a memory address → must be _dereferenced_ to read/write the actual data 📍  
+> - **Race Condition:** Two processes access/modify pointer simultaneously → may dereference a null/corrupted pointer → crash 🏃‍♂️💥  
+
+### Secondary & Virtual Memory 💽
+- **Secondary Memory:** HDDs, SSDs, optical, flash → **OS pages** data into main memory when needed 📂  
+- **Virtual Memory:**  
+  - **Pagefile/Swapfile** on disk extends RAM address space  
+  - **Paging:** Swap infrequently used pages to disk → bring back when accessed ↔️  
+  - **Drawback:** Slower I/O → “thrashing” if over-used 🐢💤  
+  - **Mitigations:** More physical RAM, SSD/NVMe for pagefile 🚀  
+
+> 🎯 **Key Points:**  
+> - **ROM variants** trade immutability vs. flexibility 🔒⚡  
+> - **RAM types** balance cost vs. speed (DRAM vs. SRAM) 💰💨  
+> - **Registers** and **cache** are critical for CPU performance 🏎️  
+> - **Addressing modes** let CPU locate data in memory 🗺️  
+> - **Virtual memory** avoids OOM but can slow down if abused 🐢  
+
 
 ### Firmware
 * UEFI rootkits, BMC/iLO backdoors.  
