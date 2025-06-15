@@ -277,34 +277,89 @@ Mechanisms to transform plaintext into unreadable ciphertext.
 - **Goal**: Make cryptanalysis (e.g., frequency analysis) difficult.
 
 ---
-## Modern Cryptography  
+### Modern Cryptography
 
-### Cryptographic Keys  
-- **Randomness & entropy** critical; use HRNG or CSPRNG.  
-- Secure distribution: out-of-band, PKI, DH, QKD.  
-- **Key escrow, split knowledge, dual control** for high assurance.
+Modern cryptography uses complex algorithms and long keys to meet the four security goals:  
+🔒 **Confidentiality**, 🔗 **Integrity**, 👤 **Authentication**, and 📜 **Nonrepudiation**.
 
-### Symmetric Key Algorithms  
-| Algorithm | Key bits | Notes |
-|-----------|----------|-------|
-| **DES** | 56 | Feistel; obsolete (brute-forced) |
-| **3DES** | 112/168 | Encrypt-Decrypt-Encrypt; legacy |
-| **AES** | 128/192/256 | Rijndael; federal standard |
-| **Blowfish** | 32–448 | Fast, free; 64-bit block |
-| **Twofish / CAST / IDEA / RC-series / Skipjack** | Vary | Niche/legacy uses |
+#### 🔑 Cryptographic Keys
 
-### Asymmetric Key Algorithms  
-- **RSA** (factorization), **Diffie-Hellman** & **ElGamal** (discrete log),  
-  **ECC / ECDH / ECDSA** (elliptic curve), **DSA**.  
-- Provide **key exchange, digital signatures, PKI**, but are slower than symmetric crypto.
+- **📖 Public Algorithms**  
+  - Modern ciphers are public – “security by obscurity” is outdated.  
+  - Public review & analysis 🔍 strengthens security.
 
-### Hashing Algorithms  
-- **MD5, SHA-1** (deprecated), **SHA-2 family**, **SHA-3 (Keccak)**, **RIPEMD**, **Whirlpool**.  
-- Properties: one-way, fixed length, collision- & pre-image-resistant.  
-- **Salting** defends against rainbow tables; **key-stretch** PBKDF2, bcrypt, scrypt, Argon2.
+- **🔐 Key Secrecy**  
+  - The **only** secret in modern crypto is the key.  
+  - Example: Columnar transposition uses a _keyword_ as its “key.”
+
+- **🔑 Key Length Matters**  
+  - Longer keys ⇒ exponentially larger keyspace ⇒ harder to brute-force.  
+  - **DES**’ 56-bit key once sufficient; now considered insecure.  
+  - Modern systems use ≥ 128 bits.  
+
+- **⚙️ Key Management Best Practices**  
+  1. **Store keys securely** and transmit only over protected channels.  
+  2. **Generate keys randomly** to maximize use of the keyspace.  
+  3. **Destroy keys securely** when they’re no longer needed.
+
+#### 🔄 Symmetric Key Algorithms (Secret-Key)
+
+- **👥 Shared Secret**  
+  - Same key encrypts and decrypts (“same” ⇒ _symmetric_).  
+
+- **💨 Speed & Scale**  
+  - Very fast (1,000–10,000× faster than public-key).  
+  - Ideal for bulk encryption.
+
+- **🔒 Provides**  
+  - Confidentiality only.
+
+- **⚠️ Weaknesses**  
+  1. **Key distribution**: secure exchange required _before_ talking.  
+  2. **Nonrepudiation**: anyone with the key can forge messages.  
+  3. **Scalability**: n users ⇒ _n(n–1)/2_ keys!  
+  4. **Key rotation**: every time someone leaves, keys must be re-issued.
+
+- **🔑 Ephemeral Keys**  
+  - Short-lived session keys (e.g., TLS handshake→ switch to fast symmetric).
+
+#### 🗝️ Asymmetric Key Algorithms (Public-Key)
+
+- **🔑 Key Pair**  
+  - Each user has a **public** key (everyone sees) + a **private** key (kept secret).
+
+- **🔄 How It Works**  
+  1. Encrypt with recipient’s **public** key → only their **private** key can decrypt.  
+  2. Sign with your **private** key → anyone uses your **public** key to verify (nonrepudiaiton).
+
+- **👍 Strengths**  
+  1. **Scalable**: n users ⇒ just n key pairs.  
+  2. **Easy revocation**: revoke one user, others unaffected.  
+  3. **Key distribution**: publish public key openly.  
+  4. **Nonrepudiation** via digital signatures.  
+  5. **No pre-shared secret** needed.
+
+- **👎 Weakness**  
+  - **Slower** than symmetric; often used to exchange a symmetric session key (→ _hybrid cryptography_).
+
+#### 🧩 Hashing Algorithms
+
+- **🔒 One-way “Message Digests”**  
+  - Fixed-length summary of any message.  
+  - Hard to reverse (can’t recreate original), and collisions should be extremely rare.
+
+- **📜 Uses**  
+  - Integrity checks— any change in message ⇒ different hash.  
+  - Digital signatures: sign the hash, not the whole message.
+
+- **⚠️ Collisions**  
+  - If two messages produce the same hash, the algorithm is weak/deprecated.
+
+> 🔑 **Key Takeaway**:  
+> Modern crypto stands on **public** algorithms + **private** keys.  
+> Choose **long keys**, manage them securely, and combine **fast symmetric** ciphers with **scalable asymmetric** methods and **one-way hashes** for a robust security solution.  
 
 ---
-
 ## Symmetric Cryptography  
 
 ### Block Cipher Modes of Operation  
@@ -316,48 +371,155 @@ Mechanisms to transform plaintext into unreadable ciphertext.
 | **CTR** | Parallel, random access | Requires unique nonce |
 | **GCM, XTS** | Authenticated & disk encryption | Tag management critical |
 
-### Data Encryption Standard  
-- 64-bit block, 56-bit key, 16 Feistel rounds; deprecated since 1998 **DES-Cracker**.
+Describe **how** a block cipher (e.g. AES, DES) processes data.  
 
-### Triple DES  
-- 3 × DES (EDE); keying options K1-K2-K3; provides 112/168-bit effective strength; slow.
+#### Electronic Codebook (ECB) Mode 📚
+- **How it works**: Encrypts each block independently.  
+- **Weakness**: Identical plaintext blocks → identical ciphertext blocks.  
+- **Use case**: Very small data (e.g., key exchange blobs).  
 
-### International Data Encryption Algorithm  
-- 128-bit key, 64-bit block; patented, strong but less common today.
+#### Cipher Block Chaining (CBC) Mode 🔗
+- **How it works**:  
+  1. XOR plaintext block with previous ciphertext (or IV for the first block)  
+  2. Encrypt the result  
+- **IV**: Ensures unique ciphertext each session.  
+- **Error propagation**: A single-bit error affects two blocks.  
 
-### Blowfish  
-- Bruce Schneier; variable-length key; 16 rounds; free; replaced by **Twofish** in some apps.
+#### Cipher Feedback (CFB) Mode 🛰️
+- **How it works**:  
+  1. Encrypt previous ciphertext (or IV)  
+  2. XOR with current plaintext “stream”  
+- **Stream cipher**: Processes data as it arrives.  
+- **Chaining**: Like CBC but for real-time data.  
 
-### SKIPJACK  
-- NSA “Clipper Chip”; 80-bit key; no longer favored.
+#### Output Feedback (OFB) Mode 🔄
+- **How it works**:  
+  1. Encrypt the IV (or previous “seed”)  
+  2. XOR with plaintext  
+- **No chaining**: Errors do **not** propagate.  
+- **Seed**: Derived only from IV/previous seed.  
 
-### Rivest Ciphers  
-- **RC2/RC4** (stream; RC4 now banned in TLS), **RC5/RC6** (block).
+#### Counter (CTR) Mode 🔢
+- **How it works**:  
+  1. Encrypt a counter value (IV + increment)  
+  2. XOR with plaintext  
+- **Parallelizable**: Each block independent → great for multi-core.  
+- **No error propagation**.  
 
-### Advanced Encryption Standard  
-- **Rijndael**; 128-bit block; 10/12/14 rounds; hardware acceleration (AES-NI).  
-- Ubiquitous (TLS, VPN, disk encryption).
+#### Galois/Counter Mode (GCM) 🛡️
+- **Based on**: CTR mode.  
+- **Adds**: **Authentication tags** (GMAC) → **confidentiality + integrity**.  
+- **Use case**: TLS, VPNs.  
 
-### CAST  
-- **CAST-128 / CAST-256**; used by PGP; 64/128-bit block.
+#### Counter with CBC-MAC (CCM) Mode
+- **Based on**: CTR mode + **CBC-MAC**  
+- **Provides**: Confidentiality + authenticity.  
+- **Requirements**: 128-bit block ciphers (e.g. AES); unique nonce per message.  
 
-### Comparison of Symmetric Encryption Algorithms  
-- Strength depends on **key size & block size**.  
-- AES & Twofish outperform 3DES, DES, IDEA in both speed & security.
+### Data Encryption Standard
+- **Block size**: 64 bits  
+- **Key length**: 56 bits (plus 8 parity bits)  
+- **Rounds**: 16 rounds of XORs & permutations  
+- **Status**: Obsolete; superseded by AES.  
 
-### Symmetric Key Management  
-- **Generate → Distribute → Store → Use → Rotate → Revoke/Destroy**.  
-- Employ **KMS/HSM**, key hierarchy (Key-Encrypting Key vs Data Key).  
-- Limit key lifetime; enforce dual control for master keys.
+### Triple DES
+- **Variants**:  
+  - **EDE3**: Encrypt–Decrypt–Encrypt with 3 keys (K1,K2,K3)  
+  - **EEE3**: 3× Encrypt  
+- **Effective strength**: ~112 bits  
+- **Status**: Deprecated; phased out by US gov’t (2024).  
 
----
+### International Data Encryption Algorithm
+- **Block size**: 64 bits  
+- **Key length**: 128 bits  
+- **Operations**: XOR + modular addition + multiplication  
+- **Use case**: PGP e-mail.  
 
-## Cryptographic Life Cycle  
-1. **Initiation** – Determine business need & risk.  
-2. **Development/Acquisition** – Select algorithm, design key mgmt.  
-3. **Implementation** – Integrate into systems, configure modes, store keys securely.  
-4. **Operation & Maintenance** – Monitor strength, rotate keys, patch libraries.  
-5. **Disposition** – Decommission algorithms/keys (NIST SP 800-57 guidance).
+### Blowfish
+- **Block size**: 64 bits  
+- **Key length**: 32–448 bits (variable)  
+- **Features**: Fast, public domain, used in SSH.  
+
+### SKIPJACK
+- **Block size**: 64 bits  
+- **Key length**: 80 bits  
+- **Context**: Clipper chip, key-escrow by NSA.  
+- **Status**: Unpopular due to escrow concerns.  
+
+### Rivest Ciphers
+#### RC4
+- **Type**: Stream cipher  
+- **Key**: 40–2 048 bits  
+- **Status**: Insecure, deprecated in TLS/WEP/WPA.  
+
+#### RC5  
+- **Block sizes**: 32, 64, 128 bits  
+- **Key**: 0–2 040 bits  
+- **Rounds**: 12–20  
+- **Status**: Subject to brute-force community attacks.  
+
+#### RC6
+- **Block size**: 128 bits  
+- **Key**: 128, 192, 256 bits  
+- **Derived from**: RC5; AES finalist but not chosen.  
+
+### Advanced Encryption Standard
+
+- **Block size**: 128 bits  
+- **Key lengths**: 128, 192, 256 bits  
+- **Rounds**:  
+  - 10 (128 bit key)  
+  - 12 (192 bit key)  
+  - 14 (256 bit key)  
+- **Status**: Current federal standard (FIPS 197).  
+
+### CAST
+- **CAST-128**: 64 bit blocks; 40–128 bit keys; 12 or 16 rounds  
+- **CAST-256**: 128 bit blocks; 128–256 bit keys; 48 rounds  
+- **AES candidate** but not selected.  
+
+### Comparison of Symmetric Encryption Algorithms
+| Algorithm Name                                   | Block size (Bits)       | Key size (Bits)         |
+|--------------------------------------------------|-------------------------|-------------------------|
+| Advanced Encryption Standard (AES)               | 128                     | 128, 192, 256           |
+| Rijndael                                         | Variable                | 128, 192, 256           |
+| Blowfish                                         | 64                      | 32–448                  |
+| Data Encryption Standard (DES)                   | 64                      | 56                      |
+| International Data Encryption Algorithm (IDEA)   | 64                      | 128                     |
+| Rivest Cipher 4 (RC4)                            | N/A (Stream cipher)     | 40–2,048                |
+| Rivest Cipher 5 (RC5)                            | 32, 64, 128             | 0–2,040                 |
+| Rivest Cipher 6 (RC6)                            | 128                     | 128, 192, 256           |
+| SKIPJACK                                         | 64                      | 80                      |
+| Triple DES (3DES)                                | 64                      | 112 or 168              |
+| CAST-128                                         | 64                      | 40–128                  |
+| CAST-256                                         | 128                     | 128, 160, 192, 224, 256 |
+
+### Symmetric Key Management
+
+#### Creation & Distribution  
+- **Offline**: Physical exchange; high security risk.  
+- **Public-Key Wrap**: Encrypt secret key with receiver’s public key.  
+- **Diffie–Hellman**: No PKI; establishes shared secret over insecure channel.  
+
+#### Storage & Destruction  
+- **Software**: Files, key vaults; easiest but target for attackers.  
+- **Hardware**: Smartcards, HSMs; higher cost, stronger protection.  
+- **Cloud HSM**: Managed by CSPs (AWS, Azure).  
+- **Key rotation**: Change keys when employees leave.  
+
+#### Key Escrow & Recovery 🗝️  
+- **Internal M-of-N**: M out of N recovery agents must agree.  
+- **Public escrow**: Government access (e.g. Clipper) — largely rejected.  
+- **Use case**: Recover lost keys when user departs.  
+
+## Cryptographic Life Cycle 📆
+
+- **Moore’s Law** effect → keys/bits become guessable over time.  
+- **Governance controls**:  
+  1. Approved algorithms (e.g. AES, RSA)  
+  2. Minimum key lengths per sensitivity  
+  3. Secure protocols (e.g. TLS 1.2+)  
+- **Plan**: Choose strength so data remains secret for required lifetime.  
 
 ---
 
