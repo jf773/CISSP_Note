@@ -46,7 +46,7 @@
   - [Incremental Attacks](#incremental-attacks)
 - [Summary](#summary)
 
-```
+```mermaid
 mindmap
   root((Chapter 9: Security Vulnerabilities, Threats & Countermeasures))
     Shared_Responsibility(("Shared Responsibility"))
