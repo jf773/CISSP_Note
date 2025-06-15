@@ -97,27 +97,37 @@ mindmap
 ```
 
 ---
-## Shared Responsibility
-- **Concept**: Security is not isolated—everyone and every organization shares the duty to secure data and systems.  
-- **Key Points**:  
-  - 👥 **All Roles Matter**  
-    - CISO & security team set and maintain policies  
-    - Employees follow rules in day-to-day tasks  
-    - Auditors monitor compliance  
-  - 🏛 **Stakeholder Accountability**  
-    - Organizations must safeguard stakeholder interests  
-    - Poor security decisions can harm investors, customers, partners  
-  - ☁️ **Cloud Shared-Responsibility Model**  
-    - Cloud provider secures infrastructure (hardware, hypervisor)  
-    - Customer secures data, applications, configurations  
-  - 🐞 **Responsible Disclosure**  
-    - Report newly discovered vulnerabilities to vendors or threat-sharing centers  
-    - Helps protect the wider community  
-  - 🇺🇸 **Automated Indicator Sharing (AIS)**  
-    - DHS-led program for sharing Indicators of Compromise (IoCs) at “machine speed”  
-    - Uses **STIX** (Structured Threat Information eXpression) and  
-      **TAXII** (Trusted Automated eXchange of Intelligence Information)  
-    - Managed by NCCIC (National Cybersecurity & Communications Integration Center)  
+## Shared Responsibility 🔄
+
+- **Everyone’s Role** 👥  
+  - CISO & security team set up and maintain controls  
+  - Employees follow security policies in daily tasks  
+  - Auditors monitor for violations
+
+- **Stakeholder Accountability** 📊  
+  - Organizations must protect investor, customer & partner interests  
+  - Security decisions safeguard reputation and legal compliance
+
+- **Cloud Shared Responsibility Model ☁️**  
+  - Understand which security tasks you vs. your cloud provider handle  
+  - See Chapter 16 for in-depth coverage
+
+- **Responsible Vulnerability Disclosure 🛠️**  
+  - When you find a new flaw, report it to the vendor or threat-intel hub  
+  - Protect users by sharing details responsibly
+
+- **Automated Indicator Sharing (AIS) 🤖**  
+  - DHS initiative for “machine-speed” sharing of IoCs (Indicators of Compromise)  
+  - **Observable** = a fact (e.g., malicious file hash)  
+  - **Indicator** = observable + threat hypothesis
+
+- **Standards & Protocols for Threat Exchange 🚀**  
+  - **STIX** = Structured Threat Information eXpression (common threat language)  
+  - **TAXII** = Trusted Automated eXchange of Intelligence Information (transport)
+
+- **NCCIC Management 🏢**  
+  - AIS run by National Cybersecurity & Communications Integration Center  
+  - More info: https://us-cert.gov/ais
 
 ---
 
