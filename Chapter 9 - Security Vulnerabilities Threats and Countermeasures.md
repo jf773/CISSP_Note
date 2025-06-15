@@ -116,16 +116,16 @@ mindmap
   - When you find a new flaw, report it to the vendor or threat-intel hub  
   - Protect users by sharing details responsibly
 
-- **Automated Indicator Sharing (AIS) 🤖**  
+**Automated Indicator Sharing (AIS) 🤖**  
   - DHS initiative for “machine-speed” sharing of IoCs (Indicators of Compromise)  
   - **Observable** = a fact (e.g., malicious file hash)  
   - **Indicator** = observable + threat hypothesis
 
-- **Standards & Protocols for Threat Exchange 🚀**  
+**Standards & Protocols for Threat Exchange 🚀**  
   - **STIX** = Structured Threat Information eXpression (common threat language)  
   - **TAXII** = Trusted Automated eXchange of Intelligence Information (transport)
 
-- **NCCIC Management 🏢**  
+**NCCIC Management 🏢**  
   - AIS run by National Cybersecurity & Communications Integration Center  
   - More info: https://us-cert.gov/ais
 
