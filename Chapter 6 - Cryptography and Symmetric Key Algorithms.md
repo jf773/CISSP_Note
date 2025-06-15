@@ -79,10 +79,10 @@ mindmap
     Summary[Summary 📝]
 ```
 
-## Cryptographic Foundations ⚙️
+## Cryptographic Foundations
 Cryptography underpins all secure systems. This section covers its main goals and core concepts.
 
-### Goals of Cryptography 🎯
+### Goals of Cryptography
 Security uses crypto to meet **four** key objectives. Not every system does all four—know which goals your design needs!
 
 | Goal | Security Service Provided | Example Control |
@@ -92,7 +92,7 @@ Security uses crypto to meet **four** key objectives. Not every system does all 
 | **Authentication** | Verify identity/source | Digital signature, MAC |
 | **Non-repudiation** | Prevent sender denial | PKI sigs, log hashes |  
 
-#### Confidentiality 🔒  
+#### Confidentiality
 - Keeps data **private** in three states:  
   - **At Rest** 💾 (stored on disk, tapes, USB)  
   - **In Transit** 📡 (on the wire/network)  
@@ -120,7 +120,7 @@ Security uses crypto to meet **four** key objectives. Not every system does all 
 - **Only** provided by **public-key** (asymmetric) signatures  
 - **Symmetric** systems cannot prove which party encrypted
 
-### Cryptography Concepts 💡
+### Cryptography Concepts
 
 #### Plaintext & Ciphertext 🔄  
 - **Plaintext (P)**: original message  
@@ -151,7 +151,7 @@ P = Decryptₖ(C)
 - **Cryptovariable** = key
 
 ---
-### Cryptographic Mathematics 🔢  
+### Cryptographic Mathematics
 Cryptography relies on mathematical foundations—binary math and logical operations—to secure data. Understanding these basics is essential to grasp modern algorithms.
 
 #### Boolean Mathematics 🔳  
@@ -239,7 +239,7 @@ Fundamental bit‐wise functions used in ciphers.
 - **Considerations**: Advances in computing (parallel, quantum) can reduce work factor.
 
 ---
-### Ciphers 🔐  
+### Ciphers
 Mechanisms to transform plaintext into unreadable ciphertext.
 
 #### Codes vs. Ciphers  
