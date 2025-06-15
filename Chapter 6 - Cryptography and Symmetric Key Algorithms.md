@@ -277,12 +277,12 @@ Mechanisms to transform plaintext into unreadable ciphertext.
 - **Goal**: Make cryptanalysis (e.g., frequency analysis) difficult.
 
 ---
-### Modern Cryptography
+## Modern Cryptography
 
 Modern cryptography uses complex algorithms and long keys to meet the four security goals:  
 🔒 **Confidentiality**, 🔗 **Integrity**, 👤 **Authentication**, and 📜 **Nonrepudiation**.
 
-#### 🔑 Cryptographic Keys
+### Cryptographic Keys
 
 - **📖 Public Algorithms**  
   - Modern ciphers are public – “security by obscurity” is outdated.  
@@ -302,7 +302,7 @@ Modern cryptography uses complex algorithms and long keys to meet the four secur
   2. **Generate keys randomly** to maximize use of the keyspace.  
   3. **Destroy keys securely** when they’re no longer needed.
 
-#### 🔄 Symmetric Key Algorithms (Secret-Key)
+### Symmetric Key Algorithms
 
 - **👥 Shared Secret**  
   - Same key encrypts and decrypts (“same” ⇒ _symmetric_).  
@@ -323,7 +323,7 @@ Modern cryptography uses complex algorithms and long keys to meet the four secur
 - **🔑 Ephemeral Keys**  
   - Short-lived session keys (e.g., TLS handshake→ switch to fast symmetric).
 
-#### 🗝️ Asymmetric Key Algorithms (Public-Key)
+### Asymmetric Key Algorithms
 
 - **🔑 Key Pair**  
   - Each user has a **public** key (everyone sees) + a **private** key (kept secret).
@@ -342,7 +342,7 @@ Modern cryptography uses complex algorithms and long keys to meet the four secur
 - **👎 Weakness**  
   - **Slower** than symmetric; often used to exchange a symmetric session key (→ _hybrid cryptography_).
 
-#### 🧩 Hashing Algorithms
+### Hashing Algorithms
 
 - **🔒 One-way “Message Digests”**  
   - Fixed-length summary of any message.  
