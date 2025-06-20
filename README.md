@@ -1,5 +1,6 @@
 # CISSP Note - 10th Edition
 
+## Domain Mapping
 | Domain                                      | Chapters                   |
 |---------------------------------------------|----------------------------|
 | 1.0 Security and Risk Management            | 1, 2, 3, 4, 19             |
@@ -11,7 +12,7 @@
 | 7.0 Security Operations                     | 3, 10, 11, 16, 17, 18, 19, 21 |
 | 8.0 Software Development Security           | 15, 16, 20, 21             |
 
-
+## Chapter Mapping
 | Chapter | Domains |
 |---------|---------|
 | 1 | 1.0 Security and Risk Management, 3.0 Security Architecture and Engineering |
@@ -36,3 +37,27 @@
 | 20 | 3.0 Security Architecture and Engineering, 8.0 Software Development Security |
 | 21 | 3.0 Security Architecture and Engineering, 7.0 Security Operations, 8.0 Software Development Security |
 
+## Progress
+| Chapter | Title                                                             | Note Completed? |
+|---------|-------------------------------------------------------------------|-----------------|
+| 1       | Security Governance Through Principles and Policies              | ☐               |
+| 2       | Personnel Security and Risk Management Concepts                  | ☐               |
+| 3       | Business Continuity Planning                                     | ☐               |
+| 4       | Laws, Regulations, and Compliance                                | ☐               |
+| 5       | Protecting Security of Assets                                     | ☐               |
+| 6       | Cryptography and Symmetric Key Algorithms                        | ☐               |
+| 7       | PKI and Cryptographic Applications                               | ☐               |
+| 8       | Principles of Security Models, Design, and Capabilities          | ☐               |
+| 9       | Security Vulnerabilities, Threats, and Countermeasures           | ☐               |
+| 10      | Physical Security Requirements                                   | ☐               |
+| 11      | Secure Network Architecture and Components                       | ☐               |
+| 12      | Secure Communications and Network Attacks                        | ☐               |
+| 13      | Managing Identity and Authentication                             | ☐               |
+| 14      | Controlling and Monitoring Access                                | ☐               |
+| 15      | Security Assessment and Testing                                  | ☐               |
+| 16      | Managing Security Operations                                     | ☐               |
+| 17      | Preventing and Responding to Incidents                           | ☐               |
+| 18      | Disaster Recovery Planning                                       | ☐               |
+| 19      | Investigations and Ethics                                        | ☐               |
+| 20      | Software Development Security                                    | ☐               |
+| 21      | Malicious Code and Application Attacks                           | ☐               |
