@@ -43,9 +43,9 @@
 | 1       | Security Governance Through Principles and Policies              | ☐               |
 | 2       | Personnel Security and Risk Management Concepts                  | ☐               |
 | 3       | Business Continuity Planning                                     | ☐               |
-| 4       | Laws, Regulations, and Compliance                                | ☐               |
-| 5       | Protecting Security of Assets                                     | ☐               |
-| 6       | Cryptography and Symmetric Key Algorithms                        | ☐               |
+| 4       | Laws, Regulations, and Compliance                                | ■               |
+| 5       | Protecting Security of Assets                                     | ■               |
+| 6       | Cryptography and Symmetric Key Algorithms                        | ■               |
 | 7       | PKI and Cryptographic Applications                               | ☐               |
 | 8       | Principles of Security Models, Design, and Capabilities          | ☐               |
 | 9       | Security Vulnerabilities, Threats, and Countermeasures           | ☐               |
@@ -54,8 +54,8 @@
 | 12      | Secure Communications and Network Attacks                        | ☐               |
 | 13      | Managing Identity and Authentication                             | ☐               |
 | 14      | Controlling and Monitoring Access                                | ☐               |
-| 15      | Security Assessment and Testing                                  | ☐               |
-| 16      | Managing Security Operations                                     | ☐               |
+| 15      | Security Assessment and Testing                                  | ■               |
+| 16      | Managing Security Operations                                     | ■               |
 | 17      | Preventing and Responding to Incidents                           | ☐               |
 | 18      | Disaster Recovery Planning                                       | ☐               |
 | 19      | Investigations and Ethics                                        | ☐               |
