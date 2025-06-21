@@ -1234,4 +1234,88 @@ Organizations must define clear deployment policies to manage **personally owned
 - 📚 Policy should include everything from patching to legal liability.
 - 🤖 Use MDM/UEM for **security enforcement**, **segmentation**, and **remote controls**.
 
+## Essential Security Protection Mechanisms
 
+> "Never trust third-party software" — the foundation of secure OS design!
+
+### Process Isolation
+- Each process gets a separate memory space.
+- Prevents one process from interfering with or accessing another's memory.
+- Prevents unauthorized access and ensures process integrity.
+- 🧠 Implemented via virtual machines or lower-privileged virtual address spaces.
+
+📝 **Key Benefit**: System stability and confidentiality.
+
+### Hardware Segmentation
+- Similar to process isolation, but enforced with physical hardware.
+- 🛑 Rare and costly — typically used in military or national security systems.
+
+### Root of Trust
+- Foundation of secure systems.
+- 🔐 Starts the "chain of trust" for booting and key management.
+- Uses trusted hardware components:
+  - TPM (Trusted Platform Module)
+  - HSM (Hardware Security Module)
+- Prevents system tampering by isolating sensitive operations.
+
+### System Security Policy
+- Blueprint guiding system design and development with security in mind.
+- Covers:
+  - Hardware
+  - Firmware
+  - Software
+  - Human interaction
+- 🛡️ Multilevel security policies prevent info flow from high → low security levels.
+
+📌 **Important**: Apply early in development or the policy fails!
+
+## Common Security Architecture Flaws and Issues
+
+### Covert Channels
+- Data paths used outside of normal communication channels.
+- 🚫 Bypasses normal security controls.
+
+#### Types:
+- ⏱️ Covert Timing Channel
+  - Manipulates system performance or response time.
+- 📦 Covert Storage Channel
+  - Writes to hidden/untracked memory (e.g., slack space, unallocated space).
+
+🧩 **Defense**: Strong auditing, behavior analysis, heuristics.
+
+### Attacks Based on Design or Coding Flaws
+- Poor programming or incomplete testing opens security gaps.
+- ⚠️ Backdoors or maintenance hooks can remain in production code.
+- Common examples: SQLi, XSS, buffer overflows.
+
+✅ **Mitigation**:
+- Secure design from the start
+- Source code analysis tools
+- Code reviews (see Ch. 15)
+
+### Rootkits
+- Malware that hides itself in OS components.
+- Can replace:
+  - Kernel
+  - Drivers
+  - Libraries
+- 👻 Invisible to task managers and file browsers.
+
+🧯 **Response**: Full system wipe & reinstall from trusted backups!
+
+🛡️ **Detection**: File hash changes, HIDS, behavior anomalies.
+
+### Incremental Attacks
+
+#### 🧪 Data Diddling
+- Small changes to data (often insider-based).
+- 🧮 Prevent via checksums, FIM, or encryption.
+
+#### 🥪 Salami Attack
+- Slicing away small values in financial systems (e.g., pennies).
+- 🛡️ Prevent with:
+  - SoD (Separation of Duties)
+  - Transaction monitoring
+  - Secure code controls
+
+🎥 Pop Culture Reference: *Office Space*, *Superman III*
