@@ -18,7 +18,7 @@
 - [Real-Time Operating Systems](#real-time-operating-systems)
 - [Internet of Things](#internet-of-things)
 - [Edge and Fog Computing](#edge-and-fog-computing)
-- [Embedded Devices & Cyber-Physical Systems](#embedded-devices--cyber-physical-systems)
+- [Embedded Devices and Cyber-Physical Systems](#embedded-devices--cyber-physical-systems)
   - [Static Systems](#static-systems)
   - [Cyber-Physical Systems](#cyber-physical-systems)
   - [Security Concerns of Embedded and Static Systems](#security-concerns-of-embedded-and-static-systems)
