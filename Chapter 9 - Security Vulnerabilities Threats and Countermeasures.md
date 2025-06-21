@@ -96,6 +96,27 @@ mindmap
     Summary
 ```
 
+## System Types and Security Concerns
+
+| System Type              | Description                                                                 | Security Concern                                                             |
+|--------------------------|-----------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| Client-Based Systems     | Run apps locally on user devices; dependent on client OS and hardware.      | Malware, patch management, physical access.                                 |
+| Server-Based Systems     | Centralized server resources, used by multiple clients over a network.      | Central attack vector, privilege escalation, DoS.                           |
+| Industrial Control Systems | Real-time systems managing industrial processes (e.g., SCADA, PLCs).        | Legacy protocols, real-time constraints, low updates.                       |
+| Distributed Systems      | Multiple independent nodes work together over a network.                    | Data consistency, distributed authentication.                               |
+| High-Performance Computing | Uses clustered nodes or specialized processors for large-scale tasks.      | Data leakage, job isolation, availability.                                  |
+| Internet of Things       | Network-connected sensors/devices, often low-power and autonomous.          | Default insecure configs, physical tampering.                               |
+| Edge Computing           | Compute resources at the device (closer to data source).                    | Limited compute/storage, real-time response security.                       |
+| Fog Computing            | Intermediate layer between edge and cloud for preprocessing.                | Data exposure in transit between layers.                                    |
+| Embedded Systems         | Dedicated function within a device, minimal UI and fixed function.          | Hard to patch, physical access risk.                                        |
+| Cyber-Physical Systems   | Integration of computation with physical processes (e.g., smart grids).     | Tightly coupled safety & security concerns.                                 |
+| Microservices            | Loosely coupled services, each with a specific function and API interface.  | Service isolation, dependency trust, container orchestration.              |
+| Infrastructure as Code   | Managing infrastructure with code/scripts (e.g., Terraform, Ansible).       | Misconfigurations, version drift, unauthorized code changes.               |
+| Virtualized Systems      | Emulates hardware to run multiple OSs on a single host (via hypervisor).    | VM escape, snapshot tampering, sprawl.                                     |
+| Containerization         | Runs isolated app environments with shared OS kernel, very lightweight.     | Container breakout, image tampering.                                       |
+| Serverless               | Runs backend logic triggered by events, without managing servers.           | Execution control, DoS, insecure code uploads.                             |
+| Mobile Devices           | Portable, battery-powered computing devices (phones, tablets, laptops).     | Loss/theft, untrusted networks, data leakage.                              |
+
 ---
 ## Shared Responsibility
 
