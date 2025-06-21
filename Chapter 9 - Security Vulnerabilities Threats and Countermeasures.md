@@ -591,24 +591,115 @@ Old-school dial-up modems on landlines create unmonitored network backdoors.
 > - Remember grid & P2P expose data—avoid for confidential workloads  
 
 
-### Industrial Control Systems
-* **SCADA, DCS, PLC**; legacy protocols (Modbus, DNP3) unauth’d.  
-* ISA/IEC 62443 zoning, data diodes, passive monitoring (ICS-IDS).
+## Industrial Control Systems
 
----
+- **What is ICS?**  
+  A class of operational technology (OT) devices that automate and control industrial processes (manufacturing, power, water, oil, etc.)  
 
-### Distributed Systems
-* CAP-theorem trade-offs; secure gRPC, clock integrity, service-mesh mTLS.  
+- **Types of ICS:**  
+  - **PLC (Programmable Logic Controller)** 💻➡️🤖  
+    - Single-purpose digital computer controlling one device (assembly line, stadium lights, etc.)  
+  - **DCS (Distributed Control System)** 🌐🏢  
+    - Controls large process plants via dispersed controllers + central HMI  
+    - Can be analog (flow control) or digital (voltage)  
+  - **SCADA (Supervisory Control & Data Acquisition)** 📡🕹️  
+    - Monitors & controls wide‐area processes, often networked to IT  
+    - Event‐driven, HMI for operators  
+    - Legacy = buttons/knobs; modern = rich GUIs & remote software  
 
----
+- **PLC vs DCS vs SCADA:**  
+  - PLC: single transformer  
+  - DCS: single power station (state‐driven, limited scale)  
+  - SCADA: entire power grid (event‐driven, wide geographic)  
 
-### High-Performance Computing (HPC) Systems
-* MPI job hijack, high-speed interconnect eavesdropping; InfiniBand VLANs, node-level SELinux.  
+- **Key Protocol – Modbus** 🔌📶  
+  - De facto open standard since 1979 for PLC↔SCADA communication  
+  - Interoperability across vendors  
 
----
+- **Security Posture:**  
+  - Historically minimal security → high vulnerability (e.g. Stuxnet) 🔓🐛  
+  - Hardening controls:  
+    - Network isolation & segmentation  
+    - Physical & logical access limits 🔒  
+    - Change default creds & restrict code  
+    - Comprehensive logging/auditing 📋  
+  - Primary OT goal: **Availability** of real‐time control signals ⏱️✅  
 
-### Real-Time Operating Systems
-* Deterministic timing > complex crypto; use lightweight algorithms, MPU, static analysis.
+- **Standards & Guidance:**  
+  - ISA99 / IEC 62443 series 📜  
+  - NIST SP 800-82 🏛️  
+  - NERC, ERNCIP for critical infrastructure protection 🌐  
+
+## Distributed Systems
+
+- **Definition:** Multiple computers working together as one logical system  
+- **Benefits:** Resiliency, reliability, performance, scalability 🚀  
+- **Architectures:**  
+  - Client-server, 3-tier, multi-tier, peer-to-peer  
+  - Key uses: DNS, SSO, SDN, microservices, MMORPGs 🎮  
+
+- **Interface Definition Language (IDL):**  
+  - Standardizes cross-language & cross-location calls (RPC, CORBA, DCOM) 🔄  
+
+- **Security Risks:**  
+  - Expanded attack surface → lateral movement & pivoting  
+  - Unauthorized access, spoofing, DoS, eavesdropping 🔓🕵️‍♂️  
+
+- **Mitigations:**  
+  - Encrypt data at rest, in transit, and during processing 🔐  
+  - Enforce strong MFA & patch consistency  
+  - Homogeneous component sets & clear data‐sovereignty policies 🌍  
+
+## High-Performance Computing (HPC) Systems
+
+- **Purpose:** Ultra-fast processing of massive datasets in real/near-real time  
+- **Components:**  
+  - Compute nodes, high-speed networks, large-scale storage 🔗  
+- **Bottleneck Risks:**  
+  - Any slow component causes latency or benign DoS (resource exhaustion) ⚠️  
+
+## Real-Time Operating Systems
+
+- **Definition:** OS designed for minimal latency in task execution  
+- **Modes:**  
+  - Hard real-time: zero tolerance for delay (e.g. automotive safety)  
+  - Soft real-time: small delays acceptable (e.g. audio/video sync)  
+- **Scheduling:**  
+  - Event-driven (priority‐based)  
+  - Time-sliced (clock interrupt)  
+- **Security Challenges:**  
+  - Single-purpose → limited built-in security  
+  - Proprietary code → hidden bugs 🐛  
+- **Hardening:**  
+  - Network/device isolation  
+  - Strict communication monitoring 👀  
+
+## Internet of Things
+
+- **Definition:** Smart devices connected to the Internet for automation  
+- **IoT vs. Embedded:**  
+  - IoT: standalone networked device  
+  - Embedded: integrated controller within equipment 🔌  
+- **Risks:**  
+  - Default weak configs, poor auth → network pivoting 🔓  
+- **Controls:**  
+  - Change default creds, segment IoT on separate VLAN (3‐router setup) 🚧  
+  - Regular patches, access controls, logging  
+
+- **Industrial IoT (IIoT):**  
+  - IoT in industrial settings (sensors, edge computing for OT)  
+
+## Edge and Fog Computing
+
+- **Edge Computing:**  
+  - Data processing as close as possible to source/end-user  
+  - Lowers latency & conserves bandwidth ⏱️  
+- **Fog Computing:**  
+  - LAN-level hubs aggregate sensor data for local processing  
+  - Sits between edge devices and cloud ☁️↔️🏢  
+- **Use Cases:** CDN caching, autonomous vehicles, IoT analytics 🚗🔍  
+- **Security:**  
+  - Secure endpoints, encrypted links, active monitoring 🔒👁️  
 
 ---
 
