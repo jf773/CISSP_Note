@@ -62,4 +62,12 @@
 | 20 | 3.0 Security Architecture and Engineering, 8.0 Software Development Security |
 | 21 | 3.0 Security Architecture and Engineering, 7.0 Security Operations, 8.0 Software Development Security |
 
-
+## AI Prompt
+```
+You are a CISSP expert tasked with creating comprehensive study notes to help me pass the CISSP exam. Please create detailed summaries for each concept covered in Chapter 10 of the CISSP Official Study Guide, 10th Edition. Format the notes in markdown for easy copying to GitHub. Adhere to the following requirements:
+Clarity and Completeness: Write summaries that are concise, easy to understand, and cover all concepts relevant to the CISSP exam. Include all details that could appear on the exam, avoiding overly technical jargon unless necessary.
+Visual Aids: Use emojis sparingly to enhance understanding of key points (e.g., to highlight critical terms or concepts). Do not use emojis in titles or subtitles.
+Structure and Readability: Organize the notes to match the chapter's index/structure as presented in the textbook. Use clear headings, subheadings, bullet points, and numbered lists for readability.
+Tables for Comparison: Include tables to compare related concepts, terms, or frameworks when relevant to aid exam preparation (e.g., comparing security models, protocols, or controls).
+Markdown Format: Ensure all content is written in markdown, with proper formatting (e.g., headers, lists, tables) for easy readability and GitHub compatibility.
+```
