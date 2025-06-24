@@ -23,27 +23,100 @@
 - [Summary](#summary)
 
 ---
-
 ## Apply Security Principles to Site and Facility Design  
-
 ### Secure Facility Plan
-* **Defense-in-Depth** for physical space: concentric rings (perimeter → building → computer room → cabinet).  
-* Align zones to **asset value**; place high-value assets in center with more layers.  
-* Integrate **CPTED**: natural surveillance, access control, territorial reinforcement, maintenance.
 
+#### 🧠 Concept
+- A **secure facility plan** outlines the organization's physical security needs.
+- Built via **risk assessment** + **critical path analysis** (CPA).
+- CPA maps out mission-critical dependencies (e.g., internet, power, HVAC).
+
+#### 🔁 Tech Convergence Risks
+- Combining techs (e.g., video + voice + data) into single paths increases efficiency but can create **single points of failure** 🎯.
+
+#### 🧱 Layered Defense Model
+- Multiple physical controls work in **series** (not parallel) like an **obstacle course** to resist intrusion.
+
+---
 ### Site Selection
-| Factor | Risk | Control |
-|--------|------|---------|
-| **Natural hazards** | Floodplain, seismic zone | Elevation, seismic bracing |
-| **Man-made threats** | Rail line, protest hotspots | Buffer distance, blast film |
-| **Critical infrastructure** | Power, water, telco diversity | Dual feeds, EMP-shielded cables |
 
-> **Exam flag:** Understand *buffer zones* (K-rating standoff) and why multi-tenant buildings complicate isolation.
+#### 🔐 Security-Focused Selection
+- Security outweighs cost, size, or visibility.
+- Consider:
+  - 🏘️ Proximity to public areas or noisy/dangerous businesses.
+  - 🚨 Distance to emergency responders.
+  - 🌪️ Local weather threats & construction durability.
 
+### 🕵️ Industrial Camouflage
+- Use misleading building exteriors to hide real purpose (e.g., make a data center look like a factory).
+
+---
 ### Facility Design
-* **Single entrance** for staff + guarded shipping/receiving.  
-* **Mantraps / turnstiles / visitor escorts** enforce *single-factor* (card) + *secondary* (biometric) auth.  
-* HVAC: 68–72 °F (20–24 °C), 40–60 % RH; positive pressure toward secure areas.
+#### 👷 Safety First
+- **Main priority:** protect lives.
+- Follow all laws (e.g., **OSHA**, **EPA** in the U.S.).
+- Include a **facility security officer** for planning & oversight.
+
+#### 📐 Security Features to Consider
+- Materials: combustibility, fire rating, strength.
+- Environment: HVAC, water/sewage, gas, power.
+- Threats: forced entry, alarms, secure exits, airflow.
+
+---
+#### 🏙️ CPTED – Crime Prevention Through Environmental Design
+
+##### 🧠 Core Principle
+Design can influence behavior to **deter crime** and **reduce fear**.
+
+##### 🌱 CPTED Suggestions
+- Short planters (< 2.5 ft), open entrances, benches for observation 👀.
+- Visible cameras 🎥, hide delivery areas, keep entrances clear.
+
+##### 🧱 CPTED 1st Generation (Environmental Design)
+1. **Access Control** 🛑  
+   - Guide entry with lighting, fences, & layout.
+   - Create clear zones: public vs. secure areas.
+
+2. **Natural Surveillance** 🔭  
+   - Open visibility, lighting, seating to encourage public presence.
+
+3. **Image and Milieu** 🎨  
+   - Clean, welcoming environment builds safety perception.
+
+4. **Territorial Control** 🏠  
+   - Use signage, landscaping, and decor to show “ownership.”
+
+##### 🧠 CPTED 2nd Generation (Community-Oriented)
+1. **Social Cohesion** 🤝  
+   - Strong community = less crime.
+
+2. **Community Culture** 🧧  
+   - Design aligns with local customs to increase adoption.
+
+3. **Connectivity** 🧩  
+   - Paths, parks, social spaces promote visibility & trust.
+
+4. **Threshold Capacity** 🔄  
+   - Understand limits of community to absorb change safely.
+
+#### Takeaway 🧠
+
+| Key CISSP Understandings | 💡 Summary |
+|--------------------------|------------|
+| Physical security is foundational | No control = No security 🔓 |
+| Critical Path Analysis (CPA) | Identifies all mission-critical dependencies ⚙️ |
+| Technology Convergence | Efficiency ⬆️ = Risk of single failure point ⬆️ |
+| Layered Defense | Combine deterrence, delay, detection & response ⛓️ |
+| CPTED | Design influences crime deterrence 🏘️ |
+| Access Control | Use of physical layout to subtly control movement 🚷 |
+| Surveillance | Design for visibility and observation 🕵️‍♀️ |
+| Positive Image | Clean, aesthetic environments discourage crime ✨ |
+
+✅ Use this guide to answer scenario-based CISSP questions related to:
+- Facility layout
+- CPTED strategies
+- Planning & design dependencies
+- Physical and administrative controls
 
 ---
 
