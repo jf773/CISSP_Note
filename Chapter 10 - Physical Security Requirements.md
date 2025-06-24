@@ -179,7 +179,7 @@ The term *physical controls* in CISSP includes more than physical objects—it e
 | Entrance Facility (MDF)    | Main demarcation point from external provider into building 🛣              |
 | Equipment Room             | Central location for main wiring closets and network hardware 🖧            |
 | Backbone Distribution      | Cross-floor network cable infrastructure 📶                                 |
-| Wiring Closet (IDF)        | Serves local floor areas, connects backbone to horizontal wiring 🔌         |
+| Wiring Closet (IDF)        | Serves local floor areas, connects backbone to horizontal wiring 🔌= premises wire distribution room/main distribution frame (MDF)/intermediate distribution frame (IDF)/telecommunications room. |
 | Horizontal Distribution    | Cables and hardware between closet and end-user systems 🧵                   |
 
 #### 🔐 PDS (Protected Distribution System)
