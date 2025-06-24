@@ -65,9 +65,9 @@
 ## AI Prompt
 ```
 You are a CISSP expert tasked with creating comprehensive study notes to help me pass the CISSP exam. Please create detailed summaries for each concept covered in Chapter 10 of the CISSP Official Study Guide, 10th Edition. Format the notes in markdown for easy copying to GitHub. Adhere to the following requirements:
-1. **Clarity and Completeness**: Write summaries that are concise, easy to understand, and cover all concepts relevant to the CISSP exam. Include all details that could appear on the exam, avoiding overly technical jargon unless necessary.
-2. **Visual Aids**: Use emojis sparingly to enhance understanding of key points (e.g., to highlight critical terms or concepts). Do not use emojis in titles or subtitles.
-3. **Structure and Readability**: Organize the notes to match the chapter's index/structure as presented in the textbook. Follow the hierarchical layers of the index (e.g., main sections, subsections, sub-subsections) to ensure alignment with the textbook's organization.
-4. **Tables for Comparison**: Include tables to compare related concepts, terms, or frameworks when relevant to aid exam preparation (e.g., comparing security models, protocols, or controls).
-5. **Markdown Format**: Ensure all content is written in markdown, with proper formatting (e.g., headers, lists, tables) for easy readability and GitHub compatibility.
+1. Clarity and Completeness: Write summaries that are concise, easy to understand, and cover all concepts relevant to the CISSP exam. Include all details that could appear on the exam, avoiding overly technical jargon unless necessary.
+2. Visual Aids: Use emojis sparingly to enhance understanding of key points (e.g., to highlight critical terms or concepts). Do not use emojis in titles or subtitles.
+3. Structure and Readability: Organize the notes to match the chapter's index/structure as presented in the textbook. Follow the hierarchical layers of the index (e.g., main sections, subsections, sub-subsections) to ensure alignment with the textbook's organization.
+4. Tables for Comparison: Include tables to compare related concepts, terms, or frameworks when relevant to aid exam preparation (e.g., comparing security models, protocols, or controls).
+5. Markdown Format: Ensure all content is written in markdown, with proper formatting (e.g., headers, lists, tables) for easy readability and GitHub compatibility.
 ```
