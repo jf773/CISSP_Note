@@ -26,109 +26,142 @@
 - [Summary](#summary)
 
 ## Introducing Systems Development Controls
+* Building security in early 🛠️ is **cheaper** and **stronger** than bolting it on later.  
+* Controls span policies, standards, secure coding, rigorous testing, and change/configuration management.
 
-### Internal Security Controls
+### Software Development
+Security touch-points exist in **all** SDLC phases—requirements ➝ design ➝ coding ➝ testing ➝ deployment ➝ maintenance.
 
-Effective internal security mechanisms ensure that only authorized individuals gain access to secure zones within a facility.
+#### Programming Languages
+| Language Category | Examples | Security Pros | Security Cons |
+|-------------------|----------|---------------|---------------|
+| **Compiled** | C, C++, Go, Rust, Java (.class files) | 📦 Binary harder to tamper; faster run-time; can enforce memory safety (Rust) | Reverse-engineering possible; vulnerable if compiler/flags mis-used |
+| **Interpreted** | Python, Perl, Ruby, JavaScript | Source visible—peer review friendly 😎 | Source visible—easy to alter; slower |
+| **Hybrid / Byte-code** | Java (JVM), .NET (CLR) | Portability, runtime sandbox | Byte-code still reversible; JIT introduces attack surface |
 
-#### 👥 Visitor Management
+##### Key Terms  
+* **Machine Language** – raw CPU op-codes.  
+* **Assembly** – mnemonic shorthand for machine language.  
+* **High-Level** – human-friendly; relies on compilers or interpreters.  
+* **Obfuscation** – intentionally makes compiled code harder to reverse.
 
-- Visitors should be:
-  - **Escorted** at all times
-  - Logged (manually or automatically)
-  - Subject to monitoring via badges, motion detectors, or cameras
-- **Reception areas** should:
-  - Act as a **choke point**
-  - Be segregated from sensitive areas
-  - Include locked doors and surveillance systems
-- Visitor and **employee logs** are essential for:
-  - **Accountability**
-  - **Evacuation validation**
-  - **Correlation with logical/log access logs**
+#### Libraries
+* Reusable code (open-source or proprietary).  
+* Risks: inherited vulnerabilities (e.g., **Heartbleed** in OpenSSL), supply-chain attacks.  
+* Mitigation: SBOM 📝, routine patching, dependency scanning (SCA).
 
----
+#### Development Tool Sets
+* **IDE** – Integrated Development Environment (e.g., Visual Studio, IntelliJ, RStudio) consolidates edit + debug + build.  
+* Secure IDE config disables dangerous plugins, enforces code signing, runs SAST.
 
-#### 🔐 Keys and Combination Locks
+#### Object-Oriented Programming (OOP)
+| Concept | Brief | Security Angle |
+|---------|-------|----------------|
+| Class / Object | Blueprint vs. instance | Encapsulation hides data ↔ reduces attack surface. |
+| Inheritance | Sub-classes gain parent traits | Follows **substitution** (Liskov) principle. |
+| Polymorphism | Same message ⇒ different behaviors | Avoid abuse leading to unexpected privilege use. |
+| Cohesion (high good) | Similar purpose methods | Simplifies auditing 🕵️‍♂️ |
+| Coupling (low good) | Few external dependencies | Limits cascading failures. |
 
-| Lock Type         | Description                                                                   |
-|-------------------|-------------------------------------------------------------------------------|
-| Preset/Conventional | Simple key-based locks (e.g., deadbolt); low cost, but vulnerable to picking, bumping |
-| Programmable       | Support multiple codes and access methods; may use keypad or smartcard       |
-| Electronic Access Control (EAC) | Includes magnet, credential reader, and sensor; logs access times and durations |
+#### Assurance
+* Confidence that controls **correctly implement** policy over the system’s lifetime.  
+* Common Criteria 🔐 provides Evaluation Assurance Levels (EALs) 1 – 7.
 
-⚠️ **Attacks**:  
-- **Shimming** and **bumping** can bypass conventional locks.
+#### Avoiding and Mitigating System Failure
+##### Input Validation
+* Server-side, whitelist, boundary & limit checks, canonicalization.  
+* Reject or escape 🚫 injected meta-characters.
 
-🔔 Example EAC logic:
-- Warning buzzer if door is open >5 seconds
-- Alarm if open >10 seconds
+##### Authentication and Session Management
+* Leverage enterprise IAM (SSO, MFA).  
+* Long, random session tokens; timeout & re-auth.
 
-### Environmental Issues and Life Safety
+##### Error Handling
+* User-facing ➝ generic.  
+* Detailed stack-traces only in protected logs.
 
-Human safety takes precedence over all other assets.
+##### Logging
+* Centralized, write-once, clock-synced.  
+* OWASP recommends logging auth failures, access control errors, tampering, TLS issues, etc.
 
-#### 🔧 Facility Environmental Stability
+##### Fail-Secure vs. Fail-Open
+| Mode | Description | Typical Use |
+|------|-------------|-------------|
+| **Fail-Secure** 🔒 | Deny all on failure; preserve confidentiality/integrity | Most security controls |
+| **Fail-Open** 🚦 | Allow access to maintain availability | Non-critical guard devices (rare) |
 
-- Disruptions in **water, power, HVAC** may lead to broader risks.
-- Risks include:
-  - Fire
-  - Flooding
-  - Toxic material release
-  - Natural/human-made disasters
+### Systems Development Life Cycle
 
-#### 👨‍👩‍👧‍👦 Occupant Emergency Plan (OEP)
+#### 🛡️ Overview  
+Security delivers the greatest ROI when it is **planned, embedded, and managed across every SDLC phase**.  Life-cycle models (Waterfall, Agile, Spiral, etc.) provide the project-management scaffolding that keeps development on target, embeds secure-coding best practices, and aligns with CISSP exam objectives.
 
-- Focuses solely on **personnel safety**.
-- Covers:
-  - Evacuation, duress management, injury prevention
-  - Safe travel, basic property protection
-- Does **not** address IT systems (those are handled by BCP and DRP)
+#### Core Activities at a Glance  
 
-🧠 **Key Concept**: Always protect **human life first** before addressing business continuity.
+| SDLC Activity | Purpose | Security Focus 🤔 |
+|---------------|---------|-------------------|
+| Conceptual definition | Draft project’s high-level purpose & scope | Identify **data classifications** & preliminary protection goals |
+| Functional requirements determination | Document what the system must do | Bake in confidentiality, integrity, availability (CIA) requirements |
+| Control specifications development | Translate security needs into concrete controls | Access controls, encryption, auditing, fault-tolerance |
+| Design review | Validate architecture before coding | Ensure design meets functional & security specs |
+| Coding | Implement design using secure-coding principles | Follow least privilege, input validation, error handling |
+| Code review walk-through | Peer review code for defects & vulns | Detect logic errors, insecure APIs, poor crypto use |
+| System test review | Validate system operates & secures as intended | Functional, security, regression, & **UAT** testing |
+| Maintenance & change management | Sustain secure operations post-deployment | Patch mgmt, incident response, formal change control |
 
-### Regulatory Requirements
+##### Conceptual Definition  
+* Single-paragraph **concept statement** agreed by stakeholders.  
+* Establishes project vision, scope, and **initial** (high-level) security requirements.  
+* Designers flag **data classifications** & handling standards.
 
-All organizations are subject to **industry** and **jurisdictional regulations** that affect security operations.
+##### Functional Requirements Determination  
+* Produces **Functional Requirements Document (FRD)** with:  
+  * **Inputs** – data accepted  
+  * **Behavior** – business logic / rules  
+  * **Outputs** – data produced  
+* Must reach stakeholder consensus; used later as **UAT checklist**.
 
-- Areas affected:
-  - Software licensing
-  - Employment practices
-  - Data handling
-  - Safety compliance
+##### Control Specifications Development  
+* Proactive design of security controls—never an afterthought!  
+* Addresses:  
+  * **Access control** (authN/authZ)  
+  * **Confidentiality** – crypto, data-at-rest/flight protection  
+  * **Integrity & Accountability** – logging, auditing  
+  * **Availability** – redundancy, fault tolerance  
+* Revisit controls if design changes significantly.
 
-⚖️ Legal and regulatory compliance forms the **baseline** of any secure infrastructure.
+##### Design Review  
+* Architects finalize modular design & timelines.  
+* **Formal review meeting** ensures alignment with control specs.  
+* Security pros validate that design respects CIA & compliance needs.
 
-### 📊 Key Performance Indicators of Physical Security
+##### Coding  
+* Developers follow **secure-coding standards** (input validation, output encoding, least privilege modules, safe APIs).  
+* Aim to minimize vulnerabilities early—cheaper than fixing later.
 
-**KPIs** help assess the effectiveness of security controls and guide improvements.
+##### Code Review Walk-Through  
+* Scheduled milestone peer reviews.  
+* Detects logical flaws, insecure patterns, missing error handling.  
+* Promotes knowledge sharing & consistent coding style.
 
-#### 🧮 Common Physical Security KPIs
+##### System Test Review  
+1. **Developer / integration tests** – catch obvious errors.  
+2. **Functional tests** – validate requirements.  
+3. **Security tests** – penetration, fuzzing, vulnerability scans.  
+4. **Regression tests** – confirm updates don’t break existing features.  
+5. **User Acceptance Testing (UAT)** – end users verify business fit.  
 
-| Metric Type               | Examples                                                                 |
-|---------------------------|--------------------------------------------------------------------------|
-| Incidents (Success)       | # of successful intrusions, crimes, disruptions                          |
-| Incidents (Failure)       | # of attempted but failed intrusions, crimes, incidents                  |
-| Time-Based Metrics        | Detection time, response time, recovery time, return to normal operation |
-| Quality Metrics           | Number of false positives, incident severity, organizational impact      |
+> 📌 **Deliverable**: Signed test plan & results archive for audit trail.
 
-📈 **KPI Best Practices**:
+##### Maintenance and Change Management  
+* Continuous operations require:  
+  * Routine & emergency maintenance  
+  * **Patch & vulnerability management**  
+  * Performance / security monitoring  
+* All updates funnel through a **formal change-management process** (identification, evaluation, approval, implementation, review) to maintain integrity & compliance.
 
-- **Establish baselines** for all KPIs.
-- Maintain **historical records** for trend analysis.
-- **Automate** collection when possible.
-- Use **incident reviews** to extract lessons learned and improve future response.
+##### Exam Tips 📖  
+* Expect questions on **embedding security early** vs. bolting it on.  
+* Know differences between **UAT, regression, and functional testing**.  
+* Remember: Change control = protection against **unauthorized modifications**.  
+* SDLC activities map tightly to CISSP CBK Domain 8 “Software Development Security”.
 
-📊 With solid KPI data, organizations can:
-- Identify weaknesses
-- Evaluate control effectiveness
-- Perform ROSI (Return on Security Investment)
-- Conduct cost–benefit analysis
-
----
-
-🧠 **CISSP Tip**:
-You will likely encounter scenario-based questions on:
-- Selecting physical controls for internal vs. external zones
-- Responding to personnel or environmental safety concerns
-- Understanding the role of OEP vs. BCP/DRP
-- Interpreting KPI data for physical security effectiveness
