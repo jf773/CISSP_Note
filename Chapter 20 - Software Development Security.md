@@ -778,6 +778,7 @@ Modern enterprises rely heavily on database platforms; safeguarding them 🛡️
   | Alternate | Remaining candidate keys not selected | Telephone |  
   | Foreign | Refers to PK in another table; ensures **referential integrity** | Sales Rep ID |  
 * **Cardinality** – # of rows. **Degree** – # of columns.
+
 | emp_id | emp_name | dept |
 |-------:|-----------|------|
 | 101    | Alice     | HR   |
