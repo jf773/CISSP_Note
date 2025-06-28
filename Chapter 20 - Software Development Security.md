@@ -165,3 +165,146 @@ Security delivers the greatest ROI when it is **planned, embedded, and managed a
 * Remember: Change control = protection against **unauthorized modifications**.  
 * SDLC activities map tightly to CISSP CBK Domain 8 “Software Development Security”.
 
+### Life Cycle Models
+
+#### 📚 Overview  
+Life-cycle models formalize the **software development life cycle (SDLC)** and embed security into every phase. CISSP Domain 8 expects you to:  
+
+* Recognize major SDLC frameworks and when they fit best.  
+* Understand how security activities map into each model.  
+* Evaluate maturity frameworks (CMM, SAMM, IDEAL) that rate an organization’s software process capability.  
+
+#### Waterfall Model  
+
+##### Key Characteristics  
+* **Sequential / Phase-Gate**: Requirements → Design → Implementation → Verification → Maintenance.  
+* **Iterative Waterfall** adds *feedback loops* 🌀 allowing a project to return **one** phase to fix discovered defects.  
+* **Verification vs. Validation**:  
+  * **Verification** – *Did we build it right?*  
+  * **Validation** – *Did we build the right thing?*  
+
+##### Strengths & Weaknesses  
+
+| 👍 Strengths | 👎 Weaknesses |
+|-------------|--------------|
+| Clear milestones & documentation | Late discovery of defects |
+| Suits well-understood, low-change projects | Hard to accommodate changing requirements |
+| Easier regulatory compliance audits | Rarely delivers early business value |
+
+#### Spiral Model  
+
+##### Key Characteristics  
+* **Barry Boehm (1988)**; a *metamodel* (model of models).  
+* Repeats *waterfall cycles* (“loops”) to produce incremental **prototypes (P1, P2, P3)**.  
+* Each loop addresses **risk analysis** → engineering → evaluation → planning.  
+* Enables **return to planning** for evolving requirements.  
+
+##### Spiral Strengths  
+* Early detection/mitigation of high-risk items.  
+* Progressive refinement yields usable prototypes sooner.  
+* Suited to large, high-risk, evolving systems.
+
+#### Agile Software Development  
+
+##### Agile Manifesto Highlights  
+* **Individuals & interactions** over processes/tools.  
+* **Working software** over exhaustive docs.  
+* **Customer collaboration** over contract negotiation.  
+* **Responding to change** over following a rigid plan.  
+
+###### Agile Principles (Condensed)  
+Early & continuous delivery, welcome change, frequent releases, daily business-dev collaboration, motivated teams, face-to-face comms, working SW as progress metric, sustainable pace, technical excellence, simplicity, self-organizing teams, regular reflection.
+
+##### Popular Methodologies  
+
+| Methodology | Core Ideas | Security Hooks |
+|-------------|-----------|----------------|
+| **Scrum** | Daily stand-ups (scrums), 1–4 wk **sprints**, Scrum Master facilitates, deliver shippable product increment each sprint | Integrate **security user stories**, *definition of done* includes security criteria |
+| **Kanban** | Continuous flow with WIP limits via Kanban board | **Security tasks/lanes** ensure ongoing hardening |
+| **Extreme Programming (XP)** | Pair programming, TDD, continuous integration | Built-in testing supports secure code; pair reviews reduce flaws |
+| **Lean / RAD / DSDM / AUP** | Variations focusing on waste reduction or rapid prototyping | Apply **secure-coding** checklists in rapid cycles |
+
+#### Integrated Product Teams  
+
+* **DoD concept (1995)** – cross-functional teams (dev, ops, security, business) collaborate continuously through the product life cycle.  
+* Promotes **parallel decisions** and early security integration across disciplines.
+
+#### Scaled Agile Framework (SAFe)  
+
+##### Configuration Levels  
+
+| Level | Scope | Notes |
+|-------|-------|-------|
+| **Essential** | Foundation; **Agile Release Train (ART)** delivers Program Increment (8-12 wks) | Traditional Scrum & XP at team level |
+| **Large Solution** | Coordinates multiple ARTs | Extra roles/artifacts for system-of-systems |
+| **Portfolio** | Aligns strategy & investment via **Lean Portfolio Management** | Uses **Epics**, **Value Streams** |
+| **Full** | Combines all above; supports enterprise-wide agility | For hundreds/thousands of practitioners |
+
+##### 10 SAFe Principles (memory tip: **EAST CALM-O!** 🧭)  
+1. **E**conomic view  
+2. **A**pply systems thinking  
+3. **S**tate variability / preserve options  
+4. **T**est & build incrementally  
+5. **C**heckpoints via objective milestones  
+6. **A**llow value flow  
+7. **L**ock cadence & synchronize  
+8. **M**otivate knowledge workers  
+9. **D**ecentralize decisions *(-O represents Organize around value)*  
+10. **O**rganize around value  
+
+#### Capability Maturity Model (CMM) & CMM Integration (CMMI)  
+
+| Level | Name (CMM) | Primary Focus | Security Implications |
+|-------|------------|---------------|-----------------------|
+| **1** | Initial | Ad-hoc / chaotic processes | Unpredictable quality, high risk |
+| **2** | Repeatable | Basic PM & reuse | Documented config mgmt, QA points |
+| **3** | Defined | Organization-wide standards | Security policy integration begins |
+| **4** | Managed ★ (CMMI: *Quantitatively Managed*) | Metrics & quantitative control | Measure defect density, vuln trends |
+| **5** | Optimizing | Continuous improvement | Proactive defect prevention & threat intelligence loops |
+
+> 🗝️ **Difference**: CMM targets *isolated* processes; **CMMI** focuses on *integrating* them across the org.
+
+#### Software Assurance Maturity Model (SAMM) – OWASP  
+
+| Business Function | Security Practices |
+|-------------------|--------------------|
+| **Governance** | Strategy & Metrics, Policy & Compliance, Education & Guidance |
+| **Design** | Threat Modeling, Security Requirements, Security Architecture |
+| **Implementation** | Secure Build, Secure Deployment, Defect Management |
+| **Verification** | Architecture Assessment, Requirements-Driven Testing, Security Testing |
+| **Operations** | Incident Mgmt, Environment Mgmt, Operational Mgmt |
+
+*Assesses maturity & guides roadmap for weaving security activities into SDLC.*
+
+#### IDEAL Model  
+
+| Phase | Purpose |
+|-------|---------|
+| **Initiating** | Identify business drivers & establish sponsorship |
+| **Diagnosing** | Assess current state & recommend improvements |
+| **Establishing** | Develop actionable work plan |
+| **Acting** | Implement, test, refine solutions |
+| **Learning** | Analyze results & feed improvements back |
+
+> 👁️‍🗨️ **Mnemonic** to recall SW-CMM & IDEAL pairings:  
+> “*I… I, Dr. Ed, am lo(w).*”  
+> *II DR ED AM LO* → **Initiating, Diagnosing, Establishing, Acting, Learning** (IDEAL) vs. **Initial, Repeatable, Defined, Managed, Optimizing** (CMM).
+
+#### Model Comparison Table  
+
+| Model | Style | Handles Change? | Security Integration Point |
+|-------|-------|-----------------|----------------------------|
+| Waterfall | Sequential | Poor (feedback only one phase) | Control specs after requirements |
+| Spiral | Iterative risk-driven | Excellent (each loop reassesses) | Risk analysis per loop |
+| Agile / Scrum | Incremental, time-boxed | Excellent (backlog reprioritized) | Security stories per sprint, CI/CD tests |
+| SAFe | Agile @ scale | Excellent (ART PI planning) | Security built into Definition of Done, Communities of Practice |
+| CMMI / IDEAL | *Process maturity* frameworks | N/A (assess org, not dev style) | Security maturity increases with levels |
+| SAMM | *Security maturity* framework | N/A | Directly maps security activities to SDLC functions |
+
+#### CISSP Exam Nuggets 💡  
+* Waterfall vs. Spiral vs. Agile = know **change management & risk handling** differences.  
+* CMM/CMMI maturity **levels & keywords** are test favorites.  
+* Agile security = embed **user stories, threat modeling, automated testing** into each sprint.  
+* SAFe adds **Essential ➜ Full** layers; remember **ART** & **Program Increments**.  
+* SAMM & IDEAL appear less often but reinforce **continuous improvement** concept.
+
