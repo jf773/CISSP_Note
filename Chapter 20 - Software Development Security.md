@@ -777,7 +777,18 @@ Modern enterprises rely heavily on database platforms; safeguarding them 🛡️
   | Primary | Chosen candidate used for uniqueness | Company ID |  
   | Alternate | Remaining candidate keys not selected | Telephone |  
   | Foreign | Refers to PK in another table; ensures **referential integrity** | Sales Rep ID |  
-* **Cardinality** – # of rows. **Degree** – # of columns.  
+* **Cardinality** – # of rows. **Degree** – # of columns.
+| emp_id | emp_name | dept |
+|-------:|-----------|------|
+| 101    | Alice     | HR   |
+| 102    | Bob       | IT   |
+| 103    | Carol     | IT   |
+| 104    | Dave      | Sales |
+- **Cardinality (行数)** → **4**  
+  4 行のデータがあります（Alice, Bob, Carol, Dave）。
+- **Degree (列数)** → **3**  
+  列は `emp_id`, `emp_name`, `dept` の 3 つです。
+
 * **SQL Components**:  
   * **DDL** – CREATE / ALTER schemas.  
   * **DML** – SELECT / INSERT / UPDATE / DELETE data.  
