@@ -441,7 +441,7 @@ CISSP candidates must know **process disciplines** that maintain integrity, avai
 * Know that both processes feed evidence into **audits, investigations, troubleshooting, and compliance**.  
 * Understand how tools (FIM, CMDB, version control) support these frameworks.  
 
-### DevOps Approach
+### The DevOps Approach
 
 #### Overview
 DevOps unifies **software development**, **quality assurance**, and **IT operations** to deliver secure, high-quality software **rapidly** and **reliably**.
