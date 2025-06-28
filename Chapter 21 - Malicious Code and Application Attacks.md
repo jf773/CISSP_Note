@@ -44,7 +44,7 @@
 - [Exploiting Authorization Vulnerabilities](#exploiting-authorization-vulnerabilities)
   - [Insecure Direct Object References](#insecure-direct-object-references)
   - [Directory Traversal](#directory-traversal)
-  - [File Inclusion](#file-inclusion)
+  - [File Inclusion Attacks](#file-inclusion-attacks)
     - [Local File Inclusion (LFI)](#local-file-inclusion-lfi)
     - [Remote File Inclusion (RFI)](#remote-file-inclusion-rfi)
 - [Exploiting Web Application Vulnerabilities](#exploiting-web-application-vulnerabilities)
@@ -237,7 +237,7 @@ Comprehensive endpoint security that goes beyond traditional antivirus solutions
 
 📌 **Exam Tip**: Focus on how buffer overflows impact confidentiality, integrity, and availability (CIA), and what controls can mitigate them.
 
-#### Time of Check to Time of Use (TOCTTOU)
+#### Time of Check to Time of Use
 - A **race condition vulnerability** where an attacker changes the system state between a check and an action.
 - Example:
   - Program checks access permission to a file.
@@ -414,7 +414,7 @@ Authorization vulnerabilities allow attackers to bypass or exploit weak access c
 
 🧠 **CISSP Insight**: Know that OWASP provides standards and tools for secure application development, testing, and education.
 
-#### Insecure Direct Object References (IDOR)
+#### Insecure Direct Object References
 - Occurs when applications expose internal object references (e.g., document IDs, account numbers) without enforcing proper authorization checks.
 - Example:
   ```
@@ -494,7 +494,7 @@ Cross-site scripting (XSS) occurs when an attacker injects **malicious scripts**
   http://example.com/search?query=<script>alert('XSS')</script>
   ```
 
-##### Stored (Persistent) XSS
+##### Stored/Persistent XSS
 - Malicious script is stored on the server (e.g., in a comment or message board).
 - Triggered whenever a victim loads the infected page.
 - More dangerous due to broader exposure.
@@ -510,6 +510,7 @@ Cross-site scripting (XSS) occurs when an attacker injects **malicious scripts**
 
 📌 **Exam Tip**: Know the difference between reflected, stored, and DOM-based XSS.
 
+### Request Forgery
 #### Cross-Site Request Forgery (CSRF/XSRF)
 Tricks an authenticated user's browser into sending **unauthorized requests** to a trusted site.
 
@@ -576,6 +577,7 @@ The **most critical** control in application security.
   - Cross-site scripting (XSS)
   - Buffer overflows
 
+##### Whitelisting and Blacklisting
 ✅ **Best Practice: Whitelisting (Allow listing)**  
 - Only allow expected formats/types (e.g., age = integer 0–123)
 - Server-side validation is mandatory
@@ -584,14 +586,15 @@ The **most critical** control in application security.
 - Blocking known bad characters (e.g., `<`, `'`, `--`)
 - Less effective due to bypass techniques
 
+##### Client-Side vs Server-Side Validation
 🧠 **CISSP Tip**: Validation must happen on the **server side**, not just the client side (e.g., JavaScript), as attackers can bypass browsers.
 
-#### Metacharacters and Escaping
+##### Metacharacters
 - **Metacharacters** have special meanings in queries/scripts (e.g., `;`, `|`, `'`, `--`)
 - **Escaping** neutralizes these characters
   - Example: `\` or encoding (`%27` for `'`)
 
-#### Parameter Pollution
+##### Parameter Pollution
 - Multiple values are submitted for the same input parameter
 - Web apps may validate one and execute the other
 
@@ -599,7 +602,7 @@ The **most critical** control in application security.
 - Enforce strict server-side parameter validation
 - Apply secure input parsing libraries
 
-#### Web Application Firewalls (WAFs)
+#### Web Application Firewalls
 - Work at the **Application Layer (OSI Layer 7)**
 - Monitor, filter, or block HTTP traffic to/from web applications
 
