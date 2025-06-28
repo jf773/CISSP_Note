@@ -177,7 +177,7 @@ Life-cycle models formalize the **software development life cycle (SDLC)** and e
 #### Waterfall Model  
 
 ##### Key Characteristics  
-* **Sequential / Phase-Gate**: Requirements → Design → Implementation → Verification → Maintenance.  
+* **Sequential / Phase-Gate**: System Requirements → Software Requirements → Preliminary Design → Detailed Design → Code and Debug → Testing → Operations and Maintenance  
 * **Iterative Waterfall** adds *feedback loops* 🌀 allowing a project to return **one** phase to fix discovered defects.  
 * **Verification vs. Validation**:  
   * **Verification** – *Did we build it right?*  
