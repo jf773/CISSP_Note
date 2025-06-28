@@ -23,7 +23,7 @@
 | 18      | Disaster Recovery Planning                                       | ☐               |
 | 19      | Investigations and Ethics                                        | ☐               |
 | 20      | Software Development Security                                    | ■               |
-| 21      | Malicious Code and Application Attacks                           | ☐               |
+| 21      | Malicious Code and Application Attacks                           | ■               |
 
 ## Domain Mapping
 | Domain                                      | Chapters                   |
