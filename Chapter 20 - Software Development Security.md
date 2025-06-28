@@ -795,6 +795,10 @@ Modern enterprises rely heavily on database platforms; safeguarding them 🛡️
 | Isolation | Concurrent transactions don’t interfere | Thwarts race conditions |  
 | Durability | Committed data survives crashes | Aids availability |  
 
+Atomicity → “途中でやめない”
+Consistency → “ルールを崩さない”
+Isolation → “他の人とはぶつからない”
+Durability → “確定したら消えない”
 *Typical flow:* `BEGIN TRAN; … COMMIT;` or `ROLLBACK;`  
 
 #### Security for Multilevel Databases  
