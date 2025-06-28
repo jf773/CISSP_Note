@@ -947,11 +947,15 @@ Logical deduction by correlating seemingly innocuous data points. Example: salar
 | **Polyinstantiation** | Multiple records with same PK but different classification | Supports MLS, thwarts inference |  
 
 ##### Polyinstantiation Example  
-| Ship | Classification | Position |  
-|------|---------------|----------|  
-| USS UpToNoGood | **Top Secret** | 18°N 77°W |  
-| USS UpToNoGood | **Secret** | Routine Patrol Area |  
-Low-clearance users see only the lower-level row; high-clearance users see both.  
+| Ship_ID | Position        | Security_Label |
+|---------|-----------------|----------------|
+| USS Alpha | 35°N 140°E     | PUBLIC   |
+| USS Alpha | 28°N 135°E     | SECRET   |
+| USS Alpha | 12°N 110°E     | TOP-SECRET |
+
+* Query by **PUBLIC** user → returns *35°N 140°E* (harmless decoy)  
+* Query by **SECRET** user → returns *28°N 135°E*  
+* Query by **TOP-SECRET** user → returns *12°N 110°E* (true location)
 
 #### Exam Tips ✏️  
 * Contamination = mixed-level data → use trusted front end or DB partitioning.  
