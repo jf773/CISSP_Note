@@ -782,3 +782,637 @@ Key Points:
 | Trust & Assurance | Evaluates the reliability and strength of security features |
 
 These techniques **collectively reinforce CIA** and are critical to designing secure, stable, and enforceable systems.
+
+## Understand the Fundamental Concepts of Security Models
+
+### Tokens, Capabilities, and Labels
+
+In secure systems, access control decisions are made based on metadata that describes the security attributes of both subjects and objects. There are three primary mechanisms used to represent and enforce these attributes:
+
+#### Tokens
+
+A **security token** is a separate entity (e.g., file, data structure, or object) that holds the **access control attributes** for a particular resource.
+
+- Associated with a subject or object to indicate privileges.
+- Used before the actual resource is accessed.
+- Can be reused and passed across different components or sessions.
+
+📌 Example: A temporary credential issued during session login that includes user ID, roles, and permissions.
+
+🧠 **CISSP Insight**: Tokens can simplify access management, but they must be protected from tampering and replay attacks.
+
+#### Capabilities
+
+A **capability list** is a **subject-centric** structure that defines **what operations the subject can perform** on various objects.
+
+- Each subject maintains its own list of permissions to multiple objects.
+- Quicker access decisions for subjects, since no object lookup is needed.
+- Less flexible than tokens, as the capability list is tied to the subject.
+
+| Concept       | Focus        | Storage Location        |
+|---------------|--------------|--------------------------|
+| Token         | Object-based | Associated with object   |
+| Capability    | Subject-based| Associated with subject  |
+
+🧠 **CISSP Tip**: In capability systems, revoking access to an object often requires updating **every subject’s list**—which can be management intensive.
+
+#### Labels
+
+A **security label** is a **permanent, embedded tag** within an object indicating its classification or sensitivity.
+
+- Used in **Mandatory Access Control (MAC)** models.
+- Labels include classifications like "Confidential," "Secret," etc.
+- Once set, labels are **not alterable** by normal users.
+
+📌 Example: A file labeled “Top Secret” in a MAC-based system prevents access by users without proper clearance.
+
+🛡️ Security labels help enforce **multilevel security** and prevent **unauthorized disclosure**.
+
+#### Summary
+
+| Mechanism   | Description                                              | Usage Scenario                         |
+|-------------|----------------------------------------------------------|----------------------------------------|
+| Token       | Security metadata object linked to resource              | Session tokens, Kerberos tickets       |
+| Capability  | List of object permissions held by the subject           | Distributed systems, microkernels      |
+| Label       | Embedded classification level on the object              | Government MAC systems, SELinux        |
+
+Understanding these mechanisms is essential for identifying how security policies are applied, **who can access what**, and **how permissions are enforced** across different security models.
+
+### Trusted Computing Base (TCB)
+
+The **Trusted Computing Base (TCB)** is the foundation of a secure system. It includes all the **hardware, software, and controls** that enforce the system’s security policy.
+
+#### Key Characteristics
+
+- **Small and Verifiable**: The TCB should be as **minimal** as possible so it can be **analyzed, verified**, and trusted.
+- **Mandatory Component**: Only the TCB can **enforce access controls**, verify credentials, and manage protected system resources.
+- **Isolated**: TCB operates within a **protected boundary** (see: Security Perimeter) to prevent tampering from outside components.
+
+🛡️ **CISSP Tip**: A secure system is **only as trustworthy** as its TCB. A weak or compromised TCB undermines the entire security model.
+
+#### Responsibilities of the TCB
+
+- Enforces **authentication** and **authorization**
+- Protects **memory**, **files**, and **I/O**
+- Mediates **all access requests**
+- Provides **secure boot**, **process isolation**, and **trusted path** creation
+
+| TCB Role             | Description                                                            |
+|----------------------|------------------------------------------------------------------------|
+| Enforce Policy        | Ensures all access and operations adhere to the security policy        |
+| Validate Access       | Verifies subject credentials before granting object access             |
+| Handle Resources      | Manages protected system memory, files, and devices                    |
+
+#### Security Perimeter
+
+- The **security perimeter** is the **imaginary boundary** around the TCB.
+- Prevents insecure communication with outside (non-TCB) components.
+- Requires **trusted paths** to interact securely with the TCB.
+
+📌 **Trusted Path**: A secure channel for communication between users and the TCB. For example, the Ctrl+Alt+Del screen in Windows is a trusted path for secure login.
+
+#### Reference Monitor Concept
+
+The **Reference Monitor** is an abstract concept that defines how **every access request** is checked before being allowed.
+
+- Must be:
+  - **Tamperproof**
+  - **Always Invoked**
+  - **Small Enough to be Verified**
+
+✅ Implemented in the **Security Kernel**, the software/hardware part of the TCB that enforces reference monitor decisions.
+
+#### Summary
+
+| Concept               | Description                                                                |
+|------------------------|----------------------------------------------------------------------------|
+| TCB                    | The system’s trusted core; enforces security policy                        |
+| Security Perimeter     | Isolates the TCB from the rest of the system                               |
+| Trusted Path           | A secure method to communicate with the TCB                                |
+| Reference Monitor      | The component that checks all subject-object access                        |
+| Security Kernel        | The actual implementation of the reference monitor                         |
+
+🧠 **CISSP Exam Insight**: You must understand how the TCB, security perimeter, reference monitor, and security kernel relate to each other and the enforcement of access controls.
+
+### State Machine Model
+
+The **State Machine Model** is a foundational security model in which a system is considered secure **if it starts in a secure state and transitions only through secure states**. It underlies many other security models (e.g., Bell–LaPadula, Biba).
+
+#### Key Concepts
+
+- A **state** is a snapshot of a system at a specific time.
+- A **secure state** is one where **all security rules and policies** are enforced.
+- A **state transition** occurs when an input causes the system to change its state.
+- A system remains secure **only if every transition leads to another secure state**.
+
+📌 **Formula**:  
+`Next State = F(Current State, Input)`  
+`Output = F(Current State, Input)`
+
+🧠 **CISSP Tip**: If any transition allows violation of security policy, the model breaks down and becomes insecure.
+
+#### Characteristics of Secure State Machine
+
+- **All access requests are verified** before being processed.
+- Ensures **consistent security enforcement** even during transitions (e.g., program execution, login/logout, data processing).
+- **Boots into a secure state** and maintains security during runtime.
+
+| Concept              | Description                                                             |
+|----------------------|-------------------------------------------------------------------------|
+| Secure State          | A state where all access controls and policies are enforced             |
+| Transition            | A system shift triggered by user input or system event                 |
+| Finite State Machine  | The underlying structure used to model the system’s behavior           |
+
+#### Relevance to Other Models
+
+- The **Bell–LaPadula Model** is built on state machine principles to ensure **confidentiality**.
+- The **Biba Model** builds upon it to enforce **integrity**.
+- Any model that relies on the system evolving over time (like **noninterference** or **information flow**) uses the state machine concept as a base.
+
+🛡️ **Security Assurance**: By evaluating all potential states and transitions, you can guarantee the system never enters an insecure configuration.
+
+#### Summary
+
+| Element                | Purpose                                                                 |
+|------------------------|-------------------------------------------------------------------------|
+| State                  | Snapshot of system’s condition at one moment                           |
+| Secure State           | Enforces all security policies                                          |
+| Transition             | Input/event that changes the state                                     |
+| Secure State Machine   | Guarantees secure operations across all states                         |
+
+🔍 **Exam Tip**: Know that state machine models are **mathematical representations** of system behavior and are the **foundation for most formal security models**.
+
+### Information Flow Model
+
+The **Information Flow Model** is a security model that focuses on controlling how information moves within a system to prevent **unauthorized, insecure, or unintended flows**. It is built upon the principles of the **State Machine Model**, extending its use to **multi-level security systems**.
+
+#### Key Objectives
+
+- Ensure that information **only flows in authorized directions**
+- Prevent data leakage between **different security levels**
+- Block **covert channels** and undefined communication paths
+
+📌 **Example**: In a classified system, a user cleared for "Confidential" should not receive data labeled "Top Secret" — even indirectly.
+
+#### Core Characteristics
+
+- Evaluates **all potential paths** of data movement
+- Controls not just **who can access what**, but also **how data moves**
+- Especially useful in **multi-level security (MLS)** systems, where both subjects and objects have classification levels
+
+#### Types of Information Flow
+
+| Flow Type       | Description                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| Explicit Flow     | Directly defined data movements (e.g., copy/paste)                         |
+| Implicit Flow     | Indirect effects caused by conditional logic or program state             |
+| Covert Channel    | Hidden paths for data to flow in unintended ways                          |
+
+#### Time-Based View
+
+Information Flow Models can also **track data over time**, comparing object states at different moments:
+- Ensures that a lower classification object has **not been polluted** by a higher one
+- Validates **historical integrity and confidentiality**
+
+🛡️ **CISSP Exam Tip**: Understand how this model **controls and prevents data leakage**, and how it differs from access control-based models.
+
+#### Multilevel Security (MLS)
+
+Information flow control is essential in systems with **tiered classification levels**, such as:
+- Top Secret
+- Secret
+- Confidential
+- Unclassified
+
+In these systems, **unauthorized flows must be blocked** not only between users and files, but across applications and memory locations as well.
+
+#### Covert Channel Protection
+
+One of the major goals of the Information Flow Model is to identify and eliminate **covert channels**:
+- **Timing channels**: Use CPU cycles or response timing to leak information
+- **Storage channels**: Use shared storage (like unused file space) to send messages covertly
+
+| Feature              | Description                                                              |
+|----------------------|--------------------------------------------------------------------------|
+| Flow Control         | Restricts how information is transmitted                                 |
+| Time-State Linking   | Ensures historical consistency in object versions                        |
+| Covert Channel Mitigation | Blocks unintended communication paths (timing, storage, etc.)     |
+
+#### Summary
+
+- Focuses on **data movement**, not just access rights
+- Prevents information leakage in high-assurance systems
+- Evaluates both **direct and indirect** flows of information
+- Vital in **military, government, and cloud environments**
+
+🧠 **Mnemonic**:  
+"**Flow = Control + Class + Channels**"  
+Control the flow, respect the classification, and close the channels.
+
+### Noninterference Model
+
+The **Noninterference Model** is a formal security model that ensures actions taken at a **higher security level do not affect** what can be seen or inferred at a **lower level**. It aims to **prevent information leakage** and maintain strict **isolation between security domains**.
+
+#### Core Concept
+
+Noninterference prevents **unauthorized subjects** from learning about **sensitive activities** by observing system behavior.
+
+- **High-level actions** (e.g., classified operations) must **not influence** what is visible or perceivable by low-level users.
+- Focuses on **behavioral isolation** rather than access rights.
+
+📌 **CISSP Insight**: It’s not just about blocking access—it's about ensuring that **low-level users can't detect even the existence** of higher-level actions.
+
+#### Example Scenario
+
+Imagine a **multilevel secure system**:
+- A user at **Top Secret** deletes a file or runs a program.
+- A user at **Unclassified** should **not observe** slower system performance, changes in file counts, or log updates that imply something happened.
+
+🛡️ **Goal**: No **observable side effects** or interference across clearance boundaries.
+
+#### Key Features
+
+| Feature                  | Description                                                                 |
+|--------------------------|-----------------------------------------------------------------------------|
+| Behavioral Isolation     | Prevents lower-level subjects from detecting high-level activities          |
+| Covert Channel Blocking  | Eliminates unintended communication paths (e.g., timing or storage leaks)   |
+| Inference Protection     | Stops users from deducing secret information based on indirect evidence     |
+
+#### Application Areas
+
+- **Operating Systems**: Prevent cross-process leaks
+- **Virtualization**: Keep tenants isolated in cloud environments
+- **Military Systems**: Enforce absolute classification integrity
+
+🔐 **Real-World Example**:
+In a virtualized environment, if a tenant on VM1 can detect performance changes due to VM2’s classified activity, the system violates noninterference.
+
+#### Difference from Information Flow Model
+
+| Model                   | Focus                                  | Security Goal                        |
+|------------------------|----------------------------------------|--------------------------------------|
+| Information Flow       | Direction and type of data flow        | Prevent data leaks across boundaries |
+| Noninterference        | Side effects and visibility of actions | Prevent inference and covert signals |
+
+#### Summary
+
+- **Noninterference = No influence** across security levels.
+- Ensures that **low-level users remain unaware** of high-level operations.
+- Critical in systems where **covert inference** could compromise sensitive data.
+- Supports **military-grade** and **cloud tenant isolation** requirements.
+
+🧠 **CISSP Exam Tip**: Understand how this model goes beyond traditional access control to **block inference and indirect disclosure**.
+
+### Composition Theories
+
+**Composition Theories** describe how security properties are preserved when multiple systems are combined. These models are critical for ensuring that **secure individual components** continue to behave securely when **integrated** into larger systems.
+
+📌 **CISSP Insight**: When two secure systems interact, it doesn’t guarantee that the combination is secure unless the **compositional logic** is explicitly verified.
+
+#### Core Objective
+
+To understand how **inputs and outputs** from different systems affect each other and whether **security violations** may occur in the resulting composite system.
+
+#### Three Types of Composition Theories
+
+| Theory      | Description                                                                                       | Example Use Case                              |
+|-------------|---------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| **Cascading** | Output from one system becomes input to the next system.                                           | Secure printer logs passed to a monitoring system |
+| **Feedback**  | Two systems exchange inputs and outputs in a circular or bidirectional way.                       | Identity provider (IdP) authenticates a user, then user action changes the IdP's behavior |
+| **Hookup**    | Multiple systems send inputs to a single system or external entity.                              | IoT devices sending telemetry data to a centralized server |
+
+#### Application Contexts
+
+- **Multisystem environments**
+- **Security architecture design**
+- **Interconnected enterprise networks**
+- **Federated systems and cloud service chaining**
+
+🔗 **Security Concern**:
+Even if each system follows its own security policy, the combined flow of information or trust between them may introduce **unexpected pathways**, **inference risks**, or **covert channels**.
+
+#### Key Challenges
+
+- **Maintaining consistent security levels** across system boundaries
+- Avoiding **leakage of sensitive data** in transit
+- Preventing **downgrade attacks** between trusted/untrusted domains
+
+#### Comparison with Other Models
+
+| Model                  | Focus                              | Application                                  |
+|------------------------|------------------------------------|----------------------------------------------|
+| Composition Theories   | Integration of secure systems      | Evaluating overall system security            |
+| State Machine Model    | Security through state transitions | Secure boot, transition validation           |
+| Noninterference Model  | Isolation of high/low levels       | Preventing influence between domains         |
+
+#### Summary
+
+- Composition theories help assess the **cumulative security** of interconnected systems.
+- Cascading, Feedback, and Hookup are the primary models.
+- Useful in cloud, hybrid, and cross-domain architectures.
+- Failure to evaluate system composition can result in **systemic vulnerabilities**.
+
+🧠 **CISSP Exam Tip**: Know the **difference between the three composition types**, and understand **why secure individual systems may still pose risks when integrated**.
+
+### Take-Grant Model
+
+The **Take-Grant Model** is a graph-based access control model that focuses on how **rights can be transferred** between subjects and objects in a system. It’s designed to analyze the **distribution and flow of access permissions** and determine how rights may **leak or propagate**.
+
+📌 **CISSP Insight**: This model is especially useful for evaluating **how permissions spread** over time in a system and for identifying **potential unauthorized access** scenarios.
+
+#### Core Components
+
+- **Subjects**: Active entities (e.g., users, processes) capable of performing actions.
+- **Objects**: Passive entities (e.g., files, devices) being accessed.
+- **Rights**: Access permissions (e.g., read, write, execute, own).
+- **Graph Structure**: Represents entities as nodes and rights as directed edges between them.
+
+#### Four Primary Rules
+
+| Rule        | Description                                                                 |
+|-------------|-----------------------------------------------------------------------------|
+| **Take**    | A subject can take rights from another subject or object.                   |
+| **Grant**   | A subject can grant its rights to another subject or object.                |
+| **Create**  | A subject can create new objects or subjects and assign rights to them.     |
+| **Remove**  | A subject can remove rights it holds or has assigned to others.             |
+
+📌 Think of **"take"** as pulling a permission from another entity, and **"grant"** as giving what you already have.
+
+---
+
+#### Graph Representation
+
+The model uses a **directed graph** to illustrate who can do what:
+
+- **Nodes** = Subjects or objects
+- **Edges** = Access rights (e.g., read, write, take, grant)
+
+This graph can be **traversed** to determine if a subject can eventually gain a specific access right to an object—even if it’s not directly assigned.
+
+#### Practical Implications
+
+- Shows **how access control permissions evolve**.
+- Useful in **analyzing inheritance**, such as group permissions in operating systems.
+- Helps **identify potential for privilege escalation** and **permission leakage**.
+
+🔒 **Security Analysis Use Case**:
+Use the take-grant model to determine if a low-privilege user could gain high-level access through chained take/grant operations.
+
+#### Comparison with Other Models
+
+| Model              | Focus                              | Notes                                                 |
+|--------------------|------------------------------------|-------------------------------------------------------|
+| Take-Grant         | Permission transfer and propagation| Ideal for modeling how rights spread or leak          |
+| Bell-LaPadula      | Confidentiality                    | Prevents unauthorized read/write based on classification |
+| Biba               | Integrity                          | Prevents data contamination through improper writes   |
+| Access Control Matrix | Static access permissions       | Maps subject-object rights but doesn’t model flow     |
+
+#### Summary
+
+- The Take-Grant Model is a **dynamic access control model** showing how rights are acquired or transferred.
+- It is based on four rules: **take, grant, create, and remove**.
+- Helps identify **privilege escalation paths** and **right leakage**.
+- Represented using a **directed graph**, which makes it easy to trace rights.
+- Particularly relevant for **evaluating trust** and **access path control**.
+
+🧠 **CISSP Exam Tip**: Understand how the model visualizes **access propagation**, and how the **take** and **grant** rules work to **change permissions over time**.
+
+### Access Control Matrix
+
+The **Access Control Matrix** is a foundational model for defining and enforcing **access rights** in a system. It provides a **tabular representation** of subjects, objects, and the rights subjects have over objects. This model is useful for understanding the **static allocation of permissions** in discretionary access control (DAC), role-based access control (RBAC), or mandatory access control (MAC) systems.
+
+#### Structure of the Matrix
+
+- **Subjects**: Users, processes, or entities that request access.
+- **Objects**: Files, devices, databases, or resources that require protection.
+- **Permissions**: The allowed operations (e.g., read, write, execute, delete).
+
+Each cell in the matrix defines **what action(s) a subject can perform on a specific object**.
+
+|           | File A      | Printer      | Network Share |
+|-----------|-------------|--------------|----------------|
+| Alice     | Read, Write | No Access    | Read           |
+| Bob       | Read        | Print        | Read, Write    |
+| Charlie   | No Access   | Print, Admin | Full Control   |
+
+📌 **CISSP Insight**: An access control matrix is a **conceptual framework**, not necessarily implemented as a literal table due to scalability concerns.
+
+#### Two Derivative Structures
+
+To optimize real-world implementation, systems derive two structures from the matrix:
+
+1. **Access Control List (ACL)**
+   - Object-centric
+   - Lists all subjects and their permissions for a given object
+   - Example:
+     ```plaintext
+     File A: Alice - Read, Write; Bob - Read
+     ```
+
+2. **Capability List**
+   - Subject-centric
+   - Lists all objects and the permissions the subject has
+   - Example:
+     ```plaintext
+     Bob: File A - Read; Printer - Print; Share - Read/Write
+     ```
+
+| Comparison       | Access Control List (ACL)               | Capability List                          |
+|------------------|------------------------------------------|------------------------------------------|
+| Focus            | Objects                                 | Subjects                                 |
+| Use Case         | Common in filesystems (e.g., NTFS)      | Rarely used directly; academic value     |
+| Management Ease  | Easier for resource owners              | Harder to revoke per object              |
+
+#### Advantages
+
+- Simple and intuitive structure
+- Provides **complete visibility** of access relationships
+- Supports a wide range of access models (DAC, RBAC, MAC)
+
+#### Limitations
+
+- **Scalability**: Becomes unwieldy in systems with many users and resources.
+- **Management Overhead**: Maintaining the matrix manually is inefficient.
+- **Revocation Complexity** (with capabilities): Requires tracking individual subjects.
+
+#### Use in Security Models
+
+- Common in **DAC** systems where permissions are user-assigned.
+- Foundational to **RBAC**, with roles acting as abstracted subjects.
+- Can be extended to enforce **MAC**, where object labels and subject clearances drive access.
+
+🛡️ **CISSP Exam Tip**: Know the difference between an **ACL (object-focused)** and a **capability list (subject-focused)**. Questions often test your ability to identify their correct use and management implications.
+
+#### Summary
+
+- The Access Control Matrix models subject-object-permission relationships.
+- It can be broken into ACLs (per-object) and capability lists (per-subject).
+- Widely used to support various access control models.
+- Helps assess **who has access to what**, ensuring **principle of least privilege**.
+
+| Concept             | Description                                         |
+|---------------------|-----------------------------------------------------|
+| Access Control Matrix | Tabular view of access rights between users and objects |
+| ACL                 | Object-based permission list                        |
+| Capability List     | Subject-based permission list                       |
+
+### Bell–LaPadula Model
+
+The **Bell–LaPadula (BLP) model** is one of the earliest and most influential **confidentiality-focused security models**, developed for the U.S. Department of Defense in the 1970s. It is a **state machine model** designed to enforce access controls in a **multilevel security (MLS)** system.
+
+#### Core Focus
+
+- **Primary Goal**: Protect **confidentiality** of information
+- Does **not** address **integrity** or **availability**
+- Enforces strict access restrictions based on **security clearances** and **object classifications**
+
+#### Key Properties
+
+The Bell–LaPadula model enforces **three major properties** to prevent information leakage between different security levels:
+
+| Property                         | Description                                                                 |
+|----------------------------------|-----------------------------------------------------------------------------|
+| **Simple Security Property**     | "No Read Up" (ss-property): A subject cannot read data at a higher security level |
+| *** (Star) Property**            | "No Write Down" (*-property): A subject cannot write data to a lower security level |
+| **Discretionary Security Property** | Access is governed by an Access Control Matrix (DAC-like)               |
+
+📌 **CISSP Insight**: These rules prevent **data leaks** from higher to lower levels (e.g., from “Top Secret” to “Confidential”).
+
+#### Example Scenario
+
+If Alice has a "Confidential" clearance:
+- ✅ Can read “Confidential” and “Unclassified” files
+- ❌ Cannot read “Secret” or “Top Secret”
+- ✅ Can write to “Secret” or “Top Secret”
+- ❌ Cannot write to “Unclassified” (to prevent leaking sensitive data)
+
+#### Trusted Subjects
+
+A **trusted subject** is **exempt** from the *-property and may write down (e.g., declassification tasks).
+- Example: A system administrator trusted to transfer data between levels securely
+
+⚠️ **Exam Tip**: Trusted subjects must be carefully validated—this is often exploited in real-world breaches.
+
+#### Multilevel Security (MLS) Systems
+
+BLP supports **compartmentalization** of data by clearance levels:
+- "Top Secret"
+- "Secret"
+- "Confidential"
+- "Unclassified"
+
+MLS enforces need-to-know and **mandatory access control (MAC)**.
+
+#### Lattice-Based Access Control
+
+BLP operates within a **lattice model**, where:
+- Each object and subject is assigned a **security label**
+- Labels are hierarchically ordered
+- Access is granted only if subject’s label **dominates** the object’s label
+
+#### Diagram Summary
+
+Bell-LaPadula Security Rules:
++----------------------+
+| Simple Security: |
+| No Read Up (NRU) |
++----------------------+
+| Star Property: |
+| No Write Down (NWD)|
++----------------------+
+
+#### Strengths and Weaknesses
+
+| Strengths                             | Weaknesses                                |
+|---------------------------------------|--------------------------------------------|
+| Enforces strong confidentiality       | Does not address **integrity** or **availability** |
+| Prevents data leaks across levels     | Does not prevent **covert channels**       |
+| Formally proven and widely referenced | Not suitable for commercial integrity use cases |
+
+#### Summary
+
+- Bell–LaPadula is a **mandatory access control** model emphasizing **confidentiality**
+- Based on **multilevel security labels**
+- Uses three properties: **Simple Security, * (Star), and Discretionary Security**
+- Basis for many government and defense systems
+
+🛡️ **CISSP Exam Tip**: If the question is about **confidentiality** or **government data classifications**, Bell–LaPadula is likely the correct model.
+
+| Term                        | Description                                      |
+|-----------------------------|--------------------------------------------------|
+| Simple Security Property     | No Read Up — prevents subjects from reading more classified data |
+| * (Star) Property            | No Write Down — prevents leaking to lower levels |
+| Discretionary Security Property | Matrix-based control similar to DAC          |
+| Trusted Subject              | May bypass *-property under strict trust rules  |
+
+### Biba Model
+
+The **Biba model** is a **state machine-based security model** that emphasizes **integrity** rather than confidentiality. It was developed as the inverse of the **Bell–LaPadula model** and is used to ensure that data remains **accurate, trustworthy, and uncorrupted**.
+
+#### Core Focus
+
+- **Primary Goal**: Maintain **data integrity**
+- Designed to **prevent unauthorized or untrusted modifications** of data
+- Applicable in **commercial**, **financial**, and **medical** environments where data accuracy is critical
+
+🧠 **CISSP Insight**: If the concern is about data being **tampered with or altered**, the Biba model is applicable.
+
+#### Key Properties
+
+| Property                      | Description                                                      |
+|-------------------------------|------------------------------------------------------------------|
+| **Simple Integrity Property** | "No Read Down": A subject **cannot read** data at a lower integrity level |
+| **Star (*) Integrity Property** | "No Write Up": A subject **cannot write** to a higher integrity level   |
+| **Invocation Property**       | A subject at a lower level **cannot invoke** (request services from) a higher-level subject |
+
+🛡️ These rules aim to **prevent data contamination** and **preserve trustworthiness** of information.
+
+#### How It Works
+
+- A **subject** (e.g., a user or process) can only:
+  - **Read** data at or **above** its own integrity level (no read-down)
+  - **Write** data at or **below** its own level (no write-up)
+
+📌 **Analogy**:
+- Think of integrity levels as **air purity levels**.
+- You wouldn’t want **dirty air** (low integrity) to enter a **clean room** (high integrity).
+
+#### Example Scenario
+
+If Bob is a subject with "High Integrity" clearance:
+- ✅ He can **read** from "High" or "Very High"
+- ❌ He **cannot read** from "Medium" or "Low" (No Read Down)
+- ✅ He can **write** to "High" or "Medium"
+- ❌ He **cannot write** to "Very High" (No Write Up)
+
+This ensures that **less trusted users or data** can't compromise **more trusted systems or records**.
+
+#### Comparison with Bell–LaPadula
+
+| Model             | Focus          | Read Rule         | Write Rule        |
+|------------------|----------------|-------------------|-------------------|
+| Bell–LaPadula    | Confidentiality| No Read Up        | No Write Down     |
+| Biba             | Integrity      | No Read Down      | No Write Up       |
+
+#### Strengths and Weaknesses
+
+| Strengths                                  | Limitations                                      |
+|--------------------------------------------|--------------------------------------------------|
+| Prevents **corruption of high-integrity data** | Does **not address confidentiality**            |
+| Applicable to **commercial environments**   | Assumes **external threats only**               |
+| Useful in **auditing and accounting systems** | Does **not handle access control granularity**  |
+
+#### Summary
+
+- The Biba model is designed to **ensure data integrity**
+- It is the **inverse** of Bell–LaPadula
+- Rules include **Simple Integrity**, **Star (*) Integrity**, and **Invocation Property**
+- Useful in sectors like **finance**, **healthcare**, and **log management**
+
+🚨 **Exam Tip**: Biba = Integrity. Remember **No Read Down, No Write Up** — ideal for protecting against **data corruption**, not data theft.
+
+| Term                         | Description                                             |
+|------------------------------|---------------------------------------------------------|
+| Simple Integrity Property     | No Read Down — prevent reading from untrusted sources  |
+| Star (*) Integrity Property   | No Write Up — prevent contaminating higher integrity data |
+| Invocation Property           | Prevent lower-level processes from invoking higher-level processes |
