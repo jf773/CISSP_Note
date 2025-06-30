@@ -1644,6 +1644,7 @@ The ATO process is part of the final stages of the **Risk Management Framework (
 Refer to **NIST SP 800-37 Revision 2** for full guidance on ATO and RMF processes:  
 https://csrc.nist.gov/publications/detail/sp/800-37/rev-2/final
 
+## Understand Security Capabilities of Information Systems
 ### Memory Protection
 
 **Memory protection** is a critical security feature enforced by the operating system to ensure that processes **only access the memory** allocated to them. It is a key component for maintaining **system stability**, **data integrity**, and **confidentiality**.
