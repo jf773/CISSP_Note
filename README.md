@@ -10,7 +10,7 @@
 | 5       | Protecting Security of Assets                                     | ■               |
 | 6       | Cryptography and Symmetric Key Algorithms                        | ■               |
 | 7       | PKI and Cryptographic Applications                               | ☐               |
-| 8       | Principles of Security Models, Design, and Capabilities          | ☐               |
+| 8       | Principles of Security Models, Design, and Capabilities          | ■               |
 | 9       | Security Vulnerabilities, Threats, and Countermeasures           | ■               |
 | 10      | Physical Security Requirements                                   | ■               |
 | 11      | Secure Network Architecture and Components                       | ☐               |
