@@ -29,118 +29,250 @@
 - [Supply Chain Risk Management](#supply-chain-risk-management)
 - [Summary](#summary)
 
-
 ## Security 101  
-**Core idea:** Information security protects business value by balancing risk reduction with cost and usability.  
 
-**Key take-aways**  
-- Security is a **business problem first, technical problem second**.  
-- Goal: **reduce risk to an acceptable level**, not to zero.  
-- Confidentiality, integrity, and availability must be considered together.
-
----
+| Key Idea | CISSP Take-away |
+|----------|-----------------|
+| **Security = Business enabler** | Protects mission, objectives, reputation—not just IT. |
+| **Three evaluation types** | *Risk Assessment* (assets + threats + vulns), *Vulnerability Assessment* (automated scans), *Pen Test* (human stress-test). |
+| **Cost-effectiveness 💰** | Choose controls with greatest risk-reduction per dollar. |
+| **Legal defensibility ⚖️** | Controls must stand up in court (due diligence / due care). |
+| **Security is a journey** | Continuous monitoring, reassessment, improvement. |
 
 ## Understand and Apply Security Concepts  
 
 ### Confidentiality  
-- Prevents unauthorized *disclosure* of data.  
-- Controls: encryption, ACLs, classification & handling, steganography.  
-- Enforced by **need-to-know** and **least privilege**.
+*Goal:* prevent **unauthorized disclosure**.  
+*Controls:* encryption, access control lists (ACLs), strong authN, data classification, personnel training.  
+*Key terms:* sensitivity, discretion, secrecy, privacy, seclusion, isolation.
 
 ### Integrity  
-- Preserves *accuracy and completeness*.  
-- Controls: hashing, digital signatures, change-control, source auth.  
-- Logical vs. physical integrity.
+*Goal:* maintain **accuracy and trustworthiness** of data & systems.  
+*Controls:* hashing, MAC/HMAC, digital signatures, version control, least privilege, input validation.  
+*Threats:* malware, coding errors, unauthorized changes.
 
 ### Availability  
-- Ensures *timely, reliable* access to systems/data.  
-- Controls: redundancy, clustering, RAID, UPS/generators, DoS protection.  
-- Metrics: **MTBF, MTTR, RTO, RPO**.
+*Goal:* ensure **timely and reliable** access for authorized users.  
+*Controls:* redundancy, clustering, backups, UPS/generators, DoS protection, capacity monitoring.  
+*Dependence:* cannot be achieved if confidentiality or integrity are broken.
 
-### DAD, Over-protection, Authenticity, Non-repudiation, AAA  
-- **DAD (Disclosure–Alteration–Destruction)** = attacker’s CIA.  
-- Over-protection = wasted cost & complexity.  
-- **Authenticity** verifies genuineness (certificates).  
-- **Non-repudiation** via digital signatures + secure logging.  
-- **AAA**: Authentication ➔ Authorization ➔ Accounting.
+#### CIA vs DAD  
+| Principle (CIA) | Opposite Failure (DAD) |
+|-----------------|------------------------|
+| **Confidentiality** | **Disclosure** |
+| **Integrity** | **Alteration** |
+| **Availability** | **Destruction / DoS** |
+
+### DAD, Overprotection, Authenticity, Nonrepudiation, and AAA Services  
+
+* **Overprotection:** Excessive controls on C or I may harm A (and vice-versa).  
+* **Authenticity 🔏** – assurance data is genuine & from claimed source.  
+* **Nonrepudiation 📜** – subjects cannot deny actions (digital signatures, logs).  
+
+#### AAA = I + A + A + A + A 😉  
+| Phase | What Happens | Mechanisms |
+|-------|--------------|-----------|
+| **Identification** | “Who am I?” | Username, smart-card ID |
+| **Authentication** | “Prove it!” | Password, biometrics, MFA |
+| **Authorization** | “What can I do?” | RBAC, ACL, ABAC |
+| **Auditing** | “Record it.” | Event/log capture |
+| **Accounting** | “Review & hold accountable.” | Log analysis, SIEM, reports |
 
 ### Protection Mechanisms  
-- Control types: preventive, detective, corrective, deterrent, compensating.  
-- Aim for **defense-in-depth** proportional to risk.
 
-### Security Boundaries  
-- Logical/physical demarcations (VLAN, DMZ, sandbox).  
-- Limit attack surface; simplify monitoring & response.
+| Mechanism | Quick Definition | Example in Practice |
+|-----------|------------------|---------------------|
+| **Defense-in-Depth** | Layered controls in *series* | Firewall ➔ IPS ➔ WAF ➔ DLP |
+| **Defense-in-Breadth** | Vendor/tech diversity | Different AV engines at email vs endpoint |
+| **Abstraction** | Group/role-based control | HR role assigned to all HR docs |
+| **Data Hiding** | Conceal data from unauthorized view | Sensitive vars in kernel space; steganography |
+| **Encryption** | Transform data for secrecy & integrity | AES, RSA, TLS |
 
----
+### Quick-Reference Cheat Sheet 📝  
+
+| Concept | 1-Line Memory Hook |
+|---------|-------------------|
+| CIA Triad | *C I A keeps data Safe* |
+| Risk vs Vuln vs Threat | *Risk = A × T × V* |
+| AAA full list | *ID → Auth → Authz → Audit → Account* |
+| Overprotection | *Too much C or I kills A* |
+| CRL latency issue | *Revoked cert not blocked until next CRL pull* |
+
+### What the CISSP LOVES to Ask 🌟  
+1. **Tie security to business drivers** (mission, legal liability, ROI).  
+2. **Map scenarios to CIA failures** (identify disclosure vs alteration vs destruction).  
+3. **Select strongest AAA element** given a use-case (e.g., multifactor beats password).  
+4. **Calculate residual risk** after applying layered controls.  
+5. **Spot overprotection traps** that harm availability or usability.
+
+## Security Boundaries  
+
+* **Definition:** Intersection line between areas with **different security requirements** (e.g., LAN ↔ Internet).  
+* **Types:**  
+  * **Logical boundaries** – VLANs, trust zones, classification levels.  
+  * **Physical boundaries** – walls, fences, data-center cages.  
+* **Control Principle:** Deploy mechanisms (firewalls, guards, ACLs) that regulate all traffic **across** the boundary.  
+* **Policy Tip:** Clearly define where control starts/ends for **both** physical & logical perimeters; guard to the value of assets (avoid over-spend).
 
 ## Evaluate and Apply Security Governance Principles  
-**Core idea:** Governance aligns security action with leadership’s risk appetite and legal duties.  
 
-**Key take-aways**  
-- **Top-down** direction: board ➔ executives ➔ security program.  
-- Use frameworks (ISO 27001, NIST CSF, COBIT, SABSA).  
-- Demonstrate **due care** & **due diligence**.
+Security governance = **board-level oversight** that aligns security with mission, legal duties, and risk appetite.
 
 ### Third-Party Governance  
-- Contracts, SLAs, audits, right-to-inspect, SBOMs.
+| Aspect | What to Know for CISSP |
+|--------|-----------------------|
+| **External oversight** | Mandated by laws, regs, contracts, licenses. Auditors verify compliance. |
+| **Outsourcer control** | Vendors/SaaS/contractors must meet *your* security stance; include in SLAs. |
+| **Assessment methods** | On-site audits, SOC 2 / ISO 27001 reports, penetration tests. |
+| **Open document exchange** | Policies, risk assessments, and audit trails shared before field audit. |
 
 ### Documentation Review  
-- Periodic policy/standard/procedure reviews prove compliance & relevance.
+1. **Pre-audit phase** – Evaluate submitted policies, procedures, and evidence against standards (COBIT, NIST SP 800-53).  
+2. **Gatekeeper:** Incomplete docs ⇒ delay on-site audit; sufficient docs ⇒ audit focuses on live compliance.  
+3. **ATO impact:** Government environments may revoke **Authorization to Operate** if documentation or controls fail.  
+4. **Goal:** Validate that business processes are practical, cost-effective, and reduce risk.
 
----
+### Quick CISSP Memory Hooks 📝  
+* **Boundary control mantra:** *“Define, defend, document.”*  
+* **Third-party mantra:** *“Trust but verify with audits & contracts.”*  
+* **Documentation review mantra:** *“Paper first, site second.”*  
 
 ## Manage the Security Function  
 
-### Alignment to Business Strategy  
-- Map strategy to security scorecards/OKRs; tie KPIs to risk goals.
+Security cannot be a “set-and-forget.” It is a **measurable, continuously improved business process** that must map to the organization’s mission and risk appetite.
+
+### Alignment of Security Function to Business Strategy, Goals, Mission, and Objectives  
+
+| Planning Tier | Time Horizon | Key Outputs | CISSP Trigger Question |
+|---------------|--------------|-------------|------------------------|
+| **Strategic** | 3-5 yrs | Security vision, funding model, risk appetite, *annual review* | “Which plan defines long-term security direction?” |
+| **Tactical**  | ~12 mos | Projects, budgets, acquisitions, staffing | “Which doc maps projects to strategy?” |
+| **Operational** | Days → Qtr | SOPs, runbooks, configurations, training schedules | “Where are step-by-step procedures defined?” |
+
+* **Top-down model:** Board/CEO → CISO → Managers → Users (exam’s *correct* answer).  
+* *Bottom-up* seen as a distractor—select it only when the question calls it out as a weakness.
 
 ### Organizational Processes  
-- Inject security gates into M&A, project lifecycles, change-management.
 
-### Organizational Roles & Responsibilities  
-- Data owner, steward/custodian, user, auditor, controller, processor, exec sponsor—each with explicit accountability.
+* **Acquisitions / Mergers:** Embed security due diligence; assess inherited risks & integrate controls before Day 1.  
+* **Divestitures / Off-boarding:** Sanitize media, revoke credentials, conduct exit interviews.  
+* **Change Control:** Formal request → impact analysis → approval → testing → production (Chapter 16 details).  
+* **Third-party assessments:**  
+  1. On-site audit  
+  2. Document exchange & review  
+  3. Policy/process review  
+  4. Independent SOC / ISO27001 reports  
+
+### Organizational Roles and Responsibilities  
+
+| Role | Primary Duty | Liability Note |
+|------|--------------|----------------|
+| **Senior Manager (Asset Owner)** | Ultimate risk acceptance & policy sign-off | **Due diligence/care rests here** |
+| **CISO / CSO** | Translate business risk into security program; report to board/CEO | Requires autonomy |
+| **Security Professional** | Design & implement controls, write policies | *Implementer* not decision-maker |
+| **Custodian** | Day-to-day data protection, backups, patching | Executes policy directives |
+| **User** | Follow policy, least privilege | Can be disciplined for violations |
+| **Auditor** | Independent verification, produce compliance reports | Must remain objective |
 
 ### Security Control Frameworks  
-- Provide control catalogues & maturity benchmarks.
 
-### Due Diligence & Due Care  
-- **Due care** = reasonable actions; **due diligence** = continuous verification; both defend against negligence claims.
+| Framework | Focus | Common Use |
+|-----------|-------|------------|
+| **ISO/IEC 27001/2** | ISMS lifecycle | Global enterprises |
+| **NIST SP 800-53 / RMF / CSF** | Catalog of controls, risk process | U.S. gov’t & contractors |
+| **COBIT** | IT governance, value delivery | Audit, board reporting |
+| **SABSA** | Business-driven security architecture | Large multi-national design |
+| **PCI DSS** | Cardholder data protection (12 reqs) | Merchants & processors |
+| **FedRAMP** | Cloud services for U.S. federal data | CSP authorization |
+| **ITIL** | Service management best practice | Ops + change + incident |
+| **CIS Benchmarks** | Secure configuration baselines | Hardening guides |
+| **Specialized** (SWIFT, HIPAA, etc.) | Sector/tech specific | Critical infrastructure |
 
----
+*Exam tip:* Questions often ask *“Which framework best maps IT goals to business value?”* → COBIT.
 
-## Security Policy, Standards, Procedures, Guidelines  
-| Level | Purpose | Nature |
-|-------|---------|--------|
-| **Policy** | What & Why | High-level, mandatory |
-| **Standard / Baseline** | What (minimums) | Mandatory, specific |
-| **Procedure** | How | Step-by-step, mandatory |
-| **Guideline** | How (best practice) | Discretionary |
+### Due Diligence and Due Care  
 
----
+| Term | Simple Mnemonic | Exam Context |
+|------|-----------------|--------------|
+| **Due diligence** | *Plan & detect* | Management **establishes** policies, performs risk analysis, oversees metrics. |
+| **Due care** | *Do & correct* | Organization **implements** controls and day-to-day safeguards. |
+
+Failure to demonstrate both can equal **negligence** → executive liability.
+
+> **Key takeaway:** Managing the security function means translating business strategy into layered plans, assigning clear roles, leveraging recognized frameworks, and proving prudent oversight through due diligence and due care.
+
+## Security Policy, Standards, Procedures, and Guidelines  
+
+Hierarchical documentation = the backbone of a repeatable security program.
+
+| Tier | Purpose | Mandatory? | Key CISSP Cue |
+|------|---------|------------|---------------|
+| **Policy** | High-level *what* & *why* (scope, roles, acceptable risk) | ✅ Yes (approved by senior mgmt) | “Defines strategic direction” |
+| **Standard** | Uniform *requirements* for tech/process | ✅ | “Same config everywhere” |
+| **Baseline** | Minimum security for all like-systems | ✅ | “Non-compliant host pulled” |
+| **Guideline** | Recommended *how*; flexible | ⬜ Optional | “Should/May wording” |
+| **Procedure (SOP)** | Step-by-step *how-to* | ✅ | “Operational runbook” |
+
+> **Exam Pitfall:** Policies tell you **what** must happen; procedures tell you **exactly how** to do it.
+
+### Security Policies  
+* Organizational, Issue-Specific, System-Specific variants.  
+* Provide proof of **due diligence** → reduce liability.  
+* Built top-down; require senior-management sign-off.
+
+### Security Standards, Baselines, and Guidelines  
+* **Standard** = compulsory control (e.g., all laptops use BitLocker).  
+* **Baseline** = lowest acceptable config (CIS Benchmarks).  
+* **Guideline** = best-practice advice; adapts to context.
+
+### Security Procedures  
+* Change-controlled documents; updated with tech changes.  
+* Enforce consistency → “same actions, same outcome.”
 
 ## Threat Modeling  
-**Core idea:** Identify, rate, and mitigate attacks before deployment.  
 
-1. **Identify threats** (STRIDE, Kill Chain, CAPEC).  
-2. **Diagram** data/process flows, trust boundaries.  
-3. **Reduction analysis** on entry/exit points & privilege transitions.  
-4. **Prioritize & respond** (avoid, transfer, mitigate, accept).
+| Stage | Output | Tools / Methods |
+|-------|--------|-----------------|
+| **Identify threats** | Threat list (STRIDE, PASTA, VAST) | Asset-, Attacker-, or Software-centric |
+| **Diagram attacks** | Data-flow / trust-boundary map | DFD, architecture charts |
+| **Reduction analysis** | Decomposed components; trust boundaries, data paths, privileged ops | “Break it down” |
+| **Prioritize & respond** | Ranked risk list; mitigations | Probability✕Impact, Heat Map, **DREAD** |
 
----
+### Identifying Threats  
+* **STRIDE**: Spoofing, Tampering, Repudiation, Info disclosure, DoS, Elevation.  
+* **PASTA**: 7-stage risk-centric method (DO → RAM).  
+* **VAST**: Agile-friendly, scalable.
+
+### Determining & Diagramming Potential Attacks  
+* Draw components, label **trust boundaries**, data flows, entry points.  
+* Consider logical, physical, and social attack vectors.
+
+### Performing Reduction Analysis  
+Break system into:  
+1. Trust boundaries  
+2. Data flows  
+3. Entry points  
+4. Privileged operations  
+5. Security assumptions
+
+### Prioritization and Response  
+* **Risk matrix (heat map)** or **DREAD**—focus on High/High cells first.  
+* Select countermeasures by **cost-benefit** and alignment to risk appetite.
 
 ## Supply Chain Risk Management  
-- Assess hardware, firmware, software, and service providers.  
-- Mitigations: vetted suppliers, tamper-evident packaging, SBOM, continuous monitoring.  
-- SolarWinds et al. highlight need for *continuous* assurance.
 
----
+* **Goal:** Assure every link (vendors, firmware, cloud, logistics) meets or exceeds org security.  
+* **Controls:**  
+  - Silicon **Root of Trust**  
+  - **PUF** chips (device fingerprint)  
+  - **SBOM** for software transparency  
+  - Contractual **SLAs/SLRs**, third-party audits  
+* **Attack types:** Counterfeits, hardware implants, malicious firmware.  
+* Build **minimum security requirements** into RFPs and monitor continuously.
 
 ## Summary  
-Security governance is the **strategic glue** binding technical controls to business value. Master:  
 
-* **CIA triad**, AAA, authenticity, non-repudiation  
-* Layered controls at defined **boundaries**  
-* Policy → standard → procedure hierarchy  
-* **Due care & diligence**, governance frameworks  
-* **Threat modeling** and supply-chain vigilance  
+1. **Documentation hierarchy** (Policy → Procedure) delivers clarity, consistency, and legal defensibility.  
+2. **Threat modeling** is continuous—identify, diagram, decompose, and rank threats before (and after) deployment.  
+3. **Supply-chain risk** can subvert all other controls; implement technical roots of trust and contractual verification.  
+4. Senior-management endorsement, measurable metrics, and due-diligence evidence are non-negotiable for CISSP success. 🚀
