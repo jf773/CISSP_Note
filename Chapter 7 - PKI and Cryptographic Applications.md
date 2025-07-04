@@ -69,7 +69,8 @@ Modern information security hinges on **public-key (asymmetric) algorithms** to 
 ### ElGamal  
 
 * Extension of Diffie-Hellman math; relies on the **discrete logarithm problem (DLP)** in a finite field.  
-* Generates two-part ciphertext → doubles message size ⚠️.  
+* Generates two-part ciphertext → **doubles message size** ⚠️.
+
 * **Advantages:** Free of historical RSA patents, provides semantic security, supports **forward secrecy** when used ephemerally.  
 * **Use cases:** PGP (for key transport), cryptographic libraries where RSA licensing once mattered.
 
