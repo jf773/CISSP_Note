@@ -73,7 +73,7 @@ Modern information security hinges on **public-key (asymmetric) algorithms** to 
 * **Advantages:** Free of historical RSA patents, provides semantic security, supports **forward secrecy** when used ephemerally.  
 * **Use cases:** PGP (for key transport), cryptographic libraries where RSA licensing once mattered.
 
-### Elliptic Curve Cryptography (ECC)  
+### Elliptic Curve Cryptography
 
 * Security from the **Elliptic-Curve Discrete Logarithm Problem (ECDLP)**—believed harder than integer DLP or factoring.  
 * **Tiny keys, same strength:**  
