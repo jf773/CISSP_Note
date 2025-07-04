@@ -321,14 +321,14 @@ Combine the **speed** of symmetric with the **scalable key exchange** of asymmet
 
 ## Applied Cryptography  
 
-### Portable Devices 📱  
+### Portable Devices
 
 * **Full-Disk / File Encryption:** BitLocker, FileVault, VeraCrypt.  
 * **TPM chip** guards keys & ties them to boot measurements.  
 * Mobile OSs (iOS, Android) provide hardware-backed AES-XTS or ChaCha20; mandate passcode/PIN to unlock keys.  
 * Evaluate: key protection in RAM, FDE vs FBE, remote wipe support.
 
-### Email ✉️  
+### Email
 
 | Need | Technique | Tool / Standard |
 |------|-----------|-----------------|
@@ -341,7 +341,7 @@ Combine the **speed** of symmetric with the **scalable key exchange** of asymmet
 * **S/MIME** – X.509 PKI, RSA/ECDH keys, built into Outlook, Apple Mail, Gmail Enterprise+.  
 * Sender chooses: encrypt, sign, or both (cost vs need).
 
-### Web Applications 🌐  
+### Web Applications
 
 * **Transport Layer Security (TLS)** replaced SSL.  
 * **Secure versions:** 1.2 (minimum) & 1.3 (preferred).  
@@ -350,14 +350,14 @@ Combine the **speed** of symmetric with the **scalable key exchange** of asymmet
 * **Cipher suite notation:** `TLS_AES_256_GCM_SHA384` (bulk cipher + MAC).  
 * **Certificate pinning / HSTS** defend against rogue CAs & downgrade.
 
-### Steganography and Watermarking 🖼️  
+### Steganography and Watermarking
 
 | Concept | How It Works | Use Cases | Risks |
 |---------|--------------|-----------|-------|
 | **Steganography** | Hide data in LSBs of images/audio/video or within text (concealment cipher). | Covert channels, espionage. | Hard to detect visually; tools exist to scan. |
 | **Watermarking** | Embed owner/serial info invisibly. | IP protection, leak tracing. | Must survive format changes. |
 
-### Networking 🔒  
+### Networking
 
 #### Link vs End-to-End Encryption  
 
@@ -375,7 +375,7 @@ Combine the **speed** of symmetric with the **scalable key exchange** of asymmet
   * Modes: **Transport** (payload only) vs **Tunnel** (entire packet).  
   * **Security Association (SA)** = one-way channel; two SAs per duplex connection.
 
-### Emerging Applications 🚀  
+### Emerging Applications
 
 | Area | Crypto Role | Key Points |
 |------|-------------|------------|
