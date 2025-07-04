@@ -188,6 +188,14 @@ Security cannot be a “set-and-forget.” It is a **measurable, continuously im
 | **CIS Benchmarks** | Secure configuration baselines | Hardening guides |
 | **Specialized** (SWIFT, HIPAA, etc.) | Sector/tech specific | Critical infrastructure |
 
+**6 Key Principles for the Governance and management of enterprise IT:**
+- Provide Stakeholder Value
+- Holistic Approach
+- Dynamic Governance System
+- Governance Distinct from Management
+- Tailored to Enterprise Needs
+- End-to-End Governance System
+
 *Exam tip:* Questions often ask *“Which framework best maps IT goals to business value?”* → COBIT.
 
 ### Due Diligence and Due Care  
