@@ -246,6 +246,16 @@ Hierarchical documentation = the backbone of a repeatable security program.
 | **Reduction analysis** | Decomposed components; trust boundaries, data paths, privileged ops | “Break it down” |
 | **Prioritize & respond** | Ranked risk list; mitigations | Probability✕Impact, Heat Map, **DREAD** |
 
+| Dimension | **Defensive Approach (Proactive)** | **Adversarial Approach (Reactive)** |
+|-----------|------------------------------------|-------------------------------------|
+| **When?** | *Early* — requirements & design stages | *Post-build* — test, pilot, or production stages |
+| **Mind-set** | “**Build security in**” — predict threats, embed controls | “**Break & hunt**” — assume flaws exist, seek & exploit them |
+| **Activities** | • Architecture risk analysis<br>• Secure design patterns<br>• Input validation rules<br>• Security user stories in Agile<br>• DevSecOps tooling (SAST, IaC scanning) | • Ethical hacking & pen-tests<br>• Fuzz testing, red teaming<br>• Source-code review (SCA)<br>• Threat hunting for IoCs<br>• Patch / hardening plans |
+| **Goal** | Eliminate vulnerabilities **before code ships**; cheaper fixes | Discover *unforeseen* vulnerabilities & exposures; validate defenses |
+| **Cost & Impact** | Lower long-term cost; reduces rework | Higher fix cost but critical for zero-days & evolving threats |
+| **Success Metrics** | • Fewer security bugs per sprint<br>• Compliance by design | • Mean-time-to-detect (MTTD)<br>• Reduced exploit window |
+| **CISSP Exam Hook** | *Proactive* security is most cost-effective and preferred (“security by design”). | *Reactive* security complements proactive measures; required for continuous assurance once systems are live. |
+
 ### Identifying Threats  
 * **STRIDE**: Spoofing, Tampering, Repudiation, Info disclosure, DoS, Elevation.  
 * **PASTA**: 7-stage risk-centric method (DO → RAM).  
