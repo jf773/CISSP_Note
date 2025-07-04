@@ -369,7 +369,7 @@ Combine the **speed** of symmetric with the **scalable key exchange** of asymmet
 
 #### Protocol Highlights  
 
-* **SSH-2** – Diffie-Hellman / Ed25519 keys, SFTP, channel multiplexing.  
+* **SSH-2** – Diffie-Hellman / Ed25519 keys, SFTP, channel multiplexing(= run multiple sessions over a single SSH connection).  
 * **IPSec**  
   * Components: **AH** (integrity, auth) + **ESP** (confidentiality, integrity).  
   * Modes: **Transport** (payload only) vs **Tunnel** (entire packet).  
