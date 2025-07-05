@@ -26,16 +26,16 @@
 | 21      | Malicious Code and Application Attacks                           | ■               |
 
 ## Domain Mapping
-| Domain                                      | Chapters                   |
-|---------------------------------------------|----------------------------|
-| 1.0 Security and Risk Management            | 1, 2, 3, 4, 19             |
-| 2.0 Asset Security                          | 5, 16                      |
-| 3.0 Security Architecture and Engineering   | 1, 6, 7, 8, 9, 10, 16, 20, 21 |
-| 4.0 Communication and Network Security      | 11, 12                     |
-| 5.0 Identity and Access Management (IAM)    | 13, 14                     |
-| 6.0 Security Assessment and Testing         | 15, 18                     |
-| 7.0 Security Operations                     | 3, 10, 11, 16, 17, 18, 19, 21 |
-| 8.0 Software Development Security           | 15, 16, 20, 21             |
+| Domain                                      | Chapters                   | Done? |
+|---------------------------------------------|----------------------------|-------|
+| 1.0 Security and Risk Management            | 1, 2, 3, 4, 19             |  |
+| 2.0 Asset Security                          | 5, 16                      | △ |
+| 3.0 Security Architecture and Engineering   | 1, 6, 7, 8, 9, 10, 16, 20, 21 | ◎×1 |
+| 4.0 Communication and Network Security      | 11, 12                     |  |
+| 5.0 Identity and Access Management (IAM)    | 13, 14                     |  |
+| 6.0 Security Assessment and Testing         | 15, 18                     |  |
+| 7.0 Security Operations                     | 3, 10, 11, 16, 17, 18, 19, 21 |  |
+| 8.0 Software Development Security           | 15, 16, 20, 21             | △ |
 
 ## Chapter Mapping
 | Chapter | Domains |
