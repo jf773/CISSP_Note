@@ -29,7 +29,15 @@ Business Continuity Planning (BCP) ensures an organization can **maintain or qui
 - **Scope:** Addresses *all* hazards—natural, technological, or human-made—and aims to minimize operational, financial, regulatory, and reputational impacts.  
 - **Perspective vs. DRP:**  
   - BCP = strategic, *keep the business running*.  
-  - DRP = tactical, *restore IT services*.  
+  - DRP = tactical, *restore IT services*.
+ 
+| **Phase** | **Purpose / Focus** | **Core Sub-Tasks** | **Key Deliverables / Artifacts** |
+|-----------|--------------------|--------------------|----------------------------------|
+| **1. Project Scope & Planning** | Define boundaries, stakeholders, and resources for BCP program. | • Organizational Review  <br>• BCP Team Selection  <br>• Resource Requirements  <br>• External Dependencies | • BCP Charter & Scope Statement  <br>• Stakeholder / Department Register  <br>• Resource Inventory & Budget  <br>• Vendor & Regulatory Dependency List |
+| **2. Business Impact Analysis (BIA)** | Identify critical functions, quantify/qualify risks, and set recovery objectives. | • Identifying Priorities  <br>• Risk Identification  <br>• Likelihood Assessment (ARO)  <br>• Impact Analysis (EF, SLE, ALE)  <br>• Resource Prioritization | • Prioritized Process List  <br>• MTD / RTO / RPO Metrics  <br>• Quantitative Risk Register  <br>• Qualitative Impact Narrative  <br>• Recovery Objective Baselines |
+| **3. Continuity Planning** | Design controls to keep critical functions running within objectives. | • Strategy Development (accept / mitigate / transfer / avoid)  <br>• Provisions & Processes for People, Facilities, Infrastructure | • Continuity of Operations Plan (COOP)  <br>• Hardening & Redundancy Design Docs  <br>• Alternate Site & Cloud-Failover Contracts  <br>• Personnel Safety & Logistics Plans |
+| **4. Plan Approval & Implementation** | Obtain leadership endorsement, roll out controls, train staff, and maintain the plan. | • Plan Approval (executive sign-off)  <br>• Plan Implementation Schedule  <br>• Communication, Training & Education  <br>• BCP Documentation & Version Control | • CEO/Board Approval Letter  <br>• Implementation & Testing Calendar  <br>• Training Records & Exercise Reports  <br>• Living BCP Document Repository  <br>• Maintenance & Review Log |
+ 
 
 | BCP Characteristic | Exam-Ready Definition |
 |--------------------|-----------------------|
