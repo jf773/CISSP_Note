@@ -476,6 +476,17 @@ Seven RMF phases:
 6. **Authorize**: Approve system for operation
 7. **Monitor**: Ongoing evaluation
 
+| Step No. | Phase         | Description                                                                                  | Key Activities                                                                                   |
+|----------|---------------|----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
+| 1        | **Prepare**    | Establish organization- and system-level context and priorities for managing risk.           | Define governance, assign roles, inventory assets, understand threat landscape                  |
+| 2        | **Categorize** | Categorize the information system and the information processed, stored, and transmitted.    | Determine impact levels using FIPS 199 and NIST SP 800-60                                       |
+| 3        | **Select**     | Select an initial set of baseline security controls tailored to system risk and requirements.| Choose controls from NIST SP 800-53, apply tailoring based on environment                       |
+| 4        | **Implement**  | Implement selected controls and document how they are deployed within the system.            | Configure systems, apply controls, develop documentation                                        |
+| 5        | **Assess**     | Determine if controls are correctly implemented and operating as intended.                   | Conduct security control assessments (SCA), testing, audits                                     |
+| 6        | **Authorize**  | Determine if risk is acceptable and formally authorize the system to operate.                | Senior official (Authorizing Official) issues ATO (Authorization to Operate)                    |
+| 7        | **Monitor**    | Continuously track control effectiveness and respond to changes and incidents.               | Perform ongoing assessments, update documentation, respond to risks, track configuration changes|
+
+
 #### ISO Risk Standards
 - **ISO/IEC 31000**: General guidelines for any organization
 - **ISO/IEC 27005**: Specific to information security risk
