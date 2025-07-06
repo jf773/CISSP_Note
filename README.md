@@ -4,7 +4,7 @@
 | Chapter | Title                                                             | Note Completed? |
 |---------|-------------------------------------------------------------------|-----------------|
 | 1       | Security Governance Through Principles and Policies              | ■               |
-| 2       | Personnel Security and Risk Management Concepts                  | ☐               |
+| 2       | Personnel Security and Risk Management Concepts                  | ■               |
 | 3       | Business Continuity Planning                                     | ☐               |
 | 4       | Laws, Regulations, and Compliance                                | ■               |
 | 5       | Protecting Security of Assets                                     | ■               |
