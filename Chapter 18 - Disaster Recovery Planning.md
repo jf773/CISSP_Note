@@ -250,6 +250,12 @@ A **Recovery Strategy** defines *how* your DRP transitions from crisis to normal
 | **Alternate Processing Sites** | *Where* IT runs during outage | Hot vs. Warm vs. Cold etc. |
 | **Database Recovery** | RPO-compliant data sync | Vaulting, journaling, mirroring |
 
+| Database Recovery Strategy | Data Transferred | Transfer Frequency / Latency | Remote-Site State | Typical **RPO**<br>(data loss) | Typical **RTO**<br>(time to resume) | Cost / Complexity | Best Use Cases |
+|----------------------------|-----------------|-----------------------------|-------------------|-----------------|-----------------|------------------|----------------|
+| **Remote Journaling** | Transaction / redo logs only | Near-real-time batches (seconds-minutes) | Logs stored, no live DB instance | Minutes | Hours (apply logs to standby DB) | Medium | Systems needing tight RPO but willing to spend time restoring DB before going live |
+| **Electronic Vaulting** | Bulk backup files (full / diff) | Scheduled (e.g., daily or hourly) batch uploads | Backup sets on passive storage | Hours to 1 day | Half-day or more (restore + roll forward) | Low | Large data sets where some loss is acceptable and cost must be minimized |
+| **Remote Mirroring** | Live data blocks/transactions | Continuous, synchronous or async real-time | Fully synchronized hot standby database | Seconds (~0) | Minutes (DNS/app failover)
+
 ### Business Unit and Functional Priorities
 
 * Use the **Business Impact Analysis (BIA)** to rank units & processes by:
