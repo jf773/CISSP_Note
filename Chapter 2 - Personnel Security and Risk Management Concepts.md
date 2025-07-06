@@ -48,39 +48,87 @@
   - [Effectiveness Evaluation](#effectiveness-evaluation)
 - [Summary](#summary)
 
-## Personnel Security Policies and Procedures  
-**Core idea:**  People are often the weakest link; documented HR-security controls reduce insider risk across the employee life-cycle.  
+## Personnel Security Policies and Procedures
 
-**Key take-aways**  
-- Integrate HR & security from **pre-hire to post-termination**.  
-- Controls include screening, NDAs, least-privilege, mandatory vacation, job rotation, and exit checklists.  
-- Align with labor law, privacy statutes (e.g., GDPR) and contractual obligations.
+Humans can be the weakest or strongest part of a security solution. This section explores policies and procedures designed to manage personnel effectively throughout the employment lifecycle.
 
-### Job Descriptions and Responsibilities  
-- Define duties, sensitivity level, segregation-of-duties, and mandatory skills.  
-- Used for role-based access provisioning and background-check depth.
+### Job Descriptions and Responsibilities
+- **Job Description**: Defines roles, duties, required access, and security requirements.
+- **Security Consideration**: Access to classified or sensitive material must be explicitly stated.
+- **Use in Governance**: Guides assignment of permissions and enforcement of least privilege.
+- **Ongoing Use**: Regular audits ensure duties match access rights (avoiding privilege creep).
 
-### Candidate Screening and Hiring  
-- **Pre-employment checks**: ID verification, criminal, credit, education, reference.  
-- Screening level must match data-classification exposure and comply with locality laws.
+### Candidate Screening and Hiring
+- **Screening Based on Role Sensitivity**: More sensitive roles require more intensive checks.
+- **Elements**:
+  - Work and education history
+  - Reference checks
+  - Criminal background checks
+  - Identity verification (e.g., fingerprints)
+  - Drug and personality tests (where applicable)
+- **Online Background Check**: Review of applicant's public online presence—must be legally compliant.
+- **Structured Interviewing**: Ensures fairness, legal defensibility.
 
-### Onboarding: Employment Agreements and Policy-Driven Requirements  
-- Employees sign **AUP, NDA, code-of-conduct**; acknowledge security policy.  
-- Provision accounts/equipment via least privilege and need-to-know.
+### Onboarding: Employment Agreements and Policy-Driven Requirements
+- **Onboarding Process**:
+  - IAM system account creation
+  - Privileges assigned per least privilege principle 🔐
+  - Employee signs agreements: AUP, NDA, etc.
+- **Employment Agreements**:
+  - Job expectations, acceptable use, and penalties
+- **Acceptable Use Policy (AUP)**:
+  - Defines allowed/forbidden behaviors on systems
+- **Non-Disclosure Agreement (NDA)**:
+  - Legal contract preventing disclosure of confidential info (unilateral, bilateral, multilateral)
+- **Non-Compete Agreement (NCA)**:
+  - Restricts post-employment competition; enforceability varies by jurisdiction
 
-### Employee Oversight  
-- Ongoing supervision, mandatory vacation, job rotation detect fraud & burnout.  
-- Annual policy attestation and performance reviews reinforce compliance.
+### Employee Oversight
+- **Job Review**:
+  - Periodic audits of roles and access
+  - Corrects privilege creep
+- **Mandatory Vacations**:
+  - Peer review and fraud detection method (esp. finance sector)
+- **Separation of Duties / Job Rotation / Cross-Training**:
+  - Prevents collusion and abuse of power
+- **UEBA (User and Entity Behavior Analytics)**:
+  - Behavior analysis of users and systems for anomaly detection
 
-### Offboarding, Transfers, and Termination Processes  
-- **Immediate revocation** of credentials, badge, tokens; exit interview re-NDA.  
-- Ensure data hand-off, wipe devices, and update access lists.
+### Offboarding, Transfers, and Termination Processes
+- **Offboarding Process**:
+  - Identity and access removed via IAM
+  - Certificates revoked, access disabled
+- **Transfer = Offboard/Rehire** (if needed):
+  - Especially when changing departments
+- **Termination Procedures**:
+  - Respectful but security-focused (e.g., escort, collection of assets)
+  - Avoid early notification signs (e.g., locking account too soon)
+- **Exit Interviews**:
+  - Gain feedback and reinforce NDA
+- **Best Practice**:
+  - Notify all physical/logical access points
 
-### Vendor, Consultant, and Contractor Agreements and Controls  
-- Use **SLAs, NDAs, right-to-audit** clauses; enforce least privilege, time-boxed access.  
-- Require security awareness and proof of background screening.
+### Vendor, Consultant, and Contractor Agreements and Controls
+- **SLAs (Service-Level Agreements)**:
+  - Defines expectations, penalties, and security baselines
+  - Used for ISPs, SaaS, databases, critical services
+- **Multiparty Risk**:
+  - Diverse timelines, goals, and security postures introduce risk
+- **Outsourcing**:
+  - Risk transference strategy, but introduces new risks
+- **Trade Secret Theft Risk**:
+  - Outsiders may not have same loyalty—monitor accordingly
+- **VMS (Vendor Management System)**:
+  - Tools to manage external entities securely, track interactions
 
----
+### Comparison Table: NDA Types
+| NDA Type     | Description                                     | Use Case                          |
+|--------------|--------------------------------------------------|-----------------------------------|
+| Unilateral   | One-way: only one party discloses information   | Employer to employee              |
+| Bilateral    | Both parties share and protect information      | Two companies in partnership      |
+| Multilateral | Three or more parties share mutual information  | Consortiums or multi-party deals  |
+
+> 🧠 Treat people as security partners, not just liabilities. A strong personnel security program blends trust, policy, and verification.
 
 ## Understand and Apply Risk Management Concepts  
 **Core idea:**  Risk management is the continuous process of identifying, analyzing, treating, and monitoring threats to organizational objectives.  
