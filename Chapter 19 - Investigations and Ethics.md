@@ -42,6 +42,23 @@ High-level, structured inquiries that determine **what happened, how it happened
 - **EDRM 9-step model**: Information Governance → Identification → Preservation → Collection → Processing → Review → Analysis → Production → Presentation.  
 - **Goal**: Efficiently locate, protect, and deliver electronic data responsive to legal demands.
 
+The **Electronic Discovery Reference Model (EDRM)** defines a standardized framework for handling electronic evidence in legal and regulatory processes. It ensures proper handling, protection, and presentation of digital data throughout its lifecycle.
+
+| EDRM Stage        | Description                                                                 | Example                                                                                     |
+|-------------------|-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| **Information Governance** | Implement policies to organize and manage information for legal readiness | Define data retention rules, classify emails and records by sensitivity                    |
+| **Identification**         | Locate potential sources of relevant information                     | Determine which user mailboxes or file servers may contain responsive documents            |
+| **Preservation**           | Ensure data is protected against alteration or deletion               | Apply legal holds on employee accounts involved in litigation                              |
+| **Collection**             | Gather relevant ESI (Electronically Stored Information) centrally     | Export PST files from email accounts, image hard drives of custodians                      |
+| **Processing**             | Filter, deduplicate, and convert data for easier analysis             | Use eDiscovery tools to eliminate irrelevant system files and compress review sets         |
+| **Review**                 | Evaluate data for relevance and privilege                             | Attorneys assess which documents are relevant to the case and redact sensitive information |
+| **Analysis**               | Extract key patterns, relationships, or facts from the data           | Identify frequent email senders, sentiment shifts, or keyword clusters                     |
+| **Production**             | Deliver ESI in a usable format to other parties or court              | Create a load file and produce documents in PDF/TIFF with metadata                         |
+| **Presentation**           | Display evidence in court or to decision-makers                       | Show email threads in timeline format during a legal deposition or trial                   |
+
+> ✅ **Tip for CISSP**: Know each stage and recognize that failure to follow EDRM may result in loss of admissibility or court sanctions.
+
+
 ### Evidence  
 *Proof* presented to establish facts in dispute. For CISSP, recall the **three admissibility criteria** and **four primary evidence categories**.
 
