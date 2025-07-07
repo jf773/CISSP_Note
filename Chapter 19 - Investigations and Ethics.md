@@ -84,6 +84,71 @@ Unbroken, documented record of **who**, **what**, **when**, **where**, **why** f
 4. Individual assumes responsibility while evidence in their control.  
 5. Agency enforces compliance with these principles.
 
+#### 🛡️ Preserving the Original
+
+1. **Create a forensic image** (bit-for-bit copy) of the device or media.  
+2. **Seal the original** in an evidence bag; store in a controlled locker.  
+3. **Hash (e.g., SHA-256) the source and the image** → ensure they match.  
+4. Perform all examinations on **verified copies** only.  
+5. Document every action in the **chain of custody**.
+
+#### Media Analysis
+
+| Step | Key Actions | Purpose / Notes |
+|------|-------------|-----------------|
+| Isolation | Power off system; remove drive | Prevent live-system writes |
+| Write-blocking | Attach via hardware write blocker | Physically prevents alteration |
+| Imaging & Hashing | Create forensic image → hash source & image | Confirms integrity |
+| Analysis | Recover deleted files, inspect unallocated space, analyze encrypted media | Use trusted forensic suites |
+
+#### In-Memory Analysis
+
+- Capture a **memory dump** from the live system (trusted tool + forensically prepared USB).  
+- Immediately compute and record a **hash** of the dump file.  
+- Preserve the original dump; analyze only its copies.  
+- Focus areas: running processes, loaded drivers, crypto keys, injected code.
+
+#### Network Analysis
+
+Data sources to correlate:
+
+* IDS/IPS logs  
+* NetFlow / sFlow records  
+* On-demand packet captures  
+* Firewall / WAF logs  
+
+**Collection tips**
+
+- Mirror traffic via **SPAN port** or **network tap** (non-intrusive).  
+- Store captures on write-protected media; hash files; maintain chain of custody.  
+- Reconstruct timelines to reveal attacker path, exfil routes, C2 channels.
+
+#### Software Analysis
+
+- **Static review**: scan source code/binaries for backdoors, logic bombs, or malware signatures.  
+- **Log analysis**: parse app / DB logs for SQLi, privilege escalations, unusual API calls.  
+- **Hash validation**: compare file hashes against the **NIST NSRL** (≈ 130 M known good hashes) to spot tampered or rogue files.
+
+#### Hardware / Embedded Device Analysis
+
+Target devices: PCs, smartphones, IoT/OT controllers, vehicle ECUs, alarm systems.  
+Requires **specialized expertise** in proprietary OSs, storage, and memory layouts. Often combines media + software techniques; organizations may engage external specialists.
+
+#### Locard’s Exchange Principle 🔍
+
+> **“Every contact leaves a trace.”**
+
+*Physical* forensics meets *cyber* forensics:
+
+| Attack Stage | Likely Traces |
+|--------------|--------------|
+| Attacker’s device | Tool artifacts, login history, physical fingerprints |
+| Intermediate network | Router/firewall/IDS logs, packet captures |
+| Target web server | Access logs, WAF alerts, modified files |
+| Database server | Query logs, changed records |
+
+Remember: by mapping each interaction point, investigators stitch together the full intrusion narrative.
+
 ### Investigation Process  
 A repeatable workflow ensuring due diligence, legality, and integrity.
 
