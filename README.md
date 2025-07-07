@@ -21,7 +21,7 @@
 | 16      | Managing Security Operations                                     | ■               |
 | 17      | Preventing and Responding to Incidents                           | ☐               |
 | 18      | Disaster Recovery Planning                                       | ■               |
-| 19      | Investigations and Ethics                                        | ☐               |
+| 19      | Investigations and Ethics                                        | ■               |
 | 20      | Software Development Security                                    | ■               |
 | 21      | Malicious Code and Application Attacks                           | ■               |
 
