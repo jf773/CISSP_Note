@@ -19,7 +19,7 @@
 | 14      | Controlling and Monitoring Access                                | ☐               |
 | 15      | Security Assessment and Testing                                  | ■               |
 | 16      | Managing Security Operations                                     | ■               |
-| 17      | Preventing and Responding to Incidents                           | ☐               |
+| 17      | Preventing and Responding to Incidents                           | ■               |
 | 18      | Disaster Recovery Planning                                       | ■               |
 | 19      | Investigations and Ethics                                        | ■               |
 | 20      | Software Development Security                                    | ■               |
