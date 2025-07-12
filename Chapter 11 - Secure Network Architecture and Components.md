@@ -610,6 +610,11 @@ Client-side P2P CDN (e.g., BitTorrent-based) shares load but complicates data in
 * Combine 802.1X (port) + RADIUS attributes for real-time VLAN steering.  
 * Align with zero-trust: verify device health + identity each connection.
 
+**Goals**
+- Prevent/reduce known attacks directly and zero-day indirectly
+- Enforce security policy throughout the network
+- Use identities to perform access control
+
 ### Firewalls
 | Type | Key Characteristics | Typical Layer(s) | Use Case |
 |------|---------------------|------------------|----------|
