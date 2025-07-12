@@ -1,5 +1,6 @@
 # Chapter 11: Secure Network Architecture and Components
 
+- [Study Essentials](#study-essentials)
 - [OSI Model](#osi-model)
   - [History of the OSI Model](#history-of-the-osi-model)
   - [OSI Functionality](#osi-functionality)
@@ -53,6 +54,31 @@
   - [Ethernet](#ethernet)
   - [Sub-Technologies](#sub-technologies)
 - [Summary](#summary)
+
+## Study Essentials
+| Key Point (first sentence) | Details (remaining content) |
+|---|---|
+| Know the OSI model layers. | The OSI layers are as follows: Application, Presentation, Session, Transport, Network, Data Link, and Physical. |
+| Know the network container names. | The network containers are: OSI layers 7–5 protocol data unit (PDU), Layer 4 segment (TCP) or a datagram (UDP), Layer 3 packet, Layer 2 frame, and Layer 1 bits. |
+| Understand the MAC address. | Media Access Control (MAC) address is a 6-byte (48-bit) binary address written in hexadecimal notation, aka hardware address, physical address, the NIC address, and the Ethernet address. The first 3 bytes (24 bits) of the address is the organizationally unique identifier (OUI), which denotes the vendor or manufacturer. |
+| Understand the TCP/IP model. | Also known as DARPA or the DOD model, the model has four layers: Application (also known as Process), Transport (also known as Host-to-Host), Internet (sometimes known as Internetworking), and Link (although the terms Network Interface and sometimes Network Access are used). |
+| Understand DNS. | The Domain Name System (DNS) is the hierarchical naming scheme used in both public and private networks. DNS links human-friendly fully qualified domain names (FQDNs) and IP addresses together. DNSSEC and DoH are DNS security features. |
+| Understand DNS poisoning. | DNS poisoning is the act of falsifying the DNS information used by a client to reach a desired system. It can be accomplished through a rogue DNS server, pharming, altering a hosts file, corrupting IP configuration, DNS query spoofing, and proxy falsification. |
+| Know about ARP. | Address Resolution Protocol (ARP) is essential to the interoperability of logical and physical addressing schemes. ARP is used to resolve IP addresses into MAC addresses. Also, know about ARP poisoning. |
+| Know about micro-segmentation. | Micro-segmentation is dividing up an internal network into numerous subzones, potentially as small as a single device, such as a high-value server or even a client or endpoint device. Each zone is separated from the others by internal segmentation firewalls (ISFWs), subnets, or VLANs. |
+| Know about edge networks. | An edge network is a carefully designed data architecture that strategically allocates computing resources to edge devices within a network. This design helps distribute processing power demands away from central servers, empowering the devices to handle a significant portion of the processing workload. |
+| Understand the various wireless technologies. | Cell phones, Bluetooth (802.15.1 and Bluetooth SIG), and Wi-Fi wireless networking (802.11) are all called wireless technologies, even though they are all different. Be aware of their differences, strengths, and weaknesses. Understand the basics of securing 802.11 networking. |
+| Know about RFID, NFC, satellite, narrow-band, and Zigbee. |  |
+| Understand site surveys. | A site survey is a formal assessment of wireless signal strength, quality, and interference using an RF signal detector. A site survey is performed by placing a wireless base station in a desired location and then collecting signal measurements from throughout the area. |
+| Understand WPS attacks. | Wi-Fi Protected Setup (WPS) is intended to simplify the effort involved in adding new clients to a secured wireless network. It operates by automatically connecting the first new wireless client to seek the network once WPS is triggered. |
+| Understand captive portals. | A captive portal is an authentication technique that redirects a newly connected client to a web-based portal access control page. |
+| Know wireless attacks. | Attacks include war driving, wireless scanners/crackers, rogue access points, evil twin, disassociation, jamming, IV abuse, and replay. |
+| Be familiar with CDNs. | A content distribution network (CDN), or content delivery network, is a collection of resource services deployed in numerous data centers across the Internet to provide low latency, high performance, and high availability of the hosted content. |
+| Understand NAC. | Network access control (NAC) is the concept of controlling access to an environment through strict adherence to and enforcement of security policy. Know about 802.1X, preadmission, postadmission, agent-based, and agentless. |
+| Understand the various types of firewalls. | There are several types of firewalls: static packet filtering, application-level, circuit-level, stateful inspection, NGFW, and ISFW. Also, know about virtual firewall, filters/rules/ACLs/tuples, bastion host, ingress, egress, RTBH, stateless versus stateful, WAF, SWG, TCP wrapper, DPI, and content and URL filtering. |
+| Know about proxies. | A proxy server is used to mediate between clients and servers. Proxies are most often used in the context of providing clients on a private network with internet access while protecting the identity of the clients. Know about forward, reverse, transparent, and nontransparent. |
+| Understand endpoint security. | Endpoint security is the concept that each individual device must maintain local security whether or not its network or telecommunications channels also provide security. Endpoint detection and response (EDR) is a combination of firewall, intrusion detection system (IDS), and antimalware. Managed detection and response (MDR) combines EDR with Security information and event management (SIEM), network traffic analysis (NTA), and network IDS. Endpoint protection platform (EPP) is an intrusion prevention system (IPS) variant of EDR. Extended detection and response (XDR) is the combination of EDR, MDR, and EPP often with cloud-based remote monitoring and analysis. |
+| Be familiar with the common LAN technologies. | The most common LAN technology is Ethernet. Also, be familiar with analog versus digital communications; synchronous versus asynchronous communications; duplexing; baseband versus broadband communications; broadcast, multicast, unicast, anycast, and geocast communications; CSMA, CSMA/CD, and CSMA/CA; token passing; and polling. |
 
 ## OSI Model
 The Open Systems Interconnection (OSI) Reference Model is a **7-layer conceptual framework** that standardizes the functions of a telecommunication or computing system without regard to its underlying internal structure. By mapping protocols, hardware, and security controls to specific layers, security professionals can **pin-point vulnerabilities** 🔍 and apply appropriate countermeasures.
