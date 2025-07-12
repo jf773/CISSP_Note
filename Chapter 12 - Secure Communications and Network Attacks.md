@@ -111,6 +111,7 @@ An **IETF framework**—not a single protocol—allowing pluggable authenticatio
 | EAP-SIM / AKA | SIM challenge | Mobile devices | Carrier networks |
 | EAP-MD5 | Clear-text username, MD5 hash | Early PPP | ❌ Deprecated |
 | EAP-NOOB | Out-of-band bootstrap (QR, NFC) | IoT onboarding | Emerging |
+| EAP-POTP (Protected One-Time Password) | No native encryption; relies on outer method (e.g., PEAP, EAP-TTLS) to wrap traffic in TLS | Hardware/software OTP tokens for one-way or mutual authentication in 802.1X WLAN or VPN deployments | Still acceptable when a TLS tunnel is enforced, but adoption is limited; prefer EAP-TLS or PEAP + TLS where possible for broader support and certificate-based security |
 
 > **Exam hint:** Remember that **EAP defines message format**; security depends on the *method* chosen.
 
