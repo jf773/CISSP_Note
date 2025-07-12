@@ -13,7 +13,7 @@
 | 8       | Principles of Security Models, Design, and Capabilities          | ■               |
 | 9       | Security Vulnerabilities, Threats, and Countermeasures           | ■               |
 | 10      | Physical Security Requirements                                   | ■               |
-| 11      | Secure Network Architecture and Components                       | ☐               |
+| 11      | Secure Network Architecture and Components                       | ■               |
 | 12      | Secure Communications and Network Attacks                        | ☐               |
 | 13      | Managing Identity and Authentication                             | ☐               |
 | 14      | Controlling and Monitoring Access                                | ☐               |
