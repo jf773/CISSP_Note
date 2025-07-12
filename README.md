@@ -70,6 +70,8 @@ You are a CISSP expert tasked with creating comprehensive study notes to help me
 3. Structure and Readability: Organize the notes to match the chapter's index/structure as presented in the textbook. Follow the hierarchical layers of the index (e.g., main sections, subsections, sub-subsections) to ensure alignment with the textbook's organization.
 4. Tables for Comparison: Include tables to compare related concepts, terms, or frameworks when relevant to aid exam preparation (e.g., comparing security models, protocols, or controls).
 5. Markdown Source Code Format: Ensure all content is written in markdown source code contained in a code block which can be copied and pasted to Github, with proper formatting (e.g., headers, lists, tables) for easy readability and GitHub compatibility.
+6. Don't use "---" between 2 concepts
+
 Please only covers the following scope:
 ```
 
