@@ -39,7 +39,7 @@
 | 21      | Malicious Code and Application Attacks                           | ■                | ■                |
 
 ## 🧠 Phase 2: Solve 100 domain-based practice questions, 3 rounds per domain
-
+※Time: 1st test is 180 mins, 2nd/3rd test is 120 mins 
 | Domain | Name                                 | 1st Test Completed? | 1st Accuracy Rate | 2nd Test Completed? | 2nd Accuracy Rate | 3rd Test Completed? | 3rd Accuracy Rate |
 |--------|--------------------------------------|----------------------|--------------------|----------------------|--------------------|----------------------|--------------------|
 | 1      | Security and Risk Management         | □                    | ―                  | □                    | ―                  | □                    | ―                  |
@@ -52,7 +52,7 @@
 | 8      | Software Development Security        | □                    | ―                  | □                    | ―                  | □                    | ―                  |
 
 ## 📝 Phase 3: Full mock exams (8 sets, 3 rounds)
-
+※Time: 180 mins per exam
 | Mock Exam # | 1st Attempt? | Score | 2nd Attempt? | Score | 3rd Attempt? | Score |
 |-------------|--------------|--------|---------------|--------|---------------|--------|
 | Mock 1      | □            | ―      | □             | ―      | □             | ―      |
@@ -65,7 +65,7 @@
 | Mock 8      | □            | ―      | □             | ―      | □             | ―      |
 
 ## 🎯 Phase 4: Mini mock exams (5 sets of 50 questions, 3 rounds)
-
+※Time: 60 ~ 75 mins per set
 | Mini Test # | 1st Attempt? | Score | 2nd Attempt? | Score | 3rd Attempt? | Score |
 |-------------|--------------|--------|---------------|--------|---------------|--------|
 | Set 1       | □            | ―      | □             | ―      | □             | ―      |
