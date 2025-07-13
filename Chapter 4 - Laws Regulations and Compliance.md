@@ -201,6 +201,12 @@ Understanding the purpose, scope, enforcement, and CISSP implications of each he
 - Security role: protect employer IP (NDAs, DLP) & avoid infringement.  
 - Exam watchword: *“Work for hire”*, *“first-sale doctrine”*, *“fair use”*.
 
+| Law                          | Focus Area                                 | Purpose                                                                                   | Key Provisions                                                                                       | Relevance to CISSP |
+|-----------------------------|---------------------------------------------|-------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|---------------------|
+| **Lanham Act (1946)**       | Trademark Law                               | Protects trademarks, service marks, and unfair competition                               | - Registration of trademarks<br>- Legal recourse against infringement<br>- Prevention of false advertising | Important for protecting branding and identity integrity; relevant to intellectual property management |
+| **Glass–Steagall Act (1933)** | Banking & Financial Regulation              | Separated commercial and investment banking to reduce risk in the financial system       | - Prohibited banks from engaging in investment activities<br>- Established FDIC                         | Less directly CISSP-relevant, but ties to governance, compliance, and financial system protections |
+| **Economic Espionage Act (1996)** | Trade Secret Protection & National Security | Criminalizes theft or misappropriation of trade secrets, especially benefiting foreign entities | - Section 1831: Foreign-directed theft<br>- Section 1832: Commercial theft<br>- Applies to individuals and organizations | Highly relevant: protects sensitive information and enforces legal boundaries for data confidentiality |
+
 | Concept | Key Points to Know | Why It Matters for Security Pros |
 |---------|--------------------|----------------------------------|
 | **Shift to IP-driven economy** | • Services & brand value dominate modern firms  <br>• Intangible assets (logos, names, formulas, creative works) = “IP” | Protecting IP often means protecting *data*: source code, formulas, designs, brand assets. |
