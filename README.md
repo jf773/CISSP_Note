@@ -1,30 +1,5 @@
 # CISSP Note - 10th Edition
 
-## Progress
-| Chapter | Title                                                             | Note Completed? |
-|---------|-------------------------------------------------------------------|-----------------|
-| 1       | Security Governance Through Principles and Policies              | ■               |
-| 2       | Personnel Security and Risk Management Concepts                  | ■               |
-| 3       | Business Continuity Planning                                     | ■               |
-| 4       | Laws, Regulations, and Compliance                                | ■               |
-| 5       | Protecting Security of Assets                                     | ■               |
-| 6       | Cryptography and Symmetric Key Algorithms                        | ■               |
-| 7       | PKI and Cryptographic Applications                               | ■               |
-| 8       | Principles of Security Models, Design, and Capabilities          | ■               |
-| 9       | Security Vulnerabilities, Threats, and Countermeasures           | ■               |
-| 10      | Physical Security Requirements                                   | ■               |
-| 11      | Secure Network Architecture and Components                       | ■               |
-| 12      | Secure Communications and Network Attacks                        | ■               |
-| 13      | Managing Identity and Authentication                             | ■               |
-| 14      | Controlling and Monitoring Access                                | ■               |
-| 15      | Security Assessment and Testing                                  | ■               |
-| 16      | Managing Security Operations                                     | ■               |
-| 17      | Preventing and Responding to Incidents                           | ■               |
-| 18      | Disaster Recovery Planning                                       | ■               |
-| 19      | Investigations and Ethics                                        | ■               |
-| 20      | Software Development Security                                    | ■               |
-| 21      | Malicious Code and Application Attacks                           | ■               |
-
 ## Domain Mapping
 | Domain                                      | Chapters                   | Done? | Average Weight % |
 |---------------------------------------------|----------------------------|--------|----------|
@@ -37,6 +12,67 @@
 | 7. Security Operations                      | 3, 10, 11, 16, 17, 18, 19, 21 | □     | 13%      |
 | 8. Software Development Security            | 15, 16, 20, 21             | □      | 10%      |
 
+## ✅ Phase 1: Read each textbook chapter, take notes, and complete end-of-chapter quizzes (20 questions per chapter)
+
+| Chapter | Title                                                             | Note Completed? | Quiz Completed? |
+|---------|-------------------------------------------------------------------|------------------|------------------|
+| 1       | Security Governance Through Principles and Policies              | ■                | ■                |
+| 2       | Personnel Security and Risk Management Concepts                  | ■                | ■                |
+| 3       | Business Continuity Planning                                     | ■                | ■                |
+| 4       | Laws, Regulations, and Compliance                                | ■                | ■                |
+| 5       | Protecting Security of Assets                                     | ■                | ■                |
+| 6       | Cryptography and Symmetric Key Algorithms                        | ■                | ■                |
+| 7       | PKI and Cryptographic Applications                               | ■                | ■                |
+| 8       | Principles of Security Models, Design, and Capabilities          | ■                | ■                |
+| 9       | Security Vulnerabilities, Threats, and Countermeasures           | ■                | ■                |
+| 10      | Physical Security Requirements                                   | ■                | ■                |
+| 11      | Secure Network Architecture and Components                       | ■                | ■                |
+| 12      | Secure Communications and Network Attacks                        | ■                | ■                |
+| 13      | Managing Identity and Authentication                             | ■                | ■                |
+| 14      | Controlling and Monitoring Access                                | ■                | ■                |
+| 15      | Security Assessment and Testing                                  | ■                | ■                |
+| 16      | Managing Security Operations                                     | ■                | ■                |
+| 17      | Preventing and Responding to Incidents                           | ■                | ■                |
+| 18      | Disaster Recovery Planning                                       | ■                | ■                |
+| 19      | Investigations and Ethics                                        | ■                | ■                |
+| 20      | Software Development Security                                    | ■                | ■                |
+| 21      | Malicious Code and Application Attacks                           | ■                | ■                |
+
+## 🧠 Phase 2: Solve 100 domain-based practice questions, 3 rounds per domain
+
+| Domain | Name                                 | 1st Test Completed? | 1st Accuracy Rate | 2nd Test Completed? | 2nd Accuracy Rate | 3rd Test Completed? | 3rd Accuracy Rate |
+|--------|--------------------------------------|----------------------|--------------------|----------------------|--------------------|----------------------|--------------------|
+| 1      | Security and Risk Management         | □                    | ―                  | □                    | ―                  | □                    | ―                  |
+| 2      | Asset Security                       | □                    | ―                  | □                    | ―                  | □                    | ―                  |
+| 3      | Security Architecture and Engineering| ■                    | 76.24%                  | □                    | ―                  | □                    | ―                  |
+| 4      | Communication and Network Security   | □                    | ―                  | □                    | ―                  | □                    | ―                  |
+| 5      | Identity and Access Management (IAM) | □                    | ―                  | □                    | ―                  | □                    | ―                  |
+| 6      | Security Assessment and Testing      | ■                    | 75.00%                  | □                    | ―                  | □                    | ―                  |
+| 7      | Security Operations                  | □                    | ―                  | □                    | ―                  | □                    | ―                  |
+| 8      | Software Development Security        | □                    | ―                  | □                    | ―                  | □                    | ―                  |
+
+## 📝 Phase 3: Full mock exams (8 sets, 3 rounds)
+
+| Mock Exam # | 1st Attempt? | Score | 2nd Attempt? | Score | 3rd Attempt? | Score |
+|-------------|--------------|--------|---------------|--------|---------------|--------|
+| Mock 1      | □            | ―      | □             | ―      | □             | ―      |
+| Mock 2      | □            | ―      | □             | ―      | □             | ―      |
+| Mock 3      | □            | ―      | □             | ―      | □             | ―      |
+| Mock 4      | □            | ―      | □             | ―      | □             | ―      |
+| Mock 5      | □            | ―      | □             | ―      | □             | ―      |
+| Mock 6      | □            | ―      | □             | ―      | □             | ―      |
+| Mock 7      | □            | ―      | □             | ―      | □             | ―      |
+| Mock 8      | □            | ―      | □             | ―      | □             | ―      |
+
+## 🎯 Phase 4: Mini mock exams (5 sets of 50 questions, 3 rounds)
+
+| Mini Test # | 1st Attempt? | Score | 2nd Attempt? | Score | 3rd Attempt? | Score |
+|-------------|--------------|--------|---------------|--------|---------------|--------|
+| Set 1       | □            | ―      | □             | ―      | □             | ―      |
+| Set 2       | □            | ―      | □             | ―      | □             | ―      |
+| Set 3       | □            | ―      | □             | ―      | □             | ―      |
+| Set 4       | □            | ―      | □             | ―      | □             | ―      |
+| Set 5       | □            | ―      | □             | ―      | □             | ―      |
 
 ## Chapter Mapping
 | Chapter | Domains |
