@@ -77,6 +77,44 @@ A cross-functional team brings the expertise, authority, and perspective necessa
 - Explicit management mandate and decision-making authority.  
 - Regular training and succession planning for key roles.  
 
+### 🧑‍💼 Senior Management and Business Continuity Planning (BCP)
+
+#### 🔹 Role of Senior Management in BCP
+
+| Key Responsibility             | Description                                                                 |
+|-------------------------------|-----------------------------------------------------------------------------|
+| Set Priorities                | Define what services and operations are most critical for continuity       |
+| Allocate Resources            | Provide necessary staffing and budget for BCP activities                   |
+| Arbitrate Criticality         | Make final decisions on disputes regarding the importance of services      |
+| Provide Visible Support       | Show active and visible participation to legitimize the effort             |
+| Meet Legal and Regulatory Duty| May be held **personally liable** if continuity planning is neglected       |
+| Fulfill Fiduciary Duty        | Required to ensure adequate BCP is in place to protect shareholder interests|
+
+#### 🔹 Key Takeaways from Case Study
+
+> A senior executive asked, “Is there anything you need from me?”  
+> The answer: “Yes—your **active participation**.”
+
+##### Actions Taken by the Executive:
+- Sent organization-wide email endorsing BCP initiative
+- Participated in high-level planning sessions
+- Spoke in a company town hall supporting the effort
+
+✅ Result: **Increased engagement and organizational buy-in**
+
+#### 🔹 Why Executive Involvement Matters
+
+- **Sets the Tone from the Top**: Encourages other departments to take BCP seriously  
+- **Prioritizes Planning over Day-to-Day Operations**  
+- **Supports Regulatory Compliance**: e.g., SOX holds executives accountable  
+- **Builds Trust**: Demonstrates to stakeholders that the organization is resilient
+
+#### 📝 CISSP Exam Tips
+
+- Expect questions on the **importance of executive sponsorship**
+- Understand how **visible support impacts BCP success**
+- Be aware of **legal and fiduciary responsibilities** linked to business continuity
+
 ### Resource Requirements  
 
 Resources must be sized for **three distinct phases**:
