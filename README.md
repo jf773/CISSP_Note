@@ -1,16 +1,16 @@
 # CISSP Note - 10th Edition
 
 ## Domain Mapping
-| Domain                                      | Chapters                   | Done? | Average Weight % |
-|---------------------------------------------|----------------------------|--------|----------|
-| 1. Security and Risk Management             | 1, 2, 3, 4, 19             | □      | 16%      |
-| 2. Asset Security                           | 5, 16                      | □      | 10%      |
-| 3. Security Architecture and Engineering    | 1, 6, 7, 8, 9, 10, 16, 20, 21 | ■×1   | 13%      |
-| 4. Communication and Network Security       | 11, 12                     | □      | 13%      |
-| 5. Identity and Access Management (IAM)     | 13, 14                     | □      | 13%      |
-| 6. Security Assessment and Testing          | 15, 18                     | ■×1   | 12%      |
-| 7. Security Operations                      | 3, 10, 11, 16, 17, 18, 19, 21 | □     | 13%      |
-| 8. Software Development Security            | 15, 16, 20, 21             | □      | 10%      |
+| Domain                                      | Chapters                   | Average Weight % |
+|---------------------------------------------|----------------------------|----------|
+| 1. Security and Risk Management             | 1, 2, 3, 4, 19             | 16%      |
+| 2. Asset Security                           | 5, 16                      | 10%      |
+| 3. Security Architecture and Engineering    | 1, 6, 7, 8, 9, 10, 16, 20, 21 | 13%      |
+| 4. Communication and Network Security       | 11, 12                     | 13%      |
+| 5. Identity and Access Management (IAM)     | 13, 14                     | 13%      |
+| 6. Security Assessment and Testing          | 15, 18                     | 12%      |
+| 7. Security Operations                      | 3, 10, 11, 16, 17, 18, 19, 21 | 13%      |
+| 8. Software Development Security            | 15, 16, 20, 21             | 10%      |
 
 ## ✅ Phase 1: Read each textbook chapter, take notes, and complete end-of-chapter quizzes (20 questions per chapter)
 
