@@ -483,14 +483,14 @@ Baselines define a **minimum** security “template” for systems. They acceler
 After choosing a baseline, refine it to fit your environment:
 
 - **Tailoring:**  
-  “Altering the suit”  
+  Tailoring **modifies controls** to fit a specific situation or need.
   - Tailoring refers to modifying a list of security controls to align with the organization’s mission.
   - Adjust control parameters (e.g., **account lockout** threshold from 5 → 3)  
   - Add compensating or supplemental controls as needed  
   - Follow NIST SP 800-53B process: identify common controls, set parameters, document additions
 
 - **Scoping:**  
-  “Removing controls that don’t apply”  
+  Scoping is the process of **determining which controls are appropriate** to an organization, environment, or implementation.
   - Scoping is a part of the tailoring process
   - Review **each** control → justify omissions (e.g., no concurrent‐session risk → drop that control)  
   - Document rationale to demonstrate due diligence  
