@@ -456,6 +456,22 @@ Many hands touch an organization’s data—each with distinct responsibilities.
   - Ensure security controls meet policy and legal requirements
   - May be held liable for negligence (lack of due care/diligence)
 
+#### NIST SP 800-18 Responsibilities of the Information (Data) Owner
+
+| Responsibility | Practical Interpretation | CISSP Connection |
+|----------------|--------------------------|------------------|
+| **Define “rules of behavior”** | Publish acceptable-use guidance that specifies proper handling, security expectations, and penalties for misuse. | Equivalent to an **AUP**; users must periodically acknowledge compliance (often via electronic signature). |
+| **Provide security requirements to system owners** | Supply business-driven confidentiality, integrity, and availability needs so that system owners can select appropriate controls. | Ties data classification to technical safeguards (e.g., encryption, IAM). |
+| **Authorize access & privilege levels** | Decide *who* may access the information system and *what* rights (read, write, admin) they receive. | Enforces **least privilege** and **need-to-know**. |
+| **Assist with common-control assessments** | Participate in identifying, evaluating, and documenting shared controls (e.g., facility security, enterprise firewalls). | Supports risk management and control inheritance. |
+
+> **Rules of behavior** ≈ Acceptable Use Policy (AUP)  
+> • Establish user expectations and accountability.  
+> • Must be acknowledged periodically—many agencies provide a web portal for digital acceptance.  
+
+**Key Takeaway for CISSP:**  
+The data (information) owner is ultimately accountable for defining how information is protected, who can use it, and ensuring that systems implement controls aligned with those requirements.
+
 ### Data Controllers and Processors
 | Role | Core Function | Typical Examples | GDPR Liability |
 |------|---------------|------------------|----------------|
