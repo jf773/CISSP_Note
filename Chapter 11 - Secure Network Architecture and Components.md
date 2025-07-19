@@ -416,6 +416,7 @@ Melding specialty traffic onto commodity Ethernet/IP.
 * Encapsulates audio (RTP/SRTP) + call-setup (SIP/H.323) into IP packets.  
 * Attacks: *vishing*, SPIT, caller-ID spoof, DoS on call-manager, VLAN hopping.  
 * **Secure RTP (SRTP)** adds AES + HMAC to audio; deploy with TLS-protected SIP.
+* **SIPS**, the secure version of the Session Initialization Protocol for VoIP, adds TLS encryption to keep the session initialization process secure.
 
 ### Software-Defined Network (SDN)
 * **Separates** *control plane* (decisions) from *data plane* (forwarding).  
