@@ -458,6 +458,11 @@ Many hands touch an organization’s data—each with distinct responsibilities.
 
 #### NIST SP 800-18 Responsibilities of the Information (Data) Owner
 
+| Role | Key Responsibilities (Excerpt) |
+|------|--------------------------------|
+| **System Owner** | - Develop and maintain the **System Security Plan (SSP)**<br>- Select, implement, and verify security controls<br>- Ensure system users receive appropriate security training<br>- Track residual risks via **Plan of Action & Milestones (POA&M)** |
+| **Information / Data Owner** | - Classify and label data assets<br>- Define “**Rules of Behavior**” (equivalent to an Acceptable Use Policy)<br>- Decide who may access the data and under what conditions<br>- Assist in identifying and assessing inherited/common security controls |
+
 | Responsibility | Practical Interpretation | CISSP Connection |
 |----------------|--------------------------|------------------|
 | **Define “rules of behavior”** | Publish acceptable-use guidance that specifies proper handling, security expectations, and penalties for misuse. | Equivalent to an **AUP**; users must periodically acknowledge compliance (often via electronic signature). |
