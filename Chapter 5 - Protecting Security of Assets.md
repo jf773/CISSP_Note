@@ -250,14 +250,10 @@ Controls are selected to enforce confidentiality, integrity, and availability co
 📝 Master these points, and you cover the **core exam objectives** for Chapter 5’s information/asset identification and classification topics!
 
 ## Establishing Information and Asset Handling Requirements
-| Data Lifecycle | Concise Definition | Core Security Objectives | Typical Controls / Best Practices |
+| Data Lifecycle Phase | Concise Definition | Core Security Objectives | Typical Controls / Best Practices |
 |------------------|--------------------|--------------------------|-----------------------------------|
-| **Data Roles**<br>*(owners, controllers, custodians, processors, users/subjects)* | Distinct responsibilities assigned to individuals or entities that create, govern, process, or access data. | • Clear accountability<br>• Segregation of duties<br>• Regulatory compliance (GDPR, HIPAA) | - RACI matrix for role mapping<br>- Written “rules of behavior”/AUP<br>- Contracts & DPAs for processors |
 | **Data Collection** | Acquisition or generation of data from subjects, sensors, transactions, etc. | • Collect only what is necessary (data-minimization)<br>• Obtain lawful basis/consent 💡 | - Privacy Impact Assessments (PIA/DPIA)<br>- Secure collection channels (TLS, input validation) |
-| **Data Location** | Physical or logical residence of data (on-prem, cloud region, DR site). | • Maintain sovereignty & residency compliance<br>• Support availability & disaster recovery | - Geo-fencing, region-locked buckets<br>- Replication topology diagrams<br>- Cross-border transfer assessments |
 | **Data Maintenance** | Ongoing care: patching, restructuring, quality assurance, migration. | • Preserve integrity & confidentiality during changes<br>• Maintain accurate metadata/classification | - Change-management workflow<br>- Version control & checksums<br>- Data quality dashboards |
-| **Data Retention** | Duration and conditions under which data is kept in accessible form. | • Meet legal/contractual mandates<br>• Limit liability & storage cost | - Retention schedules mapped to record types<br>- Automated archival & purge jobs<br>- Litigation-hold procedures |
-| **Data Remanence** | Residual representation of data that remains after deletion attempts. | • Prevent unauthorized recovery of retired data | - Overwrite/clear, purge, degauss, crypto-erase<br>- SSD-specific sanitization; verify with sample reads |
 | **Data Destruction** | Final, irreversible elimination of data/media. | • Guarantee confidentiality post-disposal<br>• Comply with NIST SP 800-88 & industry regs | - Shredding, pulverizing, incineration (2 mm for SSD per NSA)<br>- Certificates of destruction and audit logging |
 
 ### Data Maintenance
