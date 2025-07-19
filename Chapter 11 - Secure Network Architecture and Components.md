@@ -647,6 +647,28 @@ Client-side P2P CDN (e.g., BitTorrent-based) shares load but complicates data in
 
 A robust architecture layers perimeter NGFW, DMZ reverse proxies, ISFW for east-west, and host firewalls, all orchestrated by SIEM/SOAR for adaptive response.
 
+#### Firewall Tier Architectures
+
+A firewall architecture’s “tier” is determined by the **number of distinct protected zones (trust levels)** that the firewalling solution isolates from the outside network.  
+- **Single-tier:** one protected zone (e.g., only an internal LAN).
+- **Two-tier:** two protected zones (e.g., a DMZ and an internal LAN).
+- - **Three-tier:** three protected zones (e.g., DMZ, application subnet, and user LAN).  
+- **Four-tier (and beyond):** four or more protected zones, each separated by additional firewall layers.
+
+| Tier Count | Typical Topology | Interfaces / Zones | Primary Use Case | Advantages | Limitations / Risks |
+|------------|------------------|--------------------|------------------|------------|---------------------|
+| **Single-Tier Firewall** | One security appliance (or router w/ ACLs) in front of the internal LAN. | • Outside (Internet)<br>• Inside (LAN) | Small offices, labs, home networks. | • Lowest cost & complexity.<br>• Easy to manage. | • No DMZ—public services sit inside LAN.<br>• Single point of failure.<br>• Limited defense-in-depth. |
+| **Two-Tier Firewall** | ① External perimeter firewall/router<br>② Internal firewall; DMZ usually between them (screened subnet). | • Outside<br>• DMZ (public servers)<br>• Inside | SMEs hosting public-facing services (web, mail). | • DMZ isolates public servers.<br>• Two devices offer layered filtering (packet filter + stateful). | • Higher cost and management overhead.<br>• Still shares trust level for all internal hosts. |
+| **Three-Tier Firewall** | Cascade of two firewalls **plus** an additional internal segmentation tier (e.g., user LAN vs. server LAN). | • Outside<br>• DMZ<br>• App or Server LAN<br>• Inside (user LAN) | Enterprises needing to isolate critical servers from user workstations. | • Granular trust zones.<br>• Limits lateral movement.<br>• Supports PCI or HIPAA segmentation. | • Routing/ACL complexity.<br>• Potential performance bottlenecks. |
+| **Four-Tier Firewall** | Multi-layered “zero-trust” stack, often:<br>1) Edge firewall<br>2) DMZ firewall<br>3) Application firewall / WAF<br>4) Data-center or database firewall | • Outside<br>• DMZ<br>• App Tier<br>• Data Tier<br>• Inside | High-security environments (financial, government) or micro-segmented data centers. | • Defense-in-depth at every OSI layer.<br>• Tight control of east-west traffic.<br>• Meets stringent regulatory demands. | • Highest cost and operational complexity.<br>• Requires rigorous change-management and monitoring. |
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/0f89001e-8ee1-48c9-b055-ec2dfa943f86" />
+
+> **Quick Pointers for CISSP Exam**
+> - *Single-tier* = minimal protection; no DMZ.  
+> - *Two-tier* = introduces screened subnet (DMZ) with two filtering stages.  
+> - *Three-tier* = adds a dedicated internal segmentation layer (often application servers).  
+> - *Four-tier* (and beyond) = fine-grained, multi-zone architecture aligned with zero-trust and micro-segmentation principles.
+
 ### Endpoint Security
 Endpoint security extends the security perimeter to every device—laptop, workstation, mobile, IoT, and server—that touches the network. A single weak host can undermine enterprise controls, so endpoints must enforce **defense-in-depth** locally.
 
