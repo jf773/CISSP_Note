@@ -203,11 +203,13 @@ Hardware, firmware, and media inherit the highest classification of the data the
 | Mobile Device | Corporate restricted | Remote wipe, containerization |
 
 ### Understanding Data States
+
 | State | Definition | Common Threats | Primary Protections |
 |-------|------------|----------------|---------------------|
-| At Rest | Stored on physical/virtual media | Theft, improper disposal | AES-256, FIPS 140-3 validated cryptomodules, RBAC |
-| In Transit | Traversing networks or removable media | Sniffing, MITM, downgrade attacks | TLS 1.3, IPSec VPN, SMTP STARTTLS |
-| In Use | Loaded in memory or CPU registers | Memory scraping, side-channel attacks | Secure coding, enclave/TEE, homomorphic encryption |
+| **Data At Rest** | Data stored on physical or virtual media (HDD, SSD, backups, cloud object storage). | Theft, unauthorized copy, improper disposal, offline tampering. | AES-256 or stronger encryption, FIPS 140-3-validated cryptomodules, access control lists (ACL/RBAC), secure storage rooms, HSM-managed keys. |
+| **Data In Transit** | Data traveling over **external or untrusted networks** (Internet, partner links, removable media). | Packet sniffing, man-in-the-middle (MITM), downgrade/strip attacks, rogue Wi-Fi AP. | TLS 1.3, IPSec VPN, SMTP STARTTLS, S/MIME, DNSSEC, certificate pinning. |
+| **Data in Motion** | Data moving **within trusted or semi-trusted environments** (east-west traffic in data centers, OT networks, internal message queues, micro-service calls). | Lateral movement, traffic replay, ARP spoofing, tapware implants. | MACsec, TLS mutual auth, Zero-Trust segmentation, secure service mesh (mTLS), network-based DLP, micro-segmentation firewalls. |
+| **Data In Use** | Data actively loaded in memory, CPU caches, or registers for processing. | Memory scraping malware, side-channel attacks (Spectre, Meltdown), DMA attacks, debugger exposure. | Trusted execution environments (Intel SGX, ARM TrustZone), secure coding & input validation, memory zeroization, homomorphic / format-preserving encryption, endpoint EDR. |
 
 🔍 *Always* assume data moves through **all three states**; controls must cover each.
 
