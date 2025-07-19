@@ -437,7 +437,14 @@ Dividing a network improves performance *and* limits blast radius.
 | **Out-of-band** | Mgmt network, IPMI | Protect control traffic |
 | **Micro-segmentation** | Distributed firewalls, VXLAN, SDN | Per-workload policy; zero trust alignment |
 
-> Know acronyms: **VRF, VXLAN (up to 16 M networks), ISFW**, *private-LAN / screened-subnet / extranet*.
+| Technology | Primary Purpose | Isolation Scope | Typical Deployment / Use Case | Key Security Benefit | Notes & Limitations |
+|------------|-----------------|-----------------|------------------------------|----------------------|---------------------|
+| **VLAN** (Virtual Local Area Network) | Logically separate Layer-2 broadcast domains on a switch | Department, floor, or functional group | Enterprise campus networks; VoIP vs. data separation | Limits broadcast traffic; basic segmentation without extra hardware | Requires Layer-3 device for inter-VLAN routing; VLAN hopping attacks if misconfigured |
+| **VPN** (Virtual Private Network) | Create an encrypted tunnel over untrusted networks | User-to-site or site-to-site | Remote access for teleworkers; branch office connectivity | Confidentiality & integrity across the Internet | Adds latency; relies on end-point security configurations |
+| **VRF** (Virtual Routing & Forwarding) | Maintain multiple independent routing tables on one router | Customer, tenant, or service instance | Service-provider MPLS backbones; large enterprises with overlapping IP ranges | Prevents route leakage; per-tenant traffic separation | Operates at Layer-3 only; still shares physical interfaces unless combined with ACL/QoS |
+| **VDOM** (Virtual Domain) / Virtual System | Virtualize firewall/switch into multiple logical devices | Business unit or customer | Next-gen firewalls offering per-tenant policy sets | Dedicated rule-base and logs per domain; strong admin separation | Consumes physical resources; mis-config between contexts can expose gaps |
+| **VPC** (Virtual Private Cloud) | Provide isolated, software-defined network inside a public cloud | Entire cloud tenant network | AWS VPC, Azure VNets—multi-tier app hosting | Subnet-level ACLs, security groups, route-tables under tenant control | Still resides on provider’s shared fabric; egress filtering often extra |
+| **Micro-segmentation** | Fine-grained, workload-level isolation (Zero Trust) | Single VM, container, or endpoint | Software-defined overlays (e.g., VMware NSX, Kubernetes network policies) | East-west traffic filtering; least-privilege at workload granularity 🔐 | Policy sprawl risk; heavy reliance on automation & visibility tools |
 
 ## Edge Networks
 Moves compute/storage **closer to users or sensors** to cut latency.
