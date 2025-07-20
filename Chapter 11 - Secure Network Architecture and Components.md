@@ -458,6 +458,15 @@ Moves compute/storage **closer to users or sensors** to cut latency.
 
 Edge + CDN + 5G = ultra-low-latency apps (AR/VR, autonomous vehicles). Guard controller APIs and ensure consistent patching of widely-deployed edge nodes.
 
+### What a CDN Achieves  
+A **Content Delivery Network (CDN)** replicates static assets—images, video segments, CSS/JS files—across a global fleet of cache nodes, then serves user requests from the geographically closest node. This shortens round-trip time, offloads bandwidth and CPU from the origin, and shields the origin during traffic spikes, resulting in faster page loads, smoother video streaming, and lower egress costs.
+
+### What Edge Services Achieve  
+**Edge services** go beyond simple caching by running compute and security functions at the same Points of Presence (PoPs) where CDN caches live. Serverless code (e.g., Lambda@Edge), real-time analytics, WAF/DDoS filtering, and zero-trust proxies execute milliseconds from the end user, enabling ultra-low-latency IoT control, personalized content, data-sovereignty compliance, and reduced traffic back to the cloud core—all while maintaining robust security.
+
+### What Edge Peering Achieves  
+**Edge peering** creates a direct, often private connection between an enterprise’s on-premises network (or an ISP backbone) and the cloud provider’s edge PoPs via an Internet Exchange (IX) or dedicated circuit. This delivers a shortest-path, high-bandwidth route that bypasses congested public Internet segments, cutting latency even further, guaranteeing throughput for large transfers, reducing cloud egress fees, and improving route visibility and security.
+
 ### Differences Between Edge Services and CDN
 
 | Aspect | **Edge Services (Edge Computing)** | **CDN (Content Delivery Network)** |
