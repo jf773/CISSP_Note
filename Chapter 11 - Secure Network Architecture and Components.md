@@ -458,6 +458,20 @@ Moves compute/storage **closer to users or sensors** to cut latency.
 
 Edge + CDN + 5G = ultra-low-latency apps (AR/VR, autonomous vehicles). Guard controller APIs and ensure consistent patching of widely-deployed edge nodes.
 
+### Differences Between Edge Services and CDN
+
+| Aspect | **Edge Services (Edge Computing)** | **CDN (Content Delivery Network)** |
+|--------|------------------------------------|------------------------------------|
+| **Primary Goal** | Execute **processing, security, and analytics** close to the user/device to achieve ultra-low latency. | **Cache and deliver static content** rapidly while offloading the origin. |
+| **Typical Functions** | • Serverless functions (Lambda@Edge, Cloudflare Workers) <br>• API offload & rate limiting <br>• AI/ML inference, IoT data prep <br>• Zero-trust/SASE proxies, edge WAF | • Static object caching (images, CSS/JS, video segments) <br>• HTTP/2 & TLS termination <br>• Origin failover & request collapsing |
+| **Data Types** | Dynamic or real-time data streams, API calls, sensor feeds | Primarily cacheable **static** files & media |
+| **Latency Target** | Sub-10–50 ms (sometimes < 1 ms for 5G/IoT) | Tens to hundreds of ms, depending on user distance |
+| **Representative Services** | AWS Lambda@Edge, Azure Front Door Rules Engine, Google Distributed Cloud Edge, Cloudflare Workers | AWS CloudFront, Azure CDN, Google Cloud CDN, Akamai, Fastly |
+| **Ancillary Features** | • Edge WAF / DDoS mitigation <br>• TLS termination with mutual auth <br>• Data-sovereignty processing zones <br>• Local AI/analytics | • Geo-routing & load balancing <br>• Gzip/Brotli compression <br>• Signed URLs / token auth |
+| **Key Benefits** | • Millisecond response for interactive workloads <br>• Offload compute from origin/cloud core <br>• Compliance with data-residency laws <br>• Integral to zero-trust architectures | • Massive bandwidth savings & origin protection <br>• Simple to adopt (DNS change) <br>• Global content acceleration |
+| **Typical Use Cases** | Real-time IoT control, AR/VR rendering, personalized API responses, in-line data sanitization | Video streaming, large website asset delivery, software update distribution |
+| **Relationship** | Often **integrated**—edge PoPs run both compute & CDN capabilities. | Serves as the caching layer; can be extended with edge compute for dynamic logic. |
+
 ### Quick-look Cheat Sheet
 | Topic | One-liner to Memorize |
 |-------|----------------------|
