@@ -192,6 +192,8 @@ Traditional analog/digital circuit-switched voice (a.k.a. POTS).
   * Contract clauses that push security obligations to the carrier.  
   * Disable unneeded analog modems; audit any left as backups.
 
+**Demarc** – Point of Demarcation (POD): Where the ISP (Internet Service Provider) terminates their phone/internet lines and your network begins; most buildings only have one.
+
 ### Voice over Internet Protocol (VoIP)
 Encapsulates voice in IP packets (RTP/UDP). Signaling via **SIP**, **H.323**, **MGCP**, or proprietary protocols.
 
