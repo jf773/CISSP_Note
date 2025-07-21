@@ -5,6 +5,7 @@ Questions:
 2. Domain Questions: 807 (8 domains included) Questions (Progress: 507/807 Completed)
 3. Official Mock Exam Questions: 125*8 = 1000 Qustions (Progress: 0/1000 Completed)
 4. External Mock Exam Questions: 1930 Questions (Progress: 60/1930 Completed)
+
 Total: 987/4157 Questions
 
 ## Domain Mapping
